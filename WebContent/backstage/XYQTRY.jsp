@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@include file="../common/taglib.jsp"%>
-<%@include file="../common/header.jsp"%>
+\<%@include file="../common/header.jsp"%>
 <html>
 <!-- 学院其他人员-->
 <head>
@@ -68,16 +67,20 @@
     $("#fileUpload").fileinput({  
         language : "zh",//设置语言  
         uploadUrl: "${pageContext.request.contextPath}/upLoadServlet?tableName=xyqtry",//上传地址  
+        textEncoding: 'UTF-8',
         uploadAsync: true,//同步还是异步  
-        showCaption:false,//是否显示标题  
+        showCaption: true,//是否显示标题  
         showUpload: true,//是否显示上传按钮  
+        showClose: false,//是否显示右上角的x
+        //showPreview: false,//是否显示预览区域
+        dropZoneEnabled: false,
         browseClass: "btn btn-primary", //按钮样式   
         allowedFileExtensions : ['xls','xlsx'],//接收的文件后缀  
         //allowedFileTypes: ['Excel','Microsoft Excel'],//接收的文件类型
-        maxFileCount: 1,//最大上传文件数限制  
+        maxFileCount: 10,//最大上传文件数限制  
         overwriteInitial: false,  
-        maxFileSize: 1000,   
-        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",  
+        maxFileSize: 10000,   
+        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
         previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',   
         enctype: 'multipart/form-data',  
         /* allowedPreviewTypes: null, */  
@@ -90,7 +93,7 @@
                'zip': '<i class="glyphicon glyphicon-file"></i>' ,
                'xls': '<i class="glyphicon glyphicon-file"></i>',
            }  
-    });  
+    });
 	</script>
 	<script>
 		function actionFormatter(value, row, index) {

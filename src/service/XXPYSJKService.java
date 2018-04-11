@@ -22,6 +22,16 @@ public class XXPYSJKService {
 	
 	
 	/**
+	 * 根据人员代码查询单条数据
+	 * @return XXPYSJK
+	 */
+	public static XXPYSJK getData(String Rydm) {
+		String sql = "select * from t_xxpysjk where rydm = ? and isdel = ?";
+		return DataBaseUtils.queryForBean(sql, XXPYSJK.class, Rydm, 0);
+	}
+	
+	
+	/**
 	 * 根据上传文件将数据存入数据库
 	 * @param path
 	 * @throws IOException

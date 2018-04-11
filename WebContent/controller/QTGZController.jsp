@@ -22,8 +22,13 @@
 		out.print("1");//删除成功
 	}else{
 		QTGZService qtgzService = new QTGZService();
-		Map<String, Object> map = qtgzService.getDataForBean(op);
-		BigDecimal JE = (BigDecimal)map.get("je");
-		out.print(JE);
+		QTGZ qtgz = qtgzService.getDataForBean(op);
+		if(qtgz != null) {
+			BigDecimal JE = qtgz.getJE();
+			out.print(JE);
+		}else {
+			out.print("0.00");
+		}
+		
 	}
 %>

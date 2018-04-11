@@ -49,8 +49,8 @@ public class QTGZService {
 	 * @param op
 	 * @return 
 	 */
-	public Map<String, Object> getDataForBean(String op) {
+	public QTGZ getDataForBean(String op) {
 		String sql = "select * from t_qtgz where mc = ? and isdel = ?";
-		return DataBaseUtils.queryForMap(sql, op, 0);
+		return DataBaseUtils.queryForBean(sql, QTGZ.class, op, 1);
 	}
 }

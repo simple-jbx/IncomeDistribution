@@ -6,29 +6,44 @@
 <%
 	String op  = request.getParameter("op");
 	YH yh = (YH)session.getAttribute("yh");
-	String json = "";
-	List<Map<String, Object> > list;
 	if(yh != null) {
 		if(StringUtils.isEmpty(op)) {
 			//非法访问
 			response.sendRedirect("../index.jsp");
 		}else if(op.equals("personal")) {
-			
+			XXPYSJK xxpysjk = XXPYSJKService.getData(yh.getGH());
+			if(xxpysjk != null) {
+				out.print(xxpysjk.toJson());
+			}else {
+				out.print("0");
+			}
 		}else if(yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1) {
 			XXPYSJKService xxpysjkService = new XXPYSJKService();
 			if(op.equals("getAll")) {
-				list = xxpysjkService.getData();
-				json = List2JsonUtils.list2Json2String(list);
-				out.println(json);	
+				List<Map<String, Object> > list = xxpysjkService.getData();
+				if(list != null) {
+					String json = List2JsonUtils.list2Json2String(list);
+					out.print(json);
+				}else {
+					out.print("0");
+				}
 			}else if(op.equalsIgnoreCase("update")) {
 				String row = request.getParameter("row");
-				XXPYSJK xxpysjk = JSON.parseObject(row, XXPYSJK.class);
-				xxpysjkService.updateData(xxpysjk);
-				out.println("1");
+				if(StringUtils.isEmpty(row)) {
+					out.print("-1");
+				}else {
+					XXPYSJK xxpysjk = JSON.parseObject(row, XXPYSJK.class);
+					xxpysjkService.updateData(xxpysjk);
+					out.println("1");
+				}
 			}else if(op.equalsIgnoreCase("delete")) {
 				String ID = request.getParameter("ID");//获得从前端传来的工号
-				xxpysjkService.deleteByID(ID);
-				out.println("1");	
+				if(StringUtils.isEmpty(ID)) {
+					out.print("-1");
+				}else {
+					xxpysjkService.deleteByID(ID);
+					out.println("1");						
+				}
 			}
 		}	
 	}else {

@@ -3,7 +3,7 @@ pageEncoding="UTF-8" isELIgnored="false"%>
 <%@include file="common/header.jsp"%>
 <html>
  <head>
-  <title>陕西师范大学体育学院 年终收入分配系统</title>
+  <title>个人年终收入分配系统</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <link href="static/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
    <link href="static/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,6 @@ pageEncoding="UTF-8" isELIgnored="false"%>
 
   <div class="header">  
       <div class="dl-title">
-        <a href="http://tyxy.snnu.edu.cn/" title="陕西师范大学体育学院" target="_blank">
-          <span class="lp-title-port">陕西师范大学</span><span class="dl-title-text">体育学院</span>
-        </a>
         <a href="">年终收入分配管理系统</a>
       </div>
 

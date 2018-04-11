@@ -21,6 +21,17 @@ public class ZBGZSJKService {
 			return DataBaseUtils.queryForList(sql, 0);
 		}
 		
+		
+		/**
+		 * 查询对应人员代码的值班数据
+		 * @return ZBGZSJK
+		 */
+		public static ZBGZSJK getData(String Rydm) {
+			String sql = "select * from t_zbgzsjk where rydm = ? and isdel = ?";
+			return DataBaseUtils.queryForBean(sql, ZBGZSJK.class, Rydm, 0);
+		}
+		
+		
 		/**
 		 * 根据上传文件将数据存入数据库
 		 * @param path

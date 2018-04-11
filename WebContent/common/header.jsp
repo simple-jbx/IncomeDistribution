@@ -17,6 +17,7 @@
 	request.setAttribute("basePath", basePath);
 %>
 	<script>
+		//window.reload();
 		window.location.href = "${basePath}/login.jsp";
 	</script>
 </c:if>

@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@include file="../common/header.jsp"%>
 <html>
-<!-- 在岗时间系数数据-->
+<!-- 用户角色管理-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../static/js/bootstrap/css/bootstrap.min.css"

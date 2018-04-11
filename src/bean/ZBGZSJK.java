@@ -35,6 +35,12 @@ public class ZBGZSJK {
 		ISDEL = 2;
 	}
 
+	public String toJson() {
+		return "[{ \"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM
+				+ "\", \"zbcs\":" + ZBCS + ", \"ffje\":" + FFJE + ", \"isdel\":"
+				+ ISDEL + "}]";
+	}
+	
 	public String getID() {
 		return ID;
 	}

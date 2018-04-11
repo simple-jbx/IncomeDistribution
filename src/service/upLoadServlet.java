@@ -178,7 +178,7 @@ public class upLoadServlet extends HttpServlet {
                     		YJSGZSJService yjsgzsjService = new YJSGZSJService();
                     		yjsgzsjService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equals("kyfstjb")) {
-                    		KYFSTJBService kyfstjbService = new KYFSTJBService();
+                    		KYCGJCSJKService kyfstjbService = new KYCGJCSJKService();
                     		kyfstjbService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equalsIgnoreCase("zhtxgrdfjlxx")) {
                     		ZHTXGRDFJLXXService zhtxgrdfjlxxService = new ZHTXGRDFJLXXService();

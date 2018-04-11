@@ -5,13 +5,13 @@ import annotation.Table;
 import java.util.UUID;
 
 /**
- * 科研成果基础数据库
+ * 科研成果基础数据表
  * @author simple
  *
  */
 
-@Table(tableName = "t_kyfstjb")
-public class KYFSTJB {
+@Table(tableName = "t_kycgjcsjk")
+public class KYCGJCSJK {
 
 	@Column(field = "id", type = "varchar(100)", primaryKey = true, defaultNull = false)
 	private String ID;//id 主键
@@ -37,7 +37,7 @@ public class KYFSTJB {
 	@Column(field = "isdel", type = "int(1)")
 	private int ISDEL;//是否删除
 
-	public KYFSTJB() {
+	public KYCGJCSJK() {
 		ID = UUID.randomUUID().toString();
 		GH = "";
 		XM = "";
@@ -46,6 +46,18 @@ public class KYFSTJB {
 		ZZFS = 0.00;
 		ZLFS = 0.00;
 		ISDEL = 2;
+	}
+	
+	
+	/**
+	 * 将bean对象转换为json字符串
+	 * @param
+	 * @return
+	 */
+	public String toJson() {
+		return "[{\"id\":\"" + ID + "\", \"gh\":\"" + GH + "\", \"xm\":\"" + XM + "\", \"lwfs\":"
+				+ LWFS + ", \"xmfs\":" + XMFS + ", \"zzfs\":" + ZZFS + ", \"zlfs\":" + ZLFS + ", \"isdel\":" 
+				+ ISDEL + "}]";
 	}
 	
 	public String getID() {

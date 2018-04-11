@@ -7,17 +7,27 @@ import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
 import utils.excelUtils;
-import bean.KYFSTJB;
+import bean.KYCGJCSJK;
 
-public class KYFSTJBService {
+public class KYCGJCSJKService {
 	
 	/**
 	 * 查询科研成果基础数据库中所有数据
 	 * @return
 	 */
 	public List<Map<String, Object> > getData() {
-		String sql = "select * from t_kyfstjb where isdel = ?";
+		String sql = "select * from t_kycgjcsjk where isdel = ?";
 		return DataBaseUtils.queryForList(sql, 0);
+	}
+	
+	
+	/**
+	 * 根据人员代码查询对应人员科在研成果基础数据表中数据
+	 * @return
+	 */
+	public static KYCGJCSJK getData(String Gh) {
+		String sql = "select * from t_kycgjcsjk where gh = ? and isdel = ?";
+		return DataBaseUtils.queryForBean(sql, KYCGJCSJK.class, Gh, 0);
 	}
 	
 	
@@ -28,14 +38,14 @@ public class KYFSTJBService {
 	 * @throws SQLException
 	 */
 	public void save2DB(String path) throws IOException, SQLException {
-		KYFSTJB kyfstjb = null;
-		List<KYFSTJB > list = excelUtils.analysisExcel(path, KYFSTJB.class);
-		String sql = "insert into t_kyfstjb(id,gh,xm,lwfs,xmfs,zzfs,zlfs"
+		KYCGJCSJK kycgjcsjk = null;
+		List<KYCGJCSJK > list = excelUtils.analysisExcel(path, KYCGJCSJK.class);
+		String sql = "insert into t_kycgjcsjk(id,gh,xm,lwfs,xmfs,zzfs,zlfs"
 				+"isdel) VALUES (?,?,?,?,?,?,?,?)";
 		for(int i = 0; i < list.size(); i++) {
-			kyfstjb = list.get(i);				
-			DataBaseUtils.update(sql, UUID.randomUUID().toString(), kyfstjb.getGH(), kyfstjb.getXM(),
-					kyfstjb.getLWFS(), kyfstjb.getXMFS(), kyfstjb.getZZFS(), kyfstjb.getZLFS(), 0);
+			kycgjcsjk = list.get(i);				
+			DataBaseUtils.update(sql, UUID.randomUUID().toString(), kycgjcsjk.getGH(), kycgjcsjk.getXM(),
+					kycgjcsjk.getLWFS(), kycgjcsjk.getXMFS(), kycgjcsjk.getZZFS(), kycgjcsjk.getZLFS(), 0);
 		}
 	}
 	
@@ -45,7 +55,7 @@ public class KYFSTJBService {
 	 * @param gH
 	 */
 	public void deleteByID(String ID) {
-		String sql = "update t_kyfstjb set isdel = ? where id = ?";
+		String sql = "update t_kycgjcsjk set isdel = ? where id = ?";
 		DataBaseUtils.update(sql, 1, ID);
 	}
 	
@@ -54,17 +64,17 @@ public class KYFSTJBService {
 	 * 更新科研成果基础数据库
 	 * @param elylxydhkq
 	 */
-	public void updateData(KYFSTJB kyfstjb) {
-		if(kyfstjb.getISDEL() == 0) {
-			String sql = "update t_kyfstjb set gh = ?, xm = ?, lwfs = ?, xmfs = ?, zzfs = ?,"
+	public void updateData(KYCGJCSJK kycgjcsjk) {
+		if(kycgjcsjk.getISDEL() == 0) {
+			String sql = "update t_kycgjcsjk set gh = ?, xm = ?, lwfs = ?, xmfs = ?, zzfs = ?,"
 					+ "zlfs = ? where id = ?";			
-			DataBaseUtils.update(sql, kyfstjb.getGH(), kyfstjb.getXM(), kyfstjb.getLWFS(), 
-					kyfstjb.getXMFS(), kyfstjb.getZZFS(), kyfstjb.getZLFS(), kyfstjb.getID());
-		}else if(kyfstjb.getISDEL() == 2){
-			String sql = "insert into t_kyfstjb(id,gh,xm,lwfs,xmfs,zzfs,zlfs,"
+			DataBaseUtils.update(sql, kycgjcsjk.getGH(), kycgjcsjk.getXM(), kycgjcsjk.getLWFS(), 
+					kycgjcsjk.getXMFS(), kycgjcsjk.getZZFS(), kycgjcsjk.getZLFS(), kycgjcsjk.getID());
+		}else if(kycgjcsjk.getISDEL() == 2){
+			String sql = "insert into t_kycgjcsjk(id,gh,xm,lwfs,xmfs,zzfs,zlfs,"
 					+"isdel) VALUES (?,?,?,?,?,?,?,?)";	
-			DataBaseUtils.update(sql, kyfstjb.getID(), kyfstjb.getGH(), kyfstjb.getXM(),
-					kyfstjb.getLWFS(), kyfstjb.getXMFS(), kyfstjb.getZZFS(), kyfstjb.getZLFS(), 0);
+			DataBaseUtils.update(sql, kycgjcsjk.getID(), kycgjcsjk.getGH(), kycgjcsjk.getXM(),
+					kycgjcsjk.getLWFS(), kycgjcsjk.getXMFS(), kycgjcsjk.getZZFS(), kycgjcsjk.getZLFS(), 0);
 		}	
 	}
 }
