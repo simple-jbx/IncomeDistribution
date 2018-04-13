@@ -171,8 +171,8 @@
 						{value:"eecd0ee917224c72a4556732af58c563", text:"职级与职级系数"},
 						{value:"efe9348f6cfd4267b848e701eebb1907", text:"照金活动补贴数据"},
 						{value:"adb0a530e43247fba772f6836f8702ce", text:"在岗时间系数规则"},
-						{value:"076c099c975745fc903692075b9d8c2e", text:"其他规则"}
-						
+						{value:"076c099c975745fc903692075b9d8c2e", text:"其他规则"},
+						{value:"32ac533ac98a4d488e21dbcb8e3c1196", text:"集体活动考勤"}		
 					]
 				}
 			}, {

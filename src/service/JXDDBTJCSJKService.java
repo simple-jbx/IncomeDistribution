@@ -27,7 +27,7 @@ public class JXDDBTJCSJKService {
 		 * @param RYDM
 		 * @return ZGSJXS
 		 */
-		public JXDDBTJCSJK getData(String RYDM) {
+		public static JXDDBTJCSJK getData(String RYDM) {
 			String sql = "select * from t_jxddbtjcsjk where rydm = ? and isdel = ?";
 			return DataBaseUtils.queryForBean(sql, JXDDBTJCSJK.class, RYDM, 0);
 		}

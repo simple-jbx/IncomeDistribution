@@ -12,17 +12,14 @@ import java.math.BigDecimal;
 
 @Table(tableName="t_gqry")
 public class GQRY {
-	@Column(field = "id", type = "int(32)", primaryKey = true, defaultNull = false)
+	@Column(field = "id", type = "varchar(100)", primaryKey = true, defaultNull = false)
 	private int ID;//主键，自增
 	
-	@Column(field = "gh", type = "varchar(15)")
+	@Column(field = "gh", type = "varchar(50)")
 	private String GH;//工号
 	
 	@Column(field = "xm", type = "varchar(50)")
 	private String XM;//姓名
-	
-	@Column(field = "zb", type = "varchar(50)")
-	private String ZB;//职别
 	
 	@Column(field = "gw", type = "varchar(50)")
 	private String GW;//岗位

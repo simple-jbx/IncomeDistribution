@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" import="bean.YH"%>
 <%@include file="../common/header.jsp"%>
 <html>
-<!-- 教学督导补贴基础数据库-->
+<!-- 集体活动考勤-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../static/js/bootstrap/css/bootstrap.min.css"
@@ -18,10 +18,10 @@
 			String op = request.getParameter("op");
 			if(op == null || op == ""){
 				op = "getAll";				
-				url = "../controller/JXDDBTJCSJKController.jsp?op=getAll";
+				url = "../controller/JTHDKQSJKController.jsp?op=getAll";
 			}
 			else if(op.equals("personal"))
-				url = "../controller/JXDDBTJCSJKController.jsp?op=personal";
+				url = "../controller/JTHDKQSJKController.jsp?op=personal";
 			//System.out.println(url);
 			pageContext.setAttribute("op", op);
 		%>
@@ -45,7 +45,7 @@
    </c:if>
    </c:if>
 </c:if>
-<title>教学督导补贴基础数据库</title>
+<title>集体活动考勤</title>
 </head>
 <body>
 
@@ -81,7 +81,7 @@
 				 var index = $('#table').bootstrapTable().length;
 						$('#table').bootstrapTable('insertRow', {
 			            index: 0,
-			            row: {rydm:'-',xm:'-',jxdd:'0.00',hj:'0.00'}
+			            row: {rydm:'',xm:'',wgwd:'',grsj:'',jey:'',jee:'',hjje:''}
 			        })
 			})
 		</script>
@@ -90,7 +90,7 @@
    		<script>  
 		    $("#fileUpload").fileinput({  
 		        language : "zh",//设置语言  
-		        uploadUrl: "${pageContext.request.contextPath}/upLoadServlet?tableName=jxddbtjcsjk",//上传地址  
+		        uploadUrl: "${pageContext.request.contextPath}/upLoadServlet?tableName=jthdkqsjk",//上传地址  
 		        textEncoding: 'UTF-8',
 		        uploadAsync: true,//同步还是异步  
 		        showCaption: true,//是否显示标题  
@@ -119,6 +119,41 @@
 		           }  
 		    });
 		</script>	
+		<!-- 获取无故未到一次金额    -->
+		<script>
+		var jeWGWD = 0.00;
+		 $.ajax({
+	              type: "post",
+	              url: "../controller/QTGZController.jsp?op=wgwd",
+	              success: function (data, status) {
+		              if (status == "success") {
+		                  jeWGWD = data;    
+		              }
+	              },
+	              error: function () {
+	                  alert('获取规则失败');
+	                  window.location.reload();
+	              }
+	     });
+		</script>
+		
+		<!-- 获取个人事假一次金额    -->
+		<script>
+		var jeGRSJ = 0.00;
+		 $.ajax({
+	              type: "post",
+	              url: "../controller/QTGZController.jsp?op=grsj",
+	              success: function (data, status) {
+		              if (status == "success") {
+		                  jeGRSJ = data;    
+		              }
+	              },
+	              error: function () {
+	                  alert('获取规则失败');
+	                  window.location.reload();
+	              }
+	     });
+		</script>
 	</c:if>
 	</c:if>
 	</c:if>
@@ -178,12 +213,6 @@
 				field: "state",
 				checkbox:true,
 			},{
-				field: "id",
-				visible: false
-			},{
-				field: "isdel",
-				visible: false
-			},{
 				field: 'rowid',
 				title: '序号',
 				formatter: function(value, row, index) {
@@ -195,31 +224,42 @@
 				title: '人员代码',
 				editable: {
 					type: 'text',
-					mode: 'inline',
-					
+					mode: 'inline',		
 				}		
 			},{
 				field: 'xm',
 				title: '姓名',
 				switchable: true
 			},{
-				field: 'jxdd',
-				title: '教学督导',
-				placeholder: "select a option",
+				field: 'wgwd',
+				title: '无故未到',
+				switchable: true,
+				editable: {  
+                    type: 'text', 
+                    mode: 'inline',
+                    
+				}
+			},{
+				field: 'grsj',
+				title: '个人事假',
 				switchable: true,
 				editable: {  
                     type: 'text', 
                     mode: 'inline',
                     
 				},
-			}, {
-				field: 'hj',
-				title: '合计',
+			},{
+				field: 'jey',
+				title: '金额1',
+				switchable: true
+			},{
+				field: 'jee',
+				title: '金额2',
 				switchable: true,
-				editable: {  
-                    type: 'text', 
-                    mode: 'inline',
-                    }  
+			}, {
+				field: 'hjje',
+				title: '合计金额',
+				switchable: true
 			},{
 				field: 'cz',
 				title: '操作',
@@ -243,9 +283,45 @@
 							 }
 							 row.xm = "-";
 						 }
-					 }else if(field == "jxdd") {
-						 row.hj = row.jxdd;
+					 }else if(field == "jey" || field == "jee") {
+						 if(row.jey == "" || row.jey == null)
+							 row.jey = 0.00;
+						 if(row.jee == "" || row.jee == null)
+							 row.jee = 0.00;
+						 row.hjje = row.jey + row.jee;
+					}else if(field == "wgwd") {
+						if(row.wgwd != 0 && row.wgwd != null && row.wgwd != "")
+							row.jey = row.wgwd * jeWGWD;
+						else 
+							row.jey = 0.00;
+						if(row.jee == "" || row.jee == null)
+							row.jee = 0.00;
+						row.hjje = row.jey + row.jee;
+					}else if(field == "grsj") {
+						if(row.grsj != 0 && row.grsj != null && row.grsj != "")
+							row.jee = row.grsj * jeGRSJ;
+						else 
+							row.jee = 0.00;
+						if(row.jey == "" || row.jey == null)
+							row.jee = 0.00;
+						row.hjje = row.jey + row.jee;
 					}
+					
+					 $.ajax({
+		                    type: "post",
+		                    success: function (data, status) {
+		                        if (status == "success") {
+		                            $('#table').bootstrapTable('updateRow',{
+			                            index:row.rowid,
+			                            row:row
+			                      })	
+		                        }
+		                    },
+		                    error: function () {
+		                        alert('编辑失败');
+		                        window.location.reload();
+		                    },
+		                });
 			 }
 		});
 			
@@ -254,7 +330,7 @@
 						 //alert(row);
 						 $.ajax({
 			                    type: "post",
-			                    url: "../controller/JXDDBTJCSJKController.jsp?op=update",
+			                    url: "../controller/JTHDKQSJKController.jsp?op=update",
 			                    data: {"row": JSON.stringify(row)},
 			                    dataType: 'JSON',
 			                    success: function (data, status) {
@@ -277,7 +353,7 @@
 				 if(window.confirm("确定删除?")) {
 				 $.ajax({
 	                   type: "post",
-	                   url: "../controller/JXDDBTJCSJKController.jsp?op=delete",
+	                   url: "../controller/JTHDKQSJKController.jsp?op=delete",
 	                   data: {"ID": row.id},
 	                   dataType: 'JSON',
 	                   success: function (data, status) {
@@ -342,12 +418,9 @@
 			striped: true,  
             cache: false,
             buttonsAlign:"right",  //按钮位置  
-			columns: [{
+            columns: [{
 				field: "state",
 				checkbox:true,
-			},{
-				field: "id",
-				visible: false
 			},{
 				field: 'rowid',
 				title: '序号',
@@ -360,20 +433,42 @@
 				title: '人员代码',
 				editable: {
 					type: 'text',
-					mode: 'inline',					
+					mode: 'inline',		
 				}		
 			},{
 				field: 'xm',
 				title: '姓名',
 				switchable: true
 			},{
-				field: 'jxdd',
-				title: '教学督导',
-				switchable: true
-			}, {
-				field: 'hj',
-				title: '合计',
+				field: 'wgwd',
+				title: '无故未到',
 				switchable: true,
+				editable: {  
+                    type: 'text', 
+                    mode: 'inline',
+                    
+				}
+			},{
+				field: 'grsj',
+				title: '个人事假',
+				switchable: true,
+				editable: {  
+                    type: 'text', 
+                    mode: 'inline',
+                    
+				},
+			},{
+				field: 'jey',
+				title: '金额1',
+				switchable: true
+			},{
+				field: 'jee',
+				title: '金额2',
+				switchable: true,
+			}, {
+				field: 'hjje',
+				title: '合计金额',
+				switchable: true
 			}]
 		});
 		})

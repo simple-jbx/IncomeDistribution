@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8" import="bean.YH"%>
-<%@include file="../common/taglib.jsp"%>
 <%@include file="../common/header.jsp"%>
 <html>
 <!-- 科研数据库-->

@@ -51,6 +51,6 @@ public class QTGZService {
 	 */
 	public QTGZ getDataForBean(String op) {
 		String sql = "select * from t_qtgz where mc = ? and isdel = ?";
-		return DataBaseUtils.queryForBean(sql, QTGZ.class, op, 1);
+		return DataBaseUtils.queryForBean(sql, QTGZ.class, op, 0);
 	}
 }

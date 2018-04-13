@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-\<%@include file="../common/header.jsp"%>
+<%@include file="../common/header.jsp"%>
 <html>
 <!-- 学院其他人员-->
 <head>

@@ -153,30 +153,12 @@ public class upLoadServlet extends HttpServlet {
                     	}else if(tableName.equalsIgnoreCase("bdwjcjffzbb")) {
                     		BDWJCJFFZBBService bdwjcjffzbbService = new BDWJCJFFZBBService();
                     		bdwjcjffzbbService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("lw")) {
-                    		LWService lwService = new LWService();
-                    		lwService.save2DB(realSavePath + "\\" + saveFilename);     
-                    	}else if(tableName.equalsIgnoreCase("xm")) {
-                    		XMService xmService = new XMService();
-                    		xmService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equalsIgnoreCase("jsxljshfwsj")) {
                     		JSXLJSHFWSJService jsxljshfwsjService = new JSXLJSHFWSJService();
                     		jsxljshfwsjService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("zz")) {
-                    		ZZService zzService = new ZZService();
-                    		zzService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equalsIgnoreCase("hj")) {
                     		HJService hjService = new HJService();
                     		hjService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("zl")) {
-                    		ZLService zlService = new ZLService();
-                    		zlService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("xwbtsj")) {
-                    		XWBTSJService xwbtsjService = new XWBTSJService();
-                    		xwbtsjService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("yjsgzsj")) {
-                    		YJSGZSJService yjsgzsjService = new YJSGZSJService();
-                    		yjsgzsjService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equals("kyfstjb")) {
                     		KYCGJCSJKService kyfstjbService = new KYCGJCSJKService();
                     		kyfstjbService.save2DB(realSavePath + "\\" + saveFilename);
@@ -186,15 +168,9 @@ public class upLoadServlet extends HttpServlet {
                     	}else if(tableName.equalsIgnoreCase("xyqtry")) {
                     		XYQTRYService xyqtryService = new XYQTRYService();
                     		xyqtryService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("elylbzxcg")) {
-                    		ELYLBZXCGService elylbzxcgService = new ELYLBZXCGService();
-                    		elylbzxcgService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equalsIgnoreCase("xzglry")) {
                     		XZGLRYService xzglryService = new XZGLRYService();
                     		xzglryService.save2DB(realSavePath + "\\" + saveFilename);
-                    	}else if(tableName.equalsIgnoreCase("GZLJJKXXB")) {
-                    		GZLJJKXXBService gzljjkxxbService = new GZLJJKXXBService();
-                    		gzljjkxxbService.save2DB(realSavePath + "\\" + saveFilename);
                     	}else if(tableName.equalsIgnoreCase("XWGJBT")) {
                     		XWGJBTSJKService xwgjbtService = new XWGJBTSJKService();
                     		xwgjbtService.save2DB(realSavePath + "\\" + saveFilename);

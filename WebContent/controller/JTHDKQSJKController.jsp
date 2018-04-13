@@ -1,6 +1,6 @@
 <%@ page language="java"
-	import="java.util.*,service.JXDDBTJCSJKService,utils.StringUtils,bean.YH,bean.JXDDBTJCSJK,java.util.List,java.util.Map,utils.List2JsonUtils, java.math.BigDecimal,
-	com.alibaba.fastjson.JSON"
+	import="java.util.*,service.JTHDKQSJKService,utils.StringUtils,bean.YH,bean.JTHDKQSJK,java.util.List,java.util.Map,utils.List2JsonUtils, java.math.BigDecimal,
+	service.commonService, com.alibaba.fastjson.JSON"
 	pageEncoding="UTF-8"%>
 <%
 	String op  = request.getParameter("op");//获取url参数
@@ -10,17 +10,18 @@
 			//如果参数为空直接跳转至index页面
 			response.sendRedirect("../index.jsp");
 		}else if(op.equals("personal")) {
-			JXDDBTJCSJK jxddbtjcsjk = JXDDBTJCSJKService.getData(yh.getGH());
-			if(jxddbtjcsjk == null) {
+			
+			JTHDKQSJK jthdkqsjk = (JTHDKQSJK)commonService.getDataByRydm(JTHDKQSJK.class, yh.getGH());
+			if(jthdkqsjk == null) {
 				out.println("1");
 			}else {
-				out.print(jxddbtjcsjk.toJson());
+				out.print(jthdkqsjk.toJson());
 			}
 		}else if(yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1){
-			JXDDBTJCSJKService jxddbtjcsjkService = new JXDDBTJCSJKService();
+			JTHDKQSJKService jthdkqsjkService = new JTHDKQSJKService();
 			if(op.equals("getAll")) {
 				//获取所有数据
-				List<Map<String, Object> > list = jxddbtjcsjkService.getData();
+				List<Map<String, Object> > list = commonService.getAllData(JTHDKQSJK.class);
 				String json = List2JsonUtils.list2Json2String(list);
 				out.println(json);				
 			}else if(op.equals("update")) {
@@ -28,16 +29,16 @@
 				if(StringUtils.isEmpty(row)) {
 					out.println("-1");//错误的访问方式
 				}else {
-					JXDDBTJCSJK jxddbtjcsjk = JSON.parseObject(row, JXDDBTJCSJK.class);
-					jxddbtjcsjkService.updateData(jxddbtjcsjk);
+					JTHDKQSJK jthdkqsjk = JSON.parseObject(row, JTHDKQSJK.class);
+					jthdkqsjkService.updateData(jthdkqsjk);
 					out.print("0");//修改成功			
 				}
 			}else if(op.equals("delete")) {
-				String ID = request.getParameter("ID");//获得从前端传来的ID
-				if(StringUtils.isEmpty(ID)) {
+				String iD = request.getParameter("ID");//获得从前端传来的ID
+				if(StringUtils.isEmpty(iD)) {
 					out.println("-1");//错误的访问方式
 				}else {
-					jxddbtjcsjkService.deleteByID(ID);
+					commonService.deleteByID(JTHDKQSJK.class, iD);
 					out.print("1");
 				}	
 			}		

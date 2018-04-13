@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8" import="bean.YH"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%@include file="../common/header.jsp"%>
 <html>
 <!-- 获奖-->

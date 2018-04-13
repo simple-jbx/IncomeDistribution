@@ -5,6 +5,11 @@ import annotation.Table;
 import java.util.UUID;
 import java.math.BigDecimal;
 
+/**
+ * 监考工作数据表
+ * @author simple
+ *
+ */
 @Table(tableName="t_jkgzsjk")
 public class JKGZSJK {
 
