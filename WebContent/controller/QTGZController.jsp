@@ -11,6 +11,7 @@
 		out.println(json);	
 	}else if(op.equalsIgnoreCase("update")) {
 		String row = request.getParameter("row");
+		//System.out.print(row);
 		QTGZ qtgz = JSON.parseObject(row, QTGZ.class);
 		QTGZService qtgzService = new QTGZService();
 		qtgzService.updateData(qtgz);

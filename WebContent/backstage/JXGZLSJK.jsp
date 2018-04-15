@@ -81,10 +81,10 @@
 				 var index = $('#table').bootstrapTable().length;
 						$('#table').bootstrapTable('insertRow', {
 			            index: 0,
-			            row: {rydm:'',xm:'',jrzqk:'',zwgzl:'',bky:'',bkqty:'',bke:'', 
-			            	bkqte:'',bktk:'',yjsjxgzly:'',yjszdgzly:'',yjsjxgzle:'',
-			            	yjszdgzle:'',gzlhe:''}
-			            }
+			            row: {rydm:'',xm:'',jrzqk:'',zwgzl:0,bky:0,bkqty:0,bke:0, 
+			            	bkqte:0,bktk:0,yjsjxgzly:0,yjszdgzly:0,yjsjxgzle:0,
+			            	yjszdgzle:0,gzlhj:0
+			            	}
 			        })
 			})
 		</script>
@@ -224,7 +224,7 @@
                     mode: 'inline',      
 				}
 			},{
-				field: 'bkqt1',
+				field: 'bkqty',
 				title: '本科其他1',
 				switchable: true,
 				editable: {  
@@ -280,7 +280,7 @@
                     mode: 'inline',      
 				}
 			},{
-				field: 'yjszdgzl2',
+				field: 'yjszdgzle',
 				title: '研究生指导工作量2',
 				switchable: true,
 				editable: {  
@@ -290,11 +290,7 @@
 			},{
 				field: 'gzlhj',
 				title: '工作量合计',
-				switchable: true,
-				editable: {  
-                    type: 'text', 
-                    mode: 'inline',      
-				}
+				switchable: true
 			},{
 				field: 'cz',
 				title: '操作',
@@ -400,7 +396,7 @@
 		ajax : function (request) {
 	        $.ajax({
 	            type : "post",
-	            url : '<%=url%>',
+	            url : "<%=url%>",
 				contentType: "application/json;charset=utf-8",
 				dataType:"json",
 	            success : function (msg) {	

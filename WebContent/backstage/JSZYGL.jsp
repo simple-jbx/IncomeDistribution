@@ -134,6 +134,7 @@
 						{value:"9e8e0adb1f34485c8021d8b9b87e5d6b", text:"其他人员"},
 						{value:"da029b24df704d749415770e4b64f807", text:"行政秘书"},
 						{value:"e343620a4e594cdc9a2b4e051bac96dc", text:"主管领导"},
+											
                     ]
 				}
 			},{
@@ -172,7 +173,8 @@
 						{value:"efe9348f6cfd4267b848e701eebb1907", text:"照金活动补贴数据"},
 						{value:"adb0a530e43247fba772f6836f8702ce", text:"在岗时间系数规则"},
 						{value:"076c099c975745fc903692075b9d8c2e", text:"其他规则"},
-						{value:"32ac533ac98a4d488e21dbcb8e3c1196", text:"集体活动考勤"}		
+						{value:"32ac533ac98a4d488e21dbcb8e3c1196", text:"集体活动考勤"},
+						{value:"d897e9196e824f289b35fd7fbd63796a", text:"教学工作量"}
 					]
 				}
 			}, {

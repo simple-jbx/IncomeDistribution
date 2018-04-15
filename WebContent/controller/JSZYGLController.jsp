@@ -23,6 +23,6 @@
 		list = yhjsService.getAllJSZY();
 		json = List2JsonUtils.list2Json2String(list);
 		out.print(json);
-		System.out.println(json);
+		//System.out.println(json);
 	}
 %>

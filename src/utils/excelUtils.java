@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.util.ArrayList;  
 import java.util.List;
 import java.util.Map;
-import org.apache.poi.hssf.usermodel.HSSFCell;  
 import org.apache.poi.hssf.usermodel.HSSFRow;  
 import org.apache.poi.hssf.usermodel.HSSFSheet;  
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -15,24 +14,14 @@ import org.apache.poi.ss.usermodel.Cell;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
-import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import java.math.BigDecimal;
-import bean.GQRY;
 
 public class excelUtils {
 	
@@ -125,10 +114,13 @@ public class excelUtils {
                     //1.先解析文件
                     POIFSFileSystem fs = new POIFSFileSystem(inputStream);
                     wb = new HSSFWorkbook(fs);
+                    inputStream.close();
                 }else if( fileName.endsWith(".xlsx")){//如果是2007以上版本
-                	InputStream is = new FileInputStream(file); 
-                    wb = new XSSFWorkbook(is);
+                	//inputStream = new FileInputStream(file); 
+                    wb = new XSSFWorkbook(inputStream);
+                    inputStream.close();
                 }else{
+                	inputStream.close();
                     return null;
                 }
             }
@@ -181,7 +173,7 @@ public class excelUtils {
                                      String methodName = "set" + fieldName.substring(0,1).toUpperCase()+fieldName.substring(1);
                                      //调用该字段对应的set方法
                                      //System.out.println(methodName);
-                                     Class cc = fieldMap.get(fields[j].getName()).getType();                                  
+                                     Class<?> cc = fieldMap.get(fields[j].getName()).getType();                                  
                                      //System.out.println(cc);
                                      Method method = c.getMethod(methodName, cc);
                                      //System.out.println(method);
@@ -227,7 +219,7 @@ public class excelUtils {
                                      String methodName = "set" + fieldName.substring(0,1).toUpperCase()+fieldName.substring(1);
                                      //调用该字段对应的set方法
                                      //System.out.println(methodName);
-                                     Class cc = fieldMap.get(fields[j].getName()).getType();                                  
+                                     Class<?> cc = fieldMap.get(fields[j].getName()).getType();                                  
                                      //System.out.println(cc);
                                      Method method = c.getMethod(methodName, cc);
                                      //System.out.println(method);
@@ -255,7 +247,7 @@ public class excelUtils {
      * @param c----目标对象类型
      * @return
      */
-    private static Object parseValue(String s,Class c){
+    private static Object parseValue(String s,Class<?> c){
         Object obj = null;
         String className = c.getName();
         //excel中的数字解析之后可能末尾会有.0，需要去除
@@ -312,10 +304,10 @@ public class excelUtils {
         		obj = new Long("0");
         }else if(className.equals("java.math.BigDecimal")){	
         	try{
-        		obj = BigDecimal.valueOf(Double.parseDouble(s));        		
+        		obj = new BigDecimal(s);        		
         	}catch(NumberFormatException e) {
         		s = "0.00";
-        		obj = BigDecimal.valueOf(Double.parseDouble(s));
+        		obj = new BigDecimal(s);
         	}
         	
         }
@@ -324,11 +316,14 @@ public class excelUtils {
     
     public static void main(String[] args) {
 		// TODO Auto-generated method stub
-    List<GQRY> gqry = excelUtils.analysisExcel("C:/Users/Administrator/Desktop/test.xls", GQRY.class);
+   /**
+    * List<GQRY> gqry = excelUtils.analysisExcel("C:/Users/Administrator/Desktop/test.xls", GQRY.class);
+    
     if(gqry.size() > 0)
     	System.out.println(gqry.get(0).getGH());
     else
     	System.out.println("==0");
 	}
-
+	*/
+    }
 }

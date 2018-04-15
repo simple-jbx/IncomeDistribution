@@ -33,7 +33,7 @@ public class commonService {
 	 * @param Rydm
 	 * @return
 	 */
-	public static Object getDataByRydm(Class<?> clazz, String Rydm) {
+	public static <T> T getDataByRydm(Class<?> clazz, String Rydm) {
 		Table table = (Table) clazz.getAnnotation(Table.class);
 		String tableName = table.tableName();
 		if(tableName == null)

@@ -77,10 +77,10 @@ public class JXGZLSJK {
 	public String toJson() {
 		return "[{\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM
 				+"\", \"jrzqk\":\"" + JRZQK + "\", \"zwgzl\":" + ZWGZL + ", \"bky\":"
-				+ BKY + ", \"bkqty\":" + ", \"bke\":" + BKE + ", \"bkqte\":" +BKQTE 
+				+ BKY + ", \"bkqty\":" + BKQTY + ", \"bke\":" + BKE + ", \"bkqte\":" + BKQTE 
 				+ ", \"bktk\":" + BKTK + ", \"yjsjxgzly\":" + YJSJXGZLY + ", \"yjszdgzly\":"
 				+ YJSZDGZLY + ", \"yjsjxgzle\":" + YJSJXGZLE + ", \"yjszdgzle\":" + YJSZDGZLE
-				+", \"gzlhh\":" + GZLHJ + ", \"isdel\":" + ISDEL +"}]";
+				+", \"gzlhj\":" + GZLHJ + ", \"isdel\":" + ISDEL +"}]";
 	}
 
 	public String getID() {
