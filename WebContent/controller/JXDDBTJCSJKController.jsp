@@ -12,7 +12,7 @@
 		}else if(op.equals("personal")) {
 			JXDDBTJCSJK jxddbtjcsjk = JXDDBTJCSJKService.getData(yh.getGH());
 			if(jxddbtjcsjk == null) {
-				out.println("1");
+				out.println("0");
 			}else {
 				out.print(jxddbtjcsjk.toJson());
 			}
@@ -30,7 +30,7 @@
 				}else {
 					JXDDBTJCSJK jxddbtjcsjk = JSON.parseObject(row, JXDDBTJCSJK.class);
 					jxddbtjcsjkService.updateData(jxddbtjcsjk);
-					out.print("0");//修改成功			
+					out.print("1");//修改成功			
 				}
 			}else if(op.equals("delete")) {
 				String ID = request.getParameter("ID");//获得从前端传来的ID

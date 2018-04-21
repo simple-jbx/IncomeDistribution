@@ -14,6 +14,7 @@
 		}else if(yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1) {			
 			if(op.equals("update")) {
 				String row = request.getParameter("row");
+				//System.out.print(row);
 				if(StringUtils.isEmpty(row)) {
 					out.println("-1");//错误的访问方式
 				}else {

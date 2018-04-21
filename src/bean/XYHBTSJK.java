@@ -35,6 +35,11 @@ public class XYHBTSJK {
 		ISDEL = 2;
 	}
 	
+	public String toJson() {
+		return "{[\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM + "\", "
+				+ "\"xyhbz\":" + XYHBZ + ", \"je\":" + JE + ", \"isdel\":" + ISDEL + "]}";
+	}
+	
 	public String getID() {
 		return ID;
 	}

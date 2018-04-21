@@ -246,6 +246,21 @@
 					 }else if(field == "jxdd") {
 						 row.hj = row.jxdd;
 					}
+					 $.ajax({
+			                success: function (data, status) {
+			                    if (status == "success") {
+			                        //alert("编辑成功");
+			                       $('#table').bootstrapTable('updateRow',{
+		                            index:row.rowid,
+		                            row:row
+		                            })		                   
+			                    }
+			                },
+			                error: function () {
+			                    alert("修改错误");
+			                    window.location.reload();
+			                },
+			            });
 			 }
 		});
 			

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="static/js/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="static/css/login.css">
 <script src="static/js/jQuery.js"></script>
-<script src="static/js/bootstrap/js/bootstrap.js"></script>
+<script src="static/js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!--引入头部JSP-->

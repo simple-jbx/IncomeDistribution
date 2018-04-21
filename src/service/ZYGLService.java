@@ -10,7 +10,7 @@ public class ZYGLService {
 	 */
 	public void updateData(ZY zygl) {
 		if(zygl.getISDEL() == 0) {
-			String sql = "update t_zy set zyname = ?, zynote = ?, zygroup = ? where id = ?";			
+			String sql = "update t_zy set zyname = ?, zynote = ?, zygroup = ? where zyid = ?";			
 			DataBaseUtils.update(sql, zygl.getZYNAME(), zygl.getZYNOTE(), zygl.getZYGROUP(),
 					zygl.getZYID());	
 		}else if(zygl.getISDEL() == 2){

@@ -35,6 +35,11 @@ public class DBBTSJK {
 		ISDEL = 2;
 	}
 
+	public String toJson() {
+		return "[{\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM
+				+"\", \"db\":" + DB + ", \"hj\":" + HJ + ", \"isdel\":" + ISDEL +"}]";
+	}
+	
 	public String getID() {
 		return ID;
 	}
