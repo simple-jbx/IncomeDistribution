@@ -39,6 +39,8 @@ audio
 
 
 
+
+
 :not
 
 
@@ -47,7 +49,9 @@ audio
 
 
 
+
  
+
 
 
 
@@ -66,7 +70,9 @@ controls
 
 
 
+
  
+
 
 
 
@@ -91,7 +97,10 @@ display
 
 
 
+
+
 :
+
 
 
 
@@ -107,7 +116,10 @@ display
 
 
 
+
 none
+
+
 
 
 
@@ -138,6 +150,8 @@ height
 
 
 
+
+
 :
 
 
@@ -146,7 +160,9 @@ height
 
 
 
+
  
+
 
 
 
@@ -228,6 +244,8 @@ svg
 
 
 
+
+
 :not
 
 
@@ -236,7 +254,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -253,7 +273,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -278,7 +300,10 @@ overflow
 
 
 
+
+
 :
+
 
 
 
@@ -294,7 +319,10 @@ overflow
 
 
 
+
 hidden
+
+
 
 
 
@@ -3150,7 +3178,8 @@ input[type="search"] {
 }
 
 .form-group {
-	margin-bottom: 15px;
+	margin-top: 40px;
+	margin-bottom: 50px;
 }
 
 .radio, .checkbox {
@@ -4212,6 +4241,8 @@ tbody.collapse.in {
 
 
 
+
+
 :not
 
 
@@ -4220,7 +4251,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4237,7 +4270,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4254,7 +4289,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4271,7 +4308,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4288,7 +4327,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4306,7 +4347,9 @@ tbody.collapse.in {
 
 
 
+
 	
+
 
 
 
@@ -4331,6 +4374,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -4339,7 +4384,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4370,7 +4417,11 @@ border-radius
 
 
 
+
+
 :first-child
+
+
 
 
 
@@ -4393,7 +4444,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4410,7 +4463,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4427,7 +4482,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4444,7 +4501,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4469,6 +4528,8 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
@@ -4477,7 +4538,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -4501,6 +4564,8 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
@@ -4509,7 +4574,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4536,7 +4603,11 @@ border-bottom-right-radius
 
 
 
+
+
 :last-child
+
+
 
 
 
@@ -4559,7 +4630,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4576,7 +4649,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4602,7 +4677,10 @@ border-bottom-right-radius
 
 
 
+
+
 :not
+
 
 
 
@@ -4619,6 +4697,7 @@ border-bottom-right-radius
 
 
 
+
 (
 :first-child
 
@@ -4628,7 +4707,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4653,6 +4734,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -4661,7 +4744,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -4685,6 +4770,8 @@ border-bottom-left-radius
 
 
 
+
+
 :
 
 
@@ -4693,7 +4780,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -4796,6 +4885,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -4804,7 +4895,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -4821,7 +4914,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -4838,7 +4933,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -4855,7 +4952,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -4880,7 +4979,10 @@ border-radius
 
 
 
+
+
 :
+
 
 
 
@@ -4896,11 +4998,14 @@ border-radius
 
 
 
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -4930,6 +5035,8 @@ border-radius
 
 
 
+
+
 :not
 
 
@@ -4938,7 +5045,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4955,7 +5064,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4980,7 +5091,10 @@ border-top-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -4996,8 +5110,11 @@ border-top-left-radius
 
 
 
+
 4
 px
+
+
 
 
 
@@ -5028,7 +5145,10 @@ border-top-right-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5044,8 +5164,11 @@ border-top-right-radius
 
 
 
+
 4
 px
+
+
 
 
 
@@ -5076,6 +5199,8 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
@@ -5084,7 +5209,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5108,7 +5235,10 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5124,11 +5254,14 @@ border-bottom-left-radius
 
 
 
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -5158,6 +5291,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -5166,7 +5301,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5183,7 +5320,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5208,6 +5347,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -5216,7 +5357,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -5240,6 +5383,8 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
@@ -5248,7 +5393,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5272,7 +5419,10 @@ border-bottom-right-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5288,8 +5438,11 @@ border-bottom-right-radius
 
 
 
+
 4
 px
+
+
 
 
 
@@ -5320,7 +5473,10 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5336,8 +5492,11 @@ border-bottom-left-radius
 
 
 
+
 4
 px
+
+
 
 
 
@@ -5488,6 +5647,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
 :not
 
 
@@ -5496,7 +5657,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5513,7 +5676,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5530,7 +5695,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5547,7 +5714,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5571,6 +5740,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
 :not
 
 
@@ -5579,7 +5750,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5596,7 +5769,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5613,7 +5788,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5630,7 +5807,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5647,7 +5826,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5670,7 +5851,10 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
 :not
+
 
 
 
@@ -5687,6 +5871,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
 (
 :first-child
 
@@ -5696,7 +5881,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5713,7 +5900,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5730,7 +5919,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -5755,6 +5946,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -5763,7 +5956,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -8038,6 +8233,7 @@ button.close {
 	position: relative;
 	width: auto;
 	margin: 10px;
+	background-color: #eee
 }
 
 .modal-content {
@@ -8074,12 +8270,12 @@ button.close {
 }
 
 .modal-header {
-	padding: 15px;
+	padding: 20px;
 	border-bottom: 1px solid #e5e5e5;
 }
 
 .modal-header .close {
-	margin-top: -2px;
+	margin-top: -20px;
 }
 
 .modal-title {
@@ -8089,7 +8285,7 @@ button.close {
 
 .modal-body {
 	position: relative;
-	padding: 15px;
+	padding: 0px;
 }
 
 .modal-footer {

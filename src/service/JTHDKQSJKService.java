@@ -1,13 +1,13 @@
 package service;
 
 import java.util.List;
-import java.util.Map;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
+
 import utils.excelUtils;
 import bean.JTHDKQSJK;
-
+import config.DefalutValue;
 
 public class JTHDKQSJKService {
 	
@@ -18,47 +18,54 @@ public class JTHDKQSJKService {
 	 * @throws IOException
 	 * @throws SQLException
 	 */
+	private final static String INSERT_SQL = "insert into t_jthdkqsjk(id,rydm,xm,wgwd,grsj,jey,jee,hjje,"
+			+ "nd,isdel) values (?,?,?,?,?,?,?,?,?,?)";
+	private final static String UPDATE_SQL = "update t_jthdkqsjk set rydm = ?, xm = ?, wgwd = ?, grsj = ?,"
+			+ " jey = ?,jee = ?, hjje = ?, nd = ? where id = ?";
+	
 	public void save2DB(String path) throws IOException, SQLException {
-		JTHDKQSJK jthdkqsjk = null;
-		List<JTHDKQSJK > list = excelUtils.analysisExcel(path, JTHDKQSJK.class);
-		String sql = "insert into t_jthdkqsjk(id,rydm,xm,wgwd,grsj,jey,jee,isdel)"
-	            + " VALUES (?,?,?,?,?,?,?,?)";
-		
-		for(int i = 0; i < list.size()/2; i++) {
-			jthdkqsjk = list.get(i);					
-			DataBaseUtils.update(sql,jthdkqsjk.getID(),jthdkqsjk.getRYDM(),
-					jthdkqsjk.getXM(), jthdkqsjk.getWGWD(), jthdkqsjk.getGRSJ(),
-					jthdkqsjk.getJEY(), jthdkqsjk.getJEE(), jthdkqsjk.getHJJE(),0);
-		}
-		
-		for(int i = list.size()/2; i < list.size(); i++) {
-			jthdkqsjk = list.get(i);					
-			DataBaseUtils.update(sql,jthdkqsjk.getID(),jthdkqsjk.getRYDM(),
-					jthdkqsjk.getXM(), jthdkqsjk.getWGWD(), jthdkqsjk.getGRSJ(),
-					jthdkqsjk.getJEY(), jthdkqsjk.getJEE(), jthdkqsjk.getHJJE(),0);
+		JTHDKQSJK saveObject = null;
+		List<JTHDKQSJK > listObject = excelUtils.analysisExcel(path, JTHDKQSJK.class);
+		int listSize = 0;
+		if(listObject != null)
+			listSize = listObject.size();
+		for(int i = 0; i < listSize; i++) {
+			saveObject = listObject.get(i);					
+			DataBaseUtils.update(INSERT_SQL,saveObject.getID(),saveObject.getRYDM(),saveObject.getXM(),
+					saveObject.getWGWD(), saveObject.getGRSJ(),saveObject.getJEY(), saveObject.getJEE(), 
+					saveObject.getHJJE(), saveObject.getND(),DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
 	}
 	
 	
 	/**
 	 * 更新
-	 * @param jxddbtjcsj
+	 * @param updateObject
 	 */
-	public void updateData(JTHDKQSJK jthdkqsjk) {
-		//System.out.println(jsxljshfwsj.getID());
-		//判断前端传过来的数据是否存在于数据库，存在则是更新，否则为新数据则插入
-		if(jthdkqsjk.getISDEL() == 0) {
-			String sql = "update t_jthdkqsjk set rydm = ?, xm = ?, wgwd = ?, grsj = ?, jey = ?,"
-					+ "jee = ?, hjje = ? where id = ?";
-			DataBaseUtils.update(sql,jthdkqsjk.getRYDM(),jthdkqsjk.getXM(), jthdkqsjk.getWGWD(), 
-					jthdkqsjk.getGRSJ(),jthdkqsjk.getJEY(), jthdkqsjk.getJEE(), jthdkqsjk.getHJJE(),
-					jthdkqsjk.getID());
-		}else if(jthdkqsjk.getISDEL() == 2){
-			String sql = "insert into t_jthdkqsjk(id,rydm,xm,wgwd,grsj,jey,jee,hjje,isdel)"
-		            + " VALUES (?,?,?,?,?,?,?,?,?)";
-			DataBaseUtils.update(sql,jthdkqsjk.getID(),jthdkqsjk.getRYDM(),
-					jthdkqsjk.getXM(), jthdkqsjk.getWGWD(), jthdkqsjk.getGRSJ(),
-					jthdkqsjk.getJEY(), jthdkqsjk.getJEE(), jthdkqsjk.getHJJE(),0);
+	public static void updateData(JTHDKQSJK updateObject) {
+		if(updateObject.getISDEL() == DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE) {
+			DataBaseUtils.update(UPDATE_SQL,updateObject.getRYDM(),updateObject.getXM(),
+				updateObject.getWGWD(),updateObject.getGRSJ(),updateObject.getJEY(), updateObject.getJEE(),
+				updateObject.getHJJE(),updateObject.getND(),updateObject.getID());
+		}else if(updateObject.getISDEL() == DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE){
+			DataBaseUtils.update(INSERT_SQL,updateObject.getID(),updateObject.getRYDM(),updateObject.getXM(),
+				updateObject.getWGWD(),updateObject.getGRSJ(),updateObject.getJEY(),updateObject.getJEE(),
+				updateObject.getHJJE(),updateObject.getND(),0);
 		}	
+	}
+	
+	/**
+	 * 批量更新
+	 * @param listObject
+	 */
+	public static void updateData(List<JTHDKQSJK> listObject) {
+		int listSize = 0;
+		if(listObject != null)
+			listSize = listObject.size();
+		JTHDKQSJK updateObject = new JTHDKQSJK();
+		for(int i = 0; i < listSize; i++) {
+			updateObject = listObject.get(i);
+			updateData(updateObject);
+		}
 	}
 }

@@ -2,57 +2,79 @@ package bean;
 
 import annotation.Column;
 import annotation.Table;
-import java.math.BigDecimal;
 import java.util.UUID;
 
-@Table(tableName="t_jthdkqsjk")
+@Table(tableName="t_jthdkqsjk", tableComment="集体活动考勤数据")
 public class JTHDKQSJK {
 
-	@Column(field="id", type="varchar(100)", primaryKey=true, defaultNull=false)
+	@Column(field="id", type="char(32)", primaryKey=true, defaultNull=false, comment="id,主键")
 	private String ID;//id
 	
-	@Column(field="rydm", type="varchar(50)")
+	@Column(field="rydm", type="varchar(50)", comment="人员代码")
 	private String RYDM;//人员代码
 	
-	@Column(field="xm", type="varchar(50)")
+	@Column(field="xm", type="varchar(50)", comment="姓名")
 	private String XM;//姓名
 	
-	@Column(field="wgwd", type="int")
-	private int WGWD;//无故未到
+	@Column(field="wgwd", type="varchar(10)", comment="无故未到")
+	private String WGWD;//无故未到
 	
-	@Column(field="grsj", type="int")
-	private int GRSJ;//个人事假
+	@Column(field="grsj", type="varchar(10)", comment="个人事假")
+	private String GRSJ;//个人事假
 	
-	@Column(field="jey", type="decimal(10,2)")
-	private BigDecimal JEY;//金额1
+	@Column(field="jey", type="varchar(20)", comment="金额1")
+	private String JEY;//金额1
 	
-	@Column(field="jee", type="decimal(10,2)")
-	private BigDecimal JEE;//金额2
+	@Column(field="jee", type="varchar(20)", comment="金额2")
+	private String JEE;//金额2
 	
-	@Column(field="hjje", type="decimal(10,2)")
-	private BigDecimal HJJE;//合计金额
+	@Column(field="hjje", type="varchar(20)", comment="合计金额")
+	private String HJJE;//合计金额
 	
-	@Column(field="isdel", type="int(1)")
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
+	
+	@Column(field="isdel", type="int(1)", comment="删除标记")
 	private int ISDEL;//是否删除
 	
 	
 	public JTHDKQSJK() {
 		ID = UUID.randomUUID().toString().replaceAll("-", "");
-		RYDM = "";
-		XM = "";
-		WGWD = 0;
-		GRSJ = 0;
-		JEY = new BigDecimal("0.00");
-		JEE = new BigDecimal("0.00");
-		HJJE = new BigDecimal("0.00");
+		RYDM = "-";
+		XM = "-";
+		WGWD = "-";
+		GRSJ = "-";
+		JEY = "-";
+		JEE = "-";
+		HJJE = "-";
+		ND = "-";
 		ISDEL = 2;
 	}
 	
-	public String toJson() {
-		return "[{\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM 
-				+"\", \"wgwd\":" + WGWD + ", \"grsj\":" + GRSJ + ", \"jey\":" + JEY
-				+", \"jee\":" + JEE + ", \"hjje\":" + HJJE + ", \"isdel\":" + ISDEL
-				+"}]";
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\":\"");
+		builder.append(ID);
+		builder.append("\", \"rydm\":\"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\":\"");
+		builder.append(XM);
+		builder.append("\", \"wgwd\":\"");
+		builder.append(WGWD);
+		builder.append("\", \"grsj\":\"");
+		builder.append(GRSJ);
+		builder.append("\", \"jey\":\"");
+		builder.append(JEY);
+		builder.append("\", \"jee\":\"");
+		builder.append(JEE);
+		builder.append("\", \"hjje\":\"");
+		builder.append(HJJE);
+		builder.append("\", \"nd\":\"");
+		builder.append(ND);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
 	}
 
 	public String getID() {
@@ -79,45 +101,43 @@ public class JTHDKQSJK {
 		XM = xM;
 	}
 
-	public int getWGWD() {
+	public String getWGWD() {
 		return WGWD;
 	}
 
-	public void setWGWD(int wGWD) {
+	public void setWGWD(String wGWD) {
 		WGWD = wGWD;
 	}
 
-	public int getGRSJ() {
+	public String getGRSJ() {
 		return GRSJ;
 	}
 
-	public void setGRSJ(int gRSJ) {
+	public void setGRSJ(String gRSJ) {
 		GRSJ = gRSJ;
 	}
 
-	public BigDecimal getJEY() {
+	public String getJEY() {
 		return JEY;
 	}
 
-	public void setJEY(BigDecimal jEY) {
-		HJJE = JEY.add(JEE);
+	public void setJEY(String jEY) {
 		JEY = jEY;
 	}
 
-	public BigDecimal getJEE() {
+	public String getJEE() {
 		return JEE;
 	}
 
-	public void setJEE(BigDecimal jEE) {
-		HJJE = JEY.add(JEE);
+	public void setJEE(String jEE) {
 		JEE = jEE;
 	}
 
-	public BigDecimal getHJJE() {
+	public String getHJJE() {
 		return HJJE;
 	}
 
-	public void setHJJE(BigDecimal hJJE) {
+	public void setHJJE(String hJJE) {
 		HJJE = hJJE;
 	}
 
@@ -127,5 +147,13 @@ public class JTHDKQSJK {
 
 	public void setISDEL(int iSDEL) {
 		ISDEL = iSDEL;
+	}
+
+	public String getND() {
+		return ND;
+	}
+
+	public void setND(String nD) {
+		ND = nD;
 	}
 }

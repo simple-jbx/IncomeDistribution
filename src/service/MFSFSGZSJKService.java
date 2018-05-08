@@ -1,8 +1,6 @@
 package service;
 
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
@@ -10,16 +8,6 @@ import utils.excelUtils;
 import bean.MFSFSGZSJK;
 
 public class MFSFSGZSJKService {
-	
-	/**
-	 * 查询免费师范生工作数据表所有数据
-	 * @return
-	 */
-	public List<Map<String, Object> > getData() {
-		String sql = "select * from t_mfsfsgzsjk where isdel = ?";
-		return DataBaseUtils.queryForList(sql, 0);
-	}
-	
 	
 	/**
 	 * 根据上传文件将数据存入数据库
@@ -34,9 +22,8 @@ public class MFSFSGZSJKService {
 	            + " values (?,?,?,?,?,?,?,?,?,?)";	
 		for(int i = 0; i < list.size(); i++) {
 			mfsfsgzsjk = list.get(i);			
-			DataBaseUtils.update(sql, UUID.randomUUID().toString().replaceAll("-", ""),
-					mfsfsgzsjk.getRYDM(), mfsfsgzsjk.getXM(), mfsfsgzsjk.getZDGZLHJ(),
-					mfsfsgzsjk.getGZLCJ(), mfsfsgzsjk.getSQSKKSF(), mfsfsgzsjk.getPGZYLC(),
+			DataBaseUtils.update(sql, mfsfsgzsjk.getID(),mfsfsgzsjk.getRYDM(),mfsfsgzsjk.getXM(),
+					mfsfsgzsjk.getZDGZLHJ(),mfsfsgzsjk.getGZLCJ(), mfsfsgzsjk.getSQSKKSF(), mfsfsgzsjk.getPGZYLC(),
 					mfsfsgzsjk.getSQZBF(), mfsfsgzsjk.getHJ(), 0);
 		}
 		
@@ -45,16 +32,6 @@ public class MFSFSGZSJKService {
 			DataBaseUtils.update(sql, UUID.randomUUID().toString(), mfsfsgzsjk.getMFSFSGZSJK(),
 					mfsfsgzsjk.getJLJE(), 0);
 		}*/
-	}
-	
-	
-	/**
-	 * 根据ID删除对应数据
-	 * @param gH
-	 */
-	public void deleteByID(String ID) {
-		String sql = "update t_mfsfsgzsjk set isdel = ? where id = ?";
-		DataBaseUtils.update(sql, 1, ID);
 	}
 	
 	

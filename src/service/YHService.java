@@ -6,23 +6,31 @@ import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
 import utils.excelUtils;
+
+import config.DefalutValue;
 import bean.YH;
+import utils.SHA1Utils;
 
 public class YHService {
+	
+	private final static String GET_ALL_YH_SQL =  "select id, rydm, xm, zc from t_yh where isdel = ?";
+	private final static String GET_YH_SQL = "select id, rydm, xm, zc from t_yh where rydm = ? isdel = ?";
+	private final static String UPDATE_YH_SQL = "update t_yh set rydm = ?, xm = ?, zc = ?, isdel = ?, where id = ?";
+	private final static String INSERT_SQL = "insert into t_yh(id,rydm,xm,mm,zc,isdel) VALUES (?,?,?,?,?,?)";
+
+
 	
 	/**
 	 * 查询用户表中所有数据
 	 * @return
 	 */
-	public List<Map<String, Object> > getData() {
-		String sql = "select * from t_yh where isdel = ?";
-		return DataBaseUtils.queryForList(sql, 0);
+	public static List<Map<String, Object> > getALLYH() {
+		return DataBaseUtils.queryForList(GET_ALL_YH_SQL, DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 	}
 	
 	
-	public YH getYH(String gh) {
-		String sql = "select * from t_yh where gh = ? isdel = ?";
-		return DataBaseUtils.queryForBean(sql, YH.class, gh, 0);
+	public static YH getYH(String rYDM) {
+		return DataBaseUtils.queryForBean(GET_YH_SQL, YH.class, rYDM, DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 	}
 	
 	
@@ -34,11 +42,15 @@ public class YHService {
 	 */
 	public void save2DB(String path) throws IOException, SQLException {
 		YH yh = null;
-		List<YH > list = excelUtils.analysisExcel(path, YH.class);
-		String sql = "insert into t_yh(id, gh,xm,zc,isdel) VALUES (?,?,?,?,?)";	
-		for(int i = 0; i < list.size(); i++) {
-			yh = list.get(i);
-			DataBaseUtils.update(sql, yh.getID(), yh.getGH(), yh.getXM(), yh.getZC(), 0);
+		List<YH > objectList = excelUtils.analysisExcel(path, YH.class);
+		String sql = "insert into t_yh(id, rydm, xm, mm, zc, isdel) VALUES (?,?,?,?,?,?)";
+		int listSize = 0;
+		if(objectList != null)
+			listSize = objectList.size();
+		for(int i = 0; i < listSize; i++) {
+			yh = objectList.get(i);
+			DataBaseUtils.update(sql, yh.getID(), yh.getRYDM(), yh.getXM(), SHA1Utils.sha1Encode(yh.getRYDM()),
+					yh.getZC(), DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
 	}
 	
@@ -49,25 +61,27 @@ public class YHService {
 	 */
 	public void deleteByID(String ID) {
 		String sql = "update t_yh set isdel = ? where id = ?";
-		DataBaseUtils.update(sql, 1, ID);
+		DataBaseUtils.update(sql, DefalutValue.DEFAULT_DELETE_INT_VALUE, ID);
 	}
 	
 	
 	/**
-	 * 更新获奖数据
+	 * 更新用户数据
 	 * @param zgsjxsgz
 	 */
 	public void updateData(YH yh) {
 		
-		if(yh.getISDEL() == 0) {
-			String sql = "update t_zgsjxsgz set gh = ?, xm = ?, zc = ?, where id = ?";			
-			DataBaseUtils.update(sql, yh.getGH(), yh.getXM(), yh.getZC(), yh.getID());
-
-		}else if(yh.getISDEL() == 2){
-			String sql = "insert into t_yh(id,gh,xm,zc,isdel) VALUES (?,?,?,?,?)";
-			DataBaseUtils.update(sql, yh.getID(), yh.getGH(), yh.getXM(), yh.getZC(), 0);
-
+		if(yh.getISDEL() == DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE) {
+			DataBaseUtils.update(UPDATE_YH_SQL, yh.getRYDM(), yh.getXM(), yh.getZC(), yh.getID());
+		}else if(yh.getISDEL() == DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE){
+			DataBaseUtils.update(INSERT_SQL, yh.getID(), yh.getRYDM(), yh.getXM(), SHA1Utils.sha1Encode(yh.getRYDM()),
+					yh.getZC(), 0);
 		}
+	}
+
+
+	public void resetPassword(YH yh) {
+		// TODO Auto-generated method stub
 		
 	}
 }

@@ -12,30 +12,23 @@
 <script src="../static/js/bootstrap/js/bootstrap.min.js"></script>
 <script src="../static/js/bootstrap/js/bootstrap-table.min.js"></script>
 <script src="../static/js/bootstrap/js/bootstrap-table-zh-CN.js"></script>
-
-<c:if test= "${!empty sessionScope.yh}">        
-   <c:if test="${yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1}">  
-    <link href="../static/js/bootstrap/css/bootstrap-editable.css"
+<link href="../static/js/bootstrap/css/bootstrap-editable.css"
 	rel="stylesheet" type="text/css">
-	<script src="../static/js/bootstrap/js/bootstrap-editable.js"></script>
-	<script src="../static/js/bootstrap/js/bootstrap-table-editable.js"></script>
-   </c:if>
-</c:if>
-<title>在岗时间系数数据</title>
+<script src="../static/js/bootstrap/js/bootstrap-editable.js"></script>
+<script src="../static/js/bootstrap/js/bootstrap-table-editable.js"></script>
+<title>用户角色管理</title>
 </head>
 <body>
 
 	<!-- bootstarp table -->
 	<table id="table"></table>
 	
-	<c:if test= "${!empty sessionScope.yh}">        
-    	<c:if test="${yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1}">  
-    		<!-- 新增按钮 -->
-    		<div id="toolbar" class="btn-group">
-			<button id="btn_add" type="button" class="btn btn-default">
-			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
-			</button>
-			</div>
+	<!-- 新增按钮 -->
+    <div id="toolbar" class="btn-group">
+	<button id="btn_add" type="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+	</button>
+	</div>
 			
 			<!-- 新增按钮点击事件 -->
 			<script>
@@ -46,12 +39,7 @@
 				        })
 				})
 			</script>
-    	</c:if>
-    </c:if>
     
-	<c:if test= "${!empty sessionScope.yh}">
-	<c:choose>
-	<c:when test="${yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1}">
 	<script>
 	//操作栏的格式化 
 	$(function(){		
@@ -267,10 +255,5 @@
 	}
 	})
 	</script>
-	</c:when>
-	<c:otherwise>
-    </c:otherwise>
-	</c:choose>
-	</c:if>
 </body>
 </html>

@@ -11,7 +11,7 @@ public class JSZYService {
 	 * 查询该角色所拥有所有的资源
 	 * @return
 	 */
-	public List<Map<String, Object> > getAllZY(String jsid) {
+	public List<Map<String, Object> > getAllZYByJSID(String jsid) {
 		String sql = "select A.zyid, A.zyname, A.zynote, A.zygroup from t_zy A inner join t_jszy  B"
 				+ " where B.jsid = ? and A.zyid = B.zyid";
 		//List<Map<String, Object> > listZY = DataBaseUtils.queryForList(sql,jsid);

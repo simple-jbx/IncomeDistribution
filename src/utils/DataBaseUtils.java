@@ -183,7 +183,7 @@ public class DataBaseUtils {
 		Map<String, Object> map = null;
 		Field field = null;
 		try{
-			obj = (T)clazz.newInstance();//创建一个Bean实例
+			obj = (T) clazz.newInstance();//创建一个Bean实例
 			map = queryForMap(sql, objects);//将结果集先放在一个map中
 		}catch(InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();

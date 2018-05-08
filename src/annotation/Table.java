@@ -7,5 +7,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)       //注解的目标是类
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Table {
-	 public String tableName();
+	 public String tableName();//表名
+	 public String tableComment() default "";//表注释
 }

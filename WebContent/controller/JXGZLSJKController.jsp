@@ -1,54 +1,51 @@
-<%@ page language="java" import="service.JXGZLSJKService,utils.StringUtils,bean.YH,bean.JXGZLSJK,
-	java.util.List,java.util.Map,utils.List2JsonUtils,com.alibaba.fastjson.JSON, service.commonService"
+<%@ page language="java"
+	import="service.JXGZLSJKService,service.commonService,utils.StringUtils,
+	bean.YH,bean.JXGZLSJK,java.util.List,java.util.Map,utils.List2JsonUtils,
+	com.alibaba.fastjson.JSON"
 	pageEncoding="UTF-8"%>
 <%
-	String op  = request.getParameter("op");
-	JXGZLSJKService jxgzlsjkService = new JXGZLSJKService();
-	YH yh = (YH)session.getAttribute("yh");
-	List<Map<String, Object> > list;
-	String json;
-	if(yh != null) {		
-		if(StringUtils.isEmpty(op)) {
-			//url参数为空直接跳转至主页
-			response.sendRedirect("../index.jsp");	
-		}else if(op.equals("personal")) {
-			JXGZLSJK jxgzlsjk = commonService.getDataByRydm(JXGZLSJK.class, yh.getGH());
-			if(jxgzlsjk == null) {
-				out.print("0");//没有数据
-			}else {
-				out.print(jxgzlsjk.toJson());
-			}
-		}else if(yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1) {			
-			if(op.equals("update")) {
+	String paraOp  = request.getParameter("op");
+	YH paraYh = (YH)session.getAttribute("yh");
+	String paraYear = request.getParameter("year");
+	if(paraYh != null) {
+		if(StringUtils.isEmpty(paraOp)) {
+			response.sendRedirect("../index.jsp");
+		}else if(paraOp.equals("personal")) {
+			JXGZLSJK outObject = commonService.getDataByRydm(JXGZLSJK.class, paraYh.getGH(), paraYear);
+			if(outObject == null)
+				outObject = new JXGZLSJK();
+			out.print(outObject.toJSON());
+		}else if(paraYh.getYHGROUP() == 0 || paraYh.getYHGROUP() == 1) {
+			JXGZLSJKService objectService = new JXGZLSJKService();
+			if(paraOp.equals("update")) {
 				String row = request.getParameter("row");
 				if(StringUtils.isEmpty(row)) {
-					out.println("-1");//错误的访问方式
+					out.print("-1");//请求数据为空
 				}else {
-					JXGZLSJK jxgzlsjk = JSON.parseObject(row, JXGZLSJK.class);
-					jxgzlsjkService.updateData(jxgzlsjk);
-					out.print("1");//修改成功				
+					JXGZLSJK JSON2Object = JSON.parseObject(row, JXGZLSJK.class);
+					objectService.updateData(JSON2Object);
+					out.println("1");
 				}
-			}else if(op.equals("delete")) {
-				String ID = request.getParameter("ID");//获得从前端传来的id
-				if(StringUtils.isEmpty(ID)) {
-					out.print("-1");//错误的访问方式
+				
+			}else if(paraOp.equals("delete")) {
+				String paraID = request.getParameter("ID");
+				if(StringUtils.isEmpty(paraID)) {
+					out.print("-1");//请求数据为空
 				}else {
-					commonService.deleteByID(JXGZLSJK.class, ID);
-					out.print("1");				
+					commonService.deleteByID(JXGZLSJK.class, paraID);
+					out.print("1");					
 				}
-			}else if(op.equals("getAll")){
-				list = commonService.getAllData(JXGZLSJK.class);
-				if(list == null) {
-					out.print("0");//没有数据
-				}else {
-					json = List2JsonUtils.list2Json2String(list);
-					out.print(json);
-				}
+			}else if(paraOp.equals("getAll")) {
+				String outJSON = "0";
+				List<Map<String, Object> > dataList = commonService.getAllData(JXGZLSJK.class);
+				if(dataList != null) 
+					outJSON = List2JsonUtils.list2Json2String(dataList);
+				out.print(outJSON);
+			}else {
+				response.sendRedirect("../index.jsp");
 			}
-		}else {
-			response.sendRedirect("../index.jsp");//登录用户非法访问，直接跳转至主页
 		}
 	}else {
-		response.sendRedirect("../login.jsp");//非登录用户非法访问，跳转至登录页面
+		response.sendRedirect("../login.jsp");
 	}
 %>

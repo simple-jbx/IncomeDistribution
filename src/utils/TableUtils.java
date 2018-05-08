@@ -10,7 +10,9 @@ public class TableUtils {
 		
 		//获取表名
 		String tableName = table.tableName();
-		sb.append("DROP TABLE IF EXISTS ").append(tableName).append(";\n");
+		//获取表注释
+		String tableComment = table.tableComment();
+		sb.append("drop table if exists ").append(tableName).append(";\n");
 		sb.append("create table ");
 		sb.append(tableName).append("(\n");
 		
@@ -21,19 +23,20 @@ public class TableUtils {
 			Column column = (Column) fields[i].getAnnotations()[0];
 			String field = column.field();
 			String type = column.type();
+			String comment = column.comment();
 			boolean defaultNull = column.defaultNull();
 			
-			sb.append("\t" + field).append(" ").append(type);
+			sb.append("\t" + field).append(" ").append(type).append(" comment'").append(comment).append("'");
 			if(defaultNull){
-				if(type.toUpperCase().equals("TIMESTAMP")){
+				if(type.toUpperCase().equals("timestamp")){
 					sb.append(",\n");
 				}else{
-					sb.append(" DEFAULT NULL,\n");
+					sb.append(" default null,\n");
 				}
 			}else{
-				sb.append(" NOT NULL,\n");
+				sb.append(" not null,\n");
 				if(column.primaryKey()){
-					primaryKey = "PRIMARY KEY (" + field + ")";
+					primaryKey = "primary key (" + field + ")";
 				}
 			}
 		}
@@ -41,7 +44,7 @@ public class TableUtils {
 		if(!StringUtils.isEmpty(primaryKey)){
 			sb.append("\t").append(primaryKey);
 		}
-		sb.append("\n) DEFAULT CHARSET=utf8;");
+		sb.append("\n) comment='").append(tableComment).append("',default charset=utf8;");
 		return sb.toString();
 	}
 }

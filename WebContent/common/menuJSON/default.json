@@ -1,0 +1,17 @@
+[{
+	"id":"personal",
+    "homePage":"5034f0c7613c44fb8864b919a5868f47",
+     "menu":[{
+     	"text":"信息管理",
+     	"items":[
+     		{"id":"5034f0c7613c44fb8864b919a5868f47", "text":"个人信息", "href":"personal/baseInfo.jsp", "closeable":false}
+     	]
+     	},{
+        "text":"年终收入分配信息",
+        "collapsed":true,
+        "items":[
+        	
+        ]
+     	}
+     ]
+}]

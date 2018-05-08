@@ -1,11 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="common/taglib.jsp"%>
+<jsp:include page="common/basePath.jsp"></jsp:include>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>login</title>
+<title>年终收入分配系统-登录</title>
 
 <link rel="stylesheet" href="static/js/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="static/css/login.css">
@@ -26,7 +26,8 @@
 					<div class="hidden text-center" id="nullMsg">
 						<span class="glyphicon glyphicon-exclamation-sign"></span>账号或密码不能为空
 					</div>
-					<h1 class="text-center text-primary">登录</h1>
+					<h3 class="text-center text-primary">年终收入分配管理系统</h3>
+					<h4 class="text-center text-primary">用户登录</h4>
 				</div>
 				<div class="modal-body">
 					<form class="form col-md-12 center-block" id="loginForm"
@@ -80,8 +81,9 @@
 			</div>
 		</div>
 	</div>
-	<script src="static/js/login.js"></script>
-	<%@include file="common/footer.jsp"%>
-	
+	<script>
+		var basePath = "${basePath}";
+	</script>
+	<script src="${basePath}/static/js/login.js?v=2018081201"></script>	
 </body>
 </html>

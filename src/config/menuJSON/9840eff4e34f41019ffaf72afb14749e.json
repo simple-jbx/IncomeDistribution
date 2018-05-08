@@ -1,0 +1,40 @@
+[{
+    "id":"personal",
+    "homePage":"baseInfo",
+     "menu":[{
+     	"text":"信息管理",
+     	"items":[
+     		{"id":"baseInfo", "text":"个人信息", "href":"personal/baseInfo.jsp", "closeable":false}
+     	]
+     	},{
+        "text":"年终收入分配信息",
+        "collapsed":true,
+        "items":[
+            	 {"id":"3f746a2b34014ce792b389e42408f61b","text":"在岗时间系数","href":"personal/ZGSJXS.jsp"}
+        ]
+     	}
+     ]
+},{
+	"id":"backstage",
+	"homePage":"attention",
+	"menu":[{
+		"text":"通知管理",
+		"items":[
+			{"id":"attention", "text":"我需留意", "href":"personal/baseInfo.jsp","closeable":false}
+		]
+	},{
+		"text":"用户管理",
+		"collapsed":true,
+		"items":[
+			{"id":"95c55dc61e364cef93e3e35920dfcd77","text":"用户角色管理", "href":"backstage/YHJSGL.jsp"}
+		]
+	},{
+		"text":"基础数据管理",
+		"collapsed":true,
+		"items":[
+			{"id":"32ac533ac98a4d488e21dbcb8e3c1196","text":"集体活动考勤","href":"backstage/JTHDKQSJK.jsp"}
+		]
+	}
+	]
+}
+]

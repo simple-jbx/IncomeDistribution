@@ -1,53 +1,51 @@
 <%@ page language="java"
-	import="java.util.*,service.XXPYSJKService,utils.StringUtils,bean.XXPYSJK,bean.YH,
-	java.util.List,java.util.Map,utils.List2JsonUtils, java.math.BigDecimal,
+	import="service.XXPYSJKService,service.commonService,utils.StringUtils,
+	bean.YH,bean.XXPYSJK,java.util.List,java.util.Map,utils.List2JsonUtils,
 	com.alibaba.fastjson.JSON"
 	pageEncoding="UTF-8"%>
 <%
-	String op  = request.getParameter("op");
-	YH yh = (YH)session.getAttribute("yh");
-	if(yh != null) {
-		if(StringUtils.isEmpty(op)) {
-			//非法访问
+	String paraOp  = request.getParameter("op");
+	YH paraYh = (YH)session.getAttribute("yh");
+	String paraYear = request.getParameter("year");
+	if(paraYh != null) {
+		if(StringUtils.isEmpty(paraOp)) {
 			response.sendRedirect("../index.jsp");
-		}else if(op.equals("personal")) {
-			XXPYSJK xxpysjk = XXPYSJKService.getData(yh.getGH());
-			if(xxpysjk != null) {
-				out.print(xxpysjk.toJson());
-			}else {
-				out.print("0");
-			}
-		}else if(yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1) {
-			XXPYSJKService xxpysjkService = new XXPYSJKService();
-			if(op.equals("getAll")) {
-				List<Map<String, Object> > list = xxpysjkService.getData();
-				if(list != null) {
-					String json = List2JsonUtils.list2Json2String(list);
-					out.print(json);
-				}else {
-					out.print("0");
-				}
-			}else if(op.equalsIgnoreCase("update")) {
+		}else if(paraOp.equals("personal")) {
+			XXPYSJK outObject = commonService.getDataByRydm(XXPYSJK.class, paraYh.getGH(), paraYear);
+			if(outObject == null)
+				outObject = new XXPYSJK();
+			out.print(outObject.toJSON());
+		}else if(paraYh.getYHGROUP() == 0 || paraYh.getYHGROUP() == 1) {
+			XXPYSJKService objectService = new XXPYSJKService();
+			if(paraOp.equals("update")) {
 				String row = request.getParameter("row");
 				if(StringUtils.isEmpty(row)) {
-					out.print("-1");
+					out.print("-1");//请求数据为空
 				}else {
-					XXPYSJK xxpysjk = JSON.parseObject(row, XXPYSJK.class);
-					xxpysjkService.updateData(xxpysjk);
+					XXPYSJK JSON2Object = JSON.parseObject(row, XXPYSJK.class);
+					objectService.updateData(JSON2Object);
 					out.println("1");
 				}
-			}else if(op.equalsIgnoreCase("delete")) {
-				String ID = request.getParameter("ID");//获得从前端传来的工号
-				if(StringUtils.isEmpty(ID)) {
-					out.print("-1");
+				
+			}else if(paraOp.equals("delete")) {
+				String paraID = request.getParameter("ID");
+				if(StringUtils.isEmpty(paraID)) {
+					out.print("-1");//请求数据为空
 				}else {
-					xxpysjkService.deleteByID(ID);
-					out.println("1");						
+					commonService.deleteByID(XXPYSJK.class, paraID);
+					out.print("1");					
 				}
+			}else if(paraOp.equals("getAll")) {
+				String outJSON = "0";
+				List<Map<String, Object> > dataList = commonService.getAllData(XXPYSJK.class);
+				if(dataList != null) 
+					outJSON = List2JsonUtils.list2Json2String(dataList);
+				out.print(outJSON);
+			}else {
+				response.sendRedirect("../index.jsp");
 			}
-		}	
+		}
 	}else {
-		//非登录用户
 		response.sendRedirect("../login.jsp");
 	}
 %>

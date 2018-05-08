@@ -1,56 +1,62 @@
 <%@ page language="java"
-	import="java.util.*,service.ZGSJXSService,utils.StringUtils,bean.*,java.util.List,java.util.Map,utils.List2JsonUtils, java.math.BigDecimal,
-	com.alibaba.fastjson.JSON"
+	import="service.ZGSJXSService,service.commonService,utils.StringUtils,
+	bean.YH,bean.ZGSJXS,java.util.List,java.util.Map,utils.List2JsonUtils,
+	com.alibaba.fastjson.JSON,service.AuthorityIdentify"
 	pageEncoding="UTF-8"%>
+<%@include file="/common/header.jsp"%>
 <%
-	String op  = request.getParameter("op");
-	YH yh = (YH)session.getAttribute("yh");
-	//System.out.print(yh);
-	List<Map<String, Object> > list = null;
-	if(yh != null) {
-		if(StringUtils.isEmpty(op)) {
-			response.sendRedirect("../index.jsp");
-		}else if(op.equals("personal")) {
-			ZGSJXS zgsjxs = ZGSJXSService.getData(yh.getGH());
-			if(zgsjxs == null) {
-				out.print("0");//无数据
-			}else {
-				out.print(zgsjxs.toJson());
-			}
-		}else if((yh.getYHGROUP() == 0 || yh.getYHGROUP() == 1)) {
-			ZGSJXSService zgsjxsService = new ZGSJXSService();
-			if(op.equals("getAll")) {
-				list = zgsjxsService.getData();
-				if(list == null) {
-					out.print("0");//无数据
-				}else {
-					String json = List2JsonUtils.list2Json2String(list);
-					out.print(json);						
-				}
-			}else if(op.equals("update")) {
+	String paraOp  = request.getParameter("op");
+	YH paraYh = (YH)session.getAttribute("currentYH");
+	String paraYear = request.getParameter("year");
+	String basePath = (String)session.getAttribute("basePath");
+	String personalRefererURL = basePath + "/personal/ZGSJXS.jsp";
+	String mamagerReffererURL = basePath + "/backstage/ZGSJXS.jsp";
+	if(request.getHeader("Referer") == null || (!request.getHeader("Referer").equals(personalRefererURL)
+			&& !request.getHeader("Referer").equals(mamagerReffererURL))) {
+		response.sendError(405);//非法访问
+		return;
+	}
+	if(StringUtils.isEmpty(paraOp)) {
+		response.sendError(400);//请求语法不正确
+		return;
+	}else if(paraOp.equals("personal")) {
+		ZGSJXS outObject = commonService.getDataByRydm(ZGSJXS.class, paraYh.getRYDM(), paraYear);
+		if(outObject == null)
+			outObject = new ZGSJXS();
+		out.print(outObject.toJSON());
+		return;
+	}else {
+		 int authority = AuthorityIdentify.authIdentify(paraYh, "ZGSJXS");
+		 if(paraOp.equals("getAll") && authority > 0) {
+			 String outJSON = "0";
+				List<Map<String, Object> > dataList = commonService.getAllData(ZGSJXS.class);
+				if(dataList != null) 
+					outJSON = List2JsonUtils.list2Json2String(dataList);
+				out.print(outJSON);
+		 }else if(authority == 1) {
+			ZGSJXSService objectService = new ZGSJXSService();
+			if(paraOp.equals("update")) {
 				String row = request.getParameter("row");
 				if(StringUtils.isEmpty(row)) {
-					out.print("0");//
+					out.print("-1");//请求数据为空
 				}else {
-					ZGSJXS zgsjxs = JSON.parseObject(row, ZGSJXS.class);
-					zgsjxsService.updateData(zgsjxs);
-					out.println("1");						
-				}
-			}else if(op.equals("delete")) {
-				String ID = request.getParameter("ID");//获得从前端传来的ID
-				if(StringUtils.isEmpty(ID)) {
-					out.print("0");
+					ZGSJXS JSON2Object = JSON.parseObject(row, ZGSJXS.class);
+					objectService.updateData(JSON2Object);
+					out.println("1");
+				}	
+			}else if(paraOp.equals("delete")) {
+				String paraID = request.getParameter("ID");
+				if(StringUtils.isEmpty(paraID)) {
+					out.print("-1");//请求数据为空
 				}else {
-					zgsjxsService.deleteByID(ID);
-					out.print("1");//删除成功
+					commonService.deleteByID(ZGSJXS.class, paraID);
+					out.print("1");					
 				}
+			}else {
+				response.sendError(405);//非法访问
 			}
 		}else {
-			response.sendRedirect("../index.jsp");
-			//已登录用户非法操作
-		}			
-	}else {
-		response.sendRedirect("../login.jsp");
-		//未登录用户非法访问
+			response.sendError(405);//非法访问
+		}
 	}
 %>

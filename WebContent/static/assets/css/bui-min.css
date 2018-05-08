@@ -1,3 +1,7 @@
+body {
+	margin:0cm 0cm 0cm 0cm;
+	margin-bottom:0cm;
+}
 .clearfix {
 	*zoom: 1;
 }
@@ -348,7 +352,7 @@
 }
 
 .tab-content {
-	height: 96%;
+	height: 100%;
 	/**
 		改变页面高度
 	**/

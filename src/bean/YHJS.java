@@ -4,7 +4,7 @@ import annotation.Column;
 import annotation.Table;
 import java.util.UUID;
 /**
- * 资源表
+ * 用户角色
  * @author simple
  *
  */
@@ -12,29 +12,48 @@ import java.util.UUID;
 @Table(tableName = "t_yhjs")
 public class YHJS {
 	
-	@Column(field = "yhjsid", type = "varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field = "yhjsid", type = "char(32)", primaryKey = true, defaultNull = false)
 	private String YHJSID;//用户角色ID
 	
-	@Column(field = "yhid", type = "varchar(100)")
-	private String YHID;//用户ID
+	@Column(field = "yhrydm", type = "char(32)")
+	private String YHRYDM;//用户代码
 	
-	@Column(field = "jsid", type = "varchar(100)")
+	@Column(field = "jsid", type = "char(32)")
 	private String JSID;//角色ID
 	
 	@Column(field = "yhjsnote", type = "text")
 	private String YHJSNOTE;//用户角色注释
 
-	@Column(field = "isdel", type="int(2)")
+	@Column(field = "isdel", type="int(1)")
 	private int ISDEL;//是否删除
 
 	public YHJS() {
 		YHJSID = UUID.randomUUID().toString().replaceAll("-", "");
-		YHID = "";
-		JSID = "";
-		YHJSNOTE = "";
+		YHRYDM = "-";
+		JSID = "-";
+		YHJSNOTE = "-";
 		ISDEL = 2;
 	}
 	
+	
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"yhjsid\":\"");
+		builder.append(YHJSID);
+		builder.append("\", \"yhid\":\"");
+		builder.append(YHRYDM);
+		builder.append("\", \"jsid\":\"");
+		builder.append(JSID);
+		builder.append("\", \"yhjsNOTE\":\"");
+		builder.append(YHJSNOTE);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
+	}
+
+
+
 	public String getYHJSID() {
 		return YHJSID;
 	}
@@ -43,12 +62,12 @@ public class YHJS {
 		YHJSID = yHJSID;
 	}
 
-	public String getYHID() {
-		return YHID;
+	public String getYHRYDM() {
+		return YHRYDM;
 	}
 
-	public void setYHID(String yHID) {
-		YHID = yHID;
+	public void setYHRYDM(String yHRYDM) {
+		YHRYDM = yHRYDM;
 	}
 
 	public String getJSID() {

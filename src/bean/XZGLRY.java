@@ -1,8 +1,9 @@
 package bean;
 
+import java.util.UUID;
+
 import annotation.Column;
 import annotation.Table;
-import java.math.BigDecimal;
 
 /**
  * 行政管理人员
@@ -10,324 +11,774 @@ import java.math.BigDecimal;
  *
  */
 
-@Table(tableName = "t_xzglry")
+@Table(tableName ="t_xzglry",tableComment="行政管理人员")
 public class XZGLRY {
 	
-	@Column(field = "id", type = "int(32)", primaryKey = true, defaultNull = false)
-	private int ID;//主键，自增
+	@Column(field="id", type="char(32)", primaryKey =true, defaultNull =false, comment="id,主键")
+	private String ID;
 	
-	@Column(field = "dw", type = "varchar(50)")
-	private String DW;//单位
+	@Column(field="rydm", type="varchar(50)", comment="人员代码")
+	private String RYDM;
 	
-	@Column(field = "gh", type = "varchar(15)")
-	private String GH;//工号
+	@Column(field="xm", type="varchar(50)", comment="姓名")
+	private String XM;
 	
-	@Column(field = "xm", type = "varchar(50)")
-	private String XM;//姓名
+	@Column(field="zw", type="varchar(50)", comment="职务")
+	private String ZW;
 	
-	@Column(field = "zgsjxs", type = "double(3,2)")
-	private Double ZGSJXS;//在岗时间系数
+	@Column(field="zj", type="varchar(50)", comment="职级")
+	private String ZJ;
 	
-	@Column(field = "zwxs", type = "double(3,2)")
-	private Double ZWXS;//职务系数
+	@Column(field="zgxs", type="varchar(10)", comment="在岗系数")
+	private String ZGXS;
 	
-	@Column(field = "kqxs", type = "double(3, 2)")
-	private Double KQXS;//考勤系数
+	@Column(field="zyxs", type="varchar(10)", comment="职员系数")
+	private String ZYXS;
 	
-	@Column(field = "bzxs", type = "double(3, 2)")
-	private Double BZXS;//标准系数
+	@Column(field="kqxs", type="varchar(10)", comment="考勤系数")
+	private String KQXS;
 	
-	@Column(field = "qydhcs", type = "int(16)")
-	private int QYDHCS;//全院大会次数
+	@Column(field="fpxs", type="varchar(10)", comment="分配系数")
+	private String FPXS;
 	
-	@Column(field = "xyzbcs", type = "int(16)")
-	private int XYZBCS;//学院值班次数
+	@Column(field="xzpjj", type="varchar(20)", comment="行政平均奖")
+	private String XZPJJ;
 	
-	@Column(field = "bkjktj", type = "int(16)")
-	private int BKJKTJ;//本科监考统计
+	@Column(field="xyrjj", type="varchar(20)", comment="学院人均奖")
+	private String XYRJJ;
 	
-	@Column(field = "xzpjj", type = "decimal(10, 2)")
-	private BigDecimal XZPJJ;//行政平均奖
+	@Column(field="bzxcgjl", type="varchar(20)", comment="标志性成果奖励")
+	private String BZXCGJL;
 	
-	@Column(field = "xypjj", type = "decimal(10, 2)")
-	private BigDecimal XYPJJ;//学院平均奖
+	@Column(field="jkgz", type="varchar(20)", comment="监考工作")
+	private String JKGZ;
 	
-	@Column(field = "jthdbt", type = "decimal(10, 2)")
-	private BigDecimal JTHDBT;//集体活动补贴
+	@Column(field="zbgz", type="varchar(20)", comment="值班工作")
+	private String ZBGZ;
 	
-	@Column(field = "xyhbt", type = "decimal(10, 2)")
-	private BigDecimal XYHBT;//校运会补贴
+	@Column(field="xxpy", type="varchar(20)", comment="学校评优")
+	private String XXPY;
 	
-	@Column(field = "xwgjbt", type = "decimal(10, 2)")
-	private BigDecimal XWGJBT;//新闻稿件补贴
+	@Column(field="xypy", type="varchar(20)", comment="学院评优")
+	private String XYPY;
 	
-	@Column(field = "hfbt", type = "decimal(10, 2)")
-	private BigDecimal HFBT;//话费补贴
+	@Column(field="jxdd", type="varchar(20)", comment="教学督导")
+	private String JXDD;
 	
-	@Column(field = "bzxcgjl", type = "decimal(10, 2)")
-	private BigDecimal BZXCGJL;//标志性成果奖励
+	@Column(field="dbbt", type="varchar(20)", comment="读博补贴")
+	private String DBBT;
 	
-	@Column(field = "xxkhyxjl", type = "decimal(10, 2)")
-	private BigDecimal XXKHYXJL;//学校考核优秀奖励
+	@Column(field="xyhbt", type="varchar(20)", comment="校运会补贴")
+	private String XYHBT;
 	
-	@Column(field = "xypyjl", type = "decimal(10, 2)")
-	private BigDecimal XYPYJL;//学院评优奖励
+	@Column(field="zjbt", type="varchar(20)", comment="照金补贴")
+	private String ZJBT;
 	
-	@Column(field = "hdzjf", type = "decimal(10, 2)")
-	private BigDecimal HDZJF;//活动组经费
+	@Column(field="hfbt", type="varchar(20)", comment="话费补贴")
+	private String HFBT;
 	
-	@Column(field = "jxdd", type = "decimal(10, 2)")
-	private BigDecimal JXDD;//教学督导
+	@Column(field="xwbt", type="varchar(20)", comment="新闻补贴")
+	private String XWBT;
 	
-	@Column(field = "khjc", type = "decimal(10, 2)")
-	private BigDecimal KHJC;//考核奖惩
+	@Column(field="jyshdjf", type="varchar(20)", comment="教研室活动经费")
+	private String JYSHDJF;
 	
-	@Column(field = "dypcjcj", type = "decimal(10, 2)")
-	private BigDecimal DYPCJCJ;//第一批次奖酬金
+	@Column(field="dypcjcj", type="varchar(20)", comment="第一批次奖酬金")
+	private String DYPCJCJ;
 	
-	@Column(field = "depcjcj", type = "decimal(10, 2)")
-	private BigDecimal DEPCJCJ;//第二批次奖酬金
+	@Column(field="depcjcj", type="varchar(20)", comment="第二批次奖酬金")
+	private String DEPCJCJ;
 	
-	@Column(field = "jcjhj", type = "decimal(10, 2)")
-	private BigDecimal JCJHJ;//奖酬金合计
+	@Column(field="rjce", type="varchar(20)", comment="人均差额")
+	private String RJCE;
 	
-	@Column(field = "ylbfhkcje", type = "decimal(10, 2)")
-	private BigDecimal YLBFHKCJE;//预留补发或扣除金额
+	@Column(field="msgzcj", type="varchar(20)", comment="免师工作酬金")
+	private String MSGZCJ;
 	
-	@Column(field = "sjzjcj", type = "decimal(10, 2)")
-	private BigDecimal SJZJCJ;//实际总奖酬金
+	@Column(field="kqkf", type="varchar(20)", comment="考勤扣罚")
+	private String KQKF;
 	
-	@Column(field = "isdel", type = "int(1)")
-	private int ISDEL;//是否删除
+	@Column(field = "msgzbf", type = "varchar(20)", comment="免师工作补发")
+	private String MSGZBF;
+	
+	@Column(field = "csbjsjfh", type = "varchar(20)", comment="创收补缴税金返还")
+	private String CSBJSJFH;
+	
+	@Column(field = "ylbfhkcje", type = "varchar(20)", comment="预留补发或扣除金额")
+	private String YLBFHKCJE;
+	
+	@Column(field = "dspcfphj", type = "varchar(20)", comment="第三批次分配合计")
+	private String DSPCFPHJ;
+	
+	@Column(field = "sjzjcj", type = "varchar(20)", comment="实际总奖酬金")
+	private String SJZJCJ;
+	
+	@Column(field = "tzje", type = "varchar(20)", comment="调整金额")
+	private String TZJE;
+	
+	@Column(field = "sjxyje", type = "varchar(20)", comment="上交学院金额")
+	private String SJXYJE;
+	
+	@Column(field="sfje", type="varchar(20)", comment="实发金额")
+	private String SFJE;
+	
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
+	
+	@Column(field = "isdel", type = "int(1)", comment="删除标记")
+	private int ISDEL;
 
-	public int getID() {
+	public XZGLRY() {
+		ID = UUID.randomUUID().toString().replaceAll("-", "");
+		RYDM = "-";
+		XM = "-";
+		ZW = "-";
+		ZJ = "-";
+		ZGXS = "-";
+		ZYXS = "-";
+		KQXS = "-";
+		FPXS = "-";
+		XZPJJ = "-";
+		XYRJJ = "-";
+		BZXCGJL = "-";
+		JKGZ = "-";
+		ZBGZ = "-";
+		XXPY = "-";
+		XYPY = "-";
+		JXDD = "-";
+		DBBT = "-";
+		XYHBT = "-";
+		ZJBT = "-";
+		HFBT = "-";
+		XWBT = "-";
+		JYSHDJF = "-";
+		DYPCJCJ = "-";
+		DEPCJCJ = "-";
+		RJCE = "-";
+		MSGZCJ = "-";
+		KQKF = "-";
+		MSGZBF = "-";
+		CSBJSJFH = "-";
+		YLBFHKCJE = "-";
+		DSPCFPHJ = "-";
+		SJZJCJ = "-";
+		TZJE = "-";
+		SJXYJE = "-";
+		SFJE = "-";
+		ND = "-";
+		ISDEL = 2;
+	}
+
+	public String toJson() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\" : \"");
+		builder.append(ID);
+		builder.append("\", \"rydm\" : \"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\" : \"");
+		builder.append(XM);
+		builder.append("\", \"zw\" : \"");
+		builder.append(ZW);
+		builder.append("\", \"zj\" : \"");
+		builder.append(ZJ);
+		builder.append("\", \"zgxs\" : \"");
+		builder.append(ZGXS);
+		builder.append("\", \"zyxs\" : \"");
+		builder.append(ZYXS);
+		builder.append("\", \"kqxs\" : \"");
+		builder.append(KQXS);
+		builder.append("\", \"fpxs\" : \"");
+		builder.append(FPXS);
+		builder.append("\", \"xzpjj\" : \"");
+		builder.append(XZPJJ);
+		builder.append("\", \"xyrjj\" : \"");
+		builder.append(XYRJJ);
+		builder.append("\", \"bzxcgjl\" : \"");
+		builder.append(BZXCGJL);
+		builder.append("\", \"jkgz\" : \"");
+		builder.append(JKGZ);
+		builder.append("\", \"zbgz\" : \"");
+		builder.append(ZBGZ);
+		builder.append("\", \"xxpy\" : \"");
+		builder.append(XXPY);
+		builder.append("\", \"xypy\" : \"");
+		builder.append(XYPY);
+		builder.append("\", \"jxdd\" : \"");
+		builder.append(JXDD);
+		builder.append("\", \"dbbt\" : \"");
+		builder.append(DBBT);
+		builder.append("\", \"xyhbt\" : \"");
+		builder.append(XYHBT);
+		builder.append("\", \"zjbt\" : \"");
+		builder.append(ZJBT);
+		builder.append("\", \"hfbt\" : \"");
+		builder.append(HFBT);
+		builder.append("\", \"xwbt\" : \"");
+		builder.append(XWBT);
+		builder.append("\", \"jyshdjf\" : \"");
+		builder.append(JYSHDJF);
+		builder.append("\", \"dypcjcj\" : \"");
+		builder.append(DYPCJCJ);
+		builder.append("\", \"depcjcj\" : \"");
+		builder.append(DEPCJCJ);
+		builder.append("\", \"rjce\" : \"");
+		builder.append(RJCE);
+		builder.append("\", \"msgzcj\" : \"");
+		builder.append(MSGZCJ);
+		builder.append("\", \"kqkf\" : \"");
+		builder.append(KQKF);
+		builder.append("\", \"msgzbf\" : \"");
+		builder.append(MSGZBF);
+		builder.append("\", \"csbjsjfh\" : \"");
+		builder.append(CSBJSJFH);
+		builder.append("\", \"ylbfhkcje\" : \"");
+		builder.append(YLBFHKCJE);
+		builder.append("\", \"dspcfphj\" : \"");
+		builder.append(DSPCFPHJ);
+		builder.append("\", \"sjzjcj\" : \"");
+		builder.append(SJZJCJ);
+		builder.append("\", \"tzje\" : \"");
+		builder.append(TZJE);
+		builder.append("\", \"sjxyje\" : \"");
+		builder.append(SJXYJE);
+		builder.append("\", \"sfje\" : \"");
+		builder.append(SFJE);
+		builder.append("\", \"nd\" : \"");
+		builder.append(ND);
+		builder.append("\", \"isdel\" : ");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
+	}
+
+	/**
+	 * @return the iD
+	 */
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	/**
+	 * @param iD the iD to set
+	 */
+	public void setID(String iD) {
 		ID = iD;
 	}
 
-	public String getDW() {
-		return DW;
+	/**
+	 * @return the rYDM
+	 */
+	public String getRYDM() {
+		return RYDM;
 	}
 
-	public void setDW(String dW) {
-		DW = dW;
+	/**
+	 * @param rYDM the rYDM to set
+	 */
+	public void setRYDM(String rYDM) {
+		RYDM = rYDM;
 	}
 
-	public String getGH() {
-		return GH;
-	}
-
-	public void setGH(String gH) {
-		GH = gH;
-	}
-
+	/**
+	 * @return the xM
+	 */
 	public String getXM() {
 		return XM;
 	}
 
+	/**
+	 * @param xM the xM to set
+	 */
 	public void setXM(String xM) {
 		XM = xM;
 	}
 
-	public Double getZGSJXS() {
-		return ZGSJXS;
+	/**
+	 * @return the zW
+	 */
+	public String getZW() {
+		return ZW;
 	}
 
-	public void setZGSJXS(Double zGSJXS) {
-		ZGSJXS = zGSJXS;
+	/**
+	 * @param zW the zW to set
+	 */
+	public void setZW(String zW) {
+		ZW = zW;
 	}
 
-	public Double getZWXS() {
-		return ZWXS;
+	/**
+	 * @return the zJ
+	 */
+	public String getZJ() {
+		return ZJ;
 	}
 
-	public void setZWXS(Double zWXS) {
-		ZWXS = zWXS;
+	/**
+	 * @param zJ the zJ to set
+	 */
+	public void setZJ(String zJ) {
+		ZJ = zJ;
 	}
 
-	public Double getKQXS() {
+	/**
+	 * @return the zGXS
+	 */
+	public String getZGXS() {
+		return ZGXS;
+	}
+
+	/**
+	 * @param zGXS the zGXS to set
+	 */
+	public void setZGXS(String zGXS) {
+		ZGXS = zGXS;
+	}
+
+	/**
+	 * @return the zYXS
+	 */
+	public String getZYXS() {
+		return ZYXS;
+	}
+
+	/**
+	 * @param zYXS the zYXS to set
+	 */
+	public void setZYXS(String zYXS) {
+		ZYXS = zYXS;
+	}
+
+	/**
+	 * @return the kQXS
+	 */
+	public String getKQXS() {
 		return KQXS;
 	}
 
-	public void setKQXS(Double kQXS) {
+	/**
+	 * @param kQXS the kQXS to set
+	 */
+	public void setKQXS(String kQXS) {
 		KQXS = kQXS;
 	}
 
-	public Double getBZXS() {
-		return BZXS;
+	/**
+	 * @return the fPXS
+	 */
+	public String getFPXS() {
+		return FPXS;
 	}
 
-	public void setBZXS(Double bZXS) {
-		BZXS = bZXS;
+	/**
+	 * @param fPXS the fPXS to set
+	 */
+	public void setFPXS(String fPXS) {
+		FPXS = fPXS;
 	}
 
-	public int getQYDHCS() {
-		return QYDHCS;
-	}
-
-	public void setQYDHCS(int qYDHCS) {
-		QYDHCS = qYDHCS;
-	}
-
-	public int getXYZBCS() {
-		return XYZBCS;
-	}
-
-	public void setXYZBCS(int xYZBCS) {
-		XYZBCS = xYZBCS;
-	}
-
-	public int getBKJKTJ() {
-		return BKJKTJ;
-	}
-
-	public void setBKJKTJ(int bKJKTJ) {
-		BKJKTJ = bKJKTJ;
-	}
-
-	public BigDecimal getXZPJJ() {
+	/**
+	 * @return the xZPJJ
+	 */
+	public String getXZPJJ() {
 		return XZPJJ;
 	}
 
-	public void setXZPJJ(BigDecimal xZPJJ) {
+	/**
+	 * @param xZPJJ the xZPJJ to set
+	 */
+	public void setXZPJJ(String xZPJJ) {
 		XZPJJ = xZPJJ;
 	}
 
-	public BigDecimal getXYPJJ() {
-		return XYPJJ;
+	/**
+	 * @return the xYRJJ
+	 */
+	public String getXYRJJ() {
+		return XYRJJ;
 	}
 
-	public void setXYPJJ(BigDecimal xYPJJ) {
-		XYPJJ = xYPJJ;
+	/**
+	 * @param xYRJJ the xYRJJ to set
+	 */
+	public void setXYRJJ(String xYRJJ) {
+		XYRJJ = xYRJJ;
 	}
 
-	public BigDecimal getJTHDBT() {
-		return JTHDBT;
-	}
-
-	public void setJTHDBT(BigDecimal jTHDBT) {
-		JTHDBT = jTHDBT;
-	}
-
-	public BigDecimal getXYHBT() {
-		return XYHBT;
-	}
-
-	public void setXYHBT(BigDecimal xYHBT) {
-		XYHBT = xYHBT;
-	}
-
-	public BigDecimal getXWGJBT() {
-		return XWGJBT;
-	}
-
-	public void setXWGJBT(BigDecimal xWGJBT) {
-		XWGJBT = xWGJBT;
-	}
-
-	public BigDecimal getHFBT() {
-		return HFBT;
-	}
-
-	public void setHFBT(BigDecimal hFBT) {
-		HFBT = hFBT;
-	}
-
-	public BigDecimal getBZXCGJL() {
+	/**
+	 * @return the bZXCGJL
+	 */
+	public String getBZXCGJL() {
 		return BZXCGJL;
 	}
 
-	public void setBZXCGJL(BigDecimal bZXCGJL) {
+	/**
+	 * @param bZXCGJL the bZXCGJL to set
+	 */
+	public void setBZXCGJL(String bZXCGJL) {
 		BZXCGJL = bZXCGJL;
 	}
 
-	public BigDecimal getXXKHYXJL() {
-		return XXKHYXJL;
+	/**
+	 * @return the jKGZ
+	 */
+	public String getJKGZ() {
+		return JKGZ;
 	}
 
-	public void setXXKHYXJL(BigDecimal xXKHYXJL) {
-		XXKHYXJL = xXKHYXJL;
+	/**
+	 * @param jKGZ the jKGZ to set
+	 */
+	public void setJKGZ(String jKGZ) {
+		JKGZ = jKGZ;
 	}
 
-	public BigDecimal getXYPYJL() {
-		return XYPYJL;
+	/**
+	 * @return the zBGZ
+	 */
+	public String getZBGZ() {
+		return ZBGZ;
 	}
 
-	public void setXYPYJL(BigDecimal xYPYJL) {
-		XYPYJL = xYPYJL;
+	/**
+	 * @param zBGZ the zBGZ to set
+	 */
+	public void setZBGZ(String zBGZ) {
+		ZBGZ = zBGZ;
 	}
 
-	public BigDecimal getHDZJF() {
-		return HDZJF;
+	/**
+	 * @return the xXPY
+	 */
+	public String getXXPY() {
+		return XXPY;
 	}
 
-	public void setHDZJF(BigDecimal hDZJF) {
-		HDZJF = hDZJF;
+	/**
+	 * @param xXPY the xXPY to set
+	 */
+	public void setXXPY(String xXPY) {
+		XXPY = xXPY;
 	}
 
-	public BigDecimal getJXDD() {
+	/**
+	 * @return the xYPY
+	 */
+	public String getXYPY() {
+		return XYPY;
+	}
+
+	/**
+	 * @param xYPY the xYPY to set
+	 */
+	public void setXYPY(String xYPY) {
+		XYPY = xYPY;
+	}
+
+	/**
+	 * @return the jXDD
+	 */
+	public String getJXDD() {
 		return JXDD;
 	}
 
-	public void setJXDD(BigDecimal jXDD) {
+	/**
+	 * @param jXDD the jXDD to set
+	 */
+	public void setJXDD(String jXDD) {
 		JXDD = jXDD;
 	}
 
-	public BigDecimal getKHJC() {
-		return KHJC;
+	/**
+	 * @return the dBBT
+	 */
+	public String getDBBT() {
+		return DBBT;
 	}
 
-	public void setKHJC(BigDecimal kHJC) {
-		KHJC = kHJC;
+	/**
+	 * @param dBBT the dBBT to set
+	 */
+	public void setDBBT(String dBBT) {
+		DBBT = dBBT;
 	}
 
-	public BigDecimal getDYPCJCJ() {
+	/**
+	 * @return the xYHBT
+	 */
+	public String getXYHBT() {
+		return XYHBT;
+	}
+
+	/**
+	 * @param xYHBT the xYHBT to set
+	 */
+	public void setXYHBT(String xYHBT) {
+		XYHBT = xYHBT;
+	}
+
+	/**
+	 * @return the zJBT
+	 */
+	public String getZJBT() {
+		return ZJBT;
+	}
+
+	/**
+	 * @param zJBT the zJBT to set
+	 */
+	public void setZJBT(String zJBT) {
+		ZJBT = zJBT;
+	}
+
+	/**
+	 * @return the hFBT
+	 */
+	public String getHFBT() {
+		return HFBT;
+	}
+
+	/**
+	 * @param hFBT the hFBT to set
+	 */
+	public void setHFBT(String hFBT) {
+		HFBT = hFBT;
+	}
+
+	/**
+	 * @return the xWBT
+	 */
+	public String getXWBT() {
+		return XWBT;
+	}
+
+	/**
+	 * @param xWBT the xWBT to set
+	 */
+	public void setXWBT(String xWBT) {
+		XWBT = xWBT;
+	}
+
+	/**
+	 * @return the jYSHDJF
+	 */
+	public String getJYSHDJF() {
+		return JYSHDJF;
+	}
+
+	/**
+	 * @param jYSHDJF the jYSHDJF to set
+	 */
+	public void setJYSHDJF(String jYSHDJF) {
+		JYSHDJF = jYSHDJF;
+	}
+
+	/**
+	 * @return the dYPCJCJ
+	 */
+	public String getDYPCJCJ() {
 		return DYPCJCJ;
 	}
 
-	public void setDYPCJCJ(BigDecimal dYPCJCJ) {
+	/**
+	 * @param dYPCJCJ the dYPCJCJ to set
+	 */
+	public void setDYPCJCJ(String dYPCJCJ) {
 		DYPCJCJ = dYPCJCJ;
 	}
 
-	public BigDecimal getDEPCJCJ() {
+	/**
+	 * @return the dEPCJCJ
+	 */
+	public String getDEPCJCJ() {
 		return DEPCJCJ;
 	}
 
-	public void setDEPCJCJ(BigDecimal dEPCJCJ) {
+	/**
+	 * @param dEPCJCJ the dEPCJCJ to set
+	 */
+	public void setDEPCJCJ(String dEPCJCJ) {
 		DEPCJCJ = dEPCJCJ;
 	}
 
-	public BigDecimal getJCJHJ() {
-		return JCJHJ;
+	/**
+	 * @return the rJCE
+	 */
+	public String getRJCE() {
+		return RJCE;
 	}
 
-	public void setJCJHJ(BigDecimal jCJHJ) {
-		JCJHJ = jCJHJ;
+	/**
+	 * @param rJCE the rJCE to set
+	 */
+	public void setRJCE(String rJCE) {
+		RJCE = rJCE;
 	}
 
-	public BigDecimal getYLBFHKCJE() {
+	/**
+	 * @return the mSGZCJ
+	 */
+	public String getMSGZCJ() {
+		return MSGZCJ;
+	}
+
+	/**
+	 * @param mSGZCJ the mSGZCJ to set
+	 */
+	public void setMSGZCJ(String mSGZCJ) {
+		MSGZCJ = mSGZCJ;
+	}
+
+	/**
+	 * @return the kQKF
+	 */
+	public String getKQKF() {
+		return KQKF;
+	}
+
+	/**
+	 * @param kQKF the kQKF to set
+	 */
+	public void setKQKF(String kQKF) {
+		KQKF = kQKF;
+	}
+
+	/**
+	 * @return the mSGZBF
+	 */
+	public String getMSGZBF() {
+		return MSGZBF;
+	}
+
+	/**
+	 * @param mSGZBF the mSGZBF to set
+	 */
+	public void setMSGZBF(String mSGZBF) {
+		MSGZBF = mSGZBF;
+	}
+
+	/**
+	 * @return the cSBJSJFH
+	 */
+	public String getCSBJSJFH() {
+		return CSBJSJFH;
+	}
+
+	/**
+	 * @param cSBJSJFH the cSBJSJFH to set
+	 */
+	public void setCSBJSJFH(String cSBJSJFH) {
+		CSBJSJFH = cSBJSJFH;
+	}
+
+	/**
+	 * @return the yLBFHKCJE
+	 */
+	public String getYLBFHKCJE() {
 		return YLBFHKCJE;
 	}
 
-	public void setYLBFHKCJE(BigDecimal yLBFHKCJE) {
+	/**
+	 * @param yLBFHKCJE the yLBFHKCJE to set
+	 */
+	public void setYLBFHKCJE(String yLBFHKCJE) {
 		YLBFHKCJE = yLBFHKCJE;
 	}
 
-	public BigDecimal getSJZJCJ() {
+	/**
+	 * @return the dSPCFPHJ
+	 */
+	public String getDSPCFPHJ() {
+		return DSPCFPHJ;
+	}
+
+	/**
+	 * @param dSPCFPHJ the dSPCFPHJ to set
+	 */
+	public void setDSPCFPHJ(String dSPCFPHJ) {
+		DSPCFPHJ = dSPCFPHJ;
+	}
+
+	/**
+	 * @return the sJZJCJ
+	 */
+	public String getSJZJCJ() {
 		return SJZJCJ;
 	}
 
-	public void setSJZJCJ(BigDecimal sJZJCJ) {
+	/**
+	 * @param sJZJCJ the sJZJCJ to set
+	 */
+	public void setSJZJCJ(String sJZJCJ) {
 		SJZJCJ = sJZJCJ;
 	}
 
+	/**
+	 * @return the tZJE
+	 */
+	public String getTZJE() {
+		return TZJE;
+	}
+
+	/**
+	 * @param tZJE the tZJE to set
+	 */
+	public void setTZJE(String tZJE) {
+		TZJE = tZJE;
+	}
+
+	/**
+	 * @return the sJXYJE
+	 */
+	public String getSJXYJE() {
+		return SJXYJE;
+	}
+
+	/**
+	 * @param sJXYJE the sJXYJE to set
+	 */
+	public void setSJXYJE(String sJXYJE) {
+		SJXYJE = sJXYJE;
+	}
+
+	/**
+	 * @return the sFJE
+	 */
+	public String getSFJE() {
+		return SFJE;
+	}
+
+	/**
+	 * @param sFJE the sFJE to set
+	 */
+	public void setSFJE(String sFJE) {
+		SFJE = sFJE;
+	}
+
+	/**
+	 * @return the nD
+	 */
+	public String getND() {
+		return ND;
+	}
+
+	/**
+	 * @param nD the nD to set
+	 */
+	public void setND(String nD) {
+		ND = nD;
+	}
+
+	/**
+	 * @return the iSDEL
+	 */
 	public int getISDEL() {
 		return ISDEL;
 	}
 
+	/**
+	 * @param iSDEL the iSDEL to set
+	 */
 	public void setISDEL(int iSDEL) {
 		ISDEL = iSDEL;
 	}

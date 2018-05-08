@@ -12,7 +12,7 @@ import java.util.UUID;
 @Table(tableName = "t_qx")
 public class QX {
 	
-	@Column(field = "qxid", type = "varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field = "qxid", type = "char(32)", primaryKey = true, defaultNull = false)
 	private String QXID;//权限ID
 	
 	@Column(field = "qxname", type = "varchar(50)")

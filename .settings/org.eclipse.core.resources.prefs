@@ -1,5 +1,10 @@
 eclipse.preferences.version=1
+encoding//WebContent/FileContro/upload.jsp=UTF-8
 encoding//WebContent/backstage/GQRY.jsp=UTF-8
+encoding//WebContent/common/basePath.jsp=UTF-8
 encoding//WebContent/common/footer.jsp=UTF-8
+encoding//WebContent/common/menuJSON/9840eff4e34f41019ffaf72afb14749e.json=UTF-8
+encoding//WebContent/common/menuJSON/default.json=UTF-8
+encoding//WebContent/personal/baseInfo.jsp=UTF-8
 encoding//src/annotation/Column.java=UTF-8
 encoding/<project>=UTF-8

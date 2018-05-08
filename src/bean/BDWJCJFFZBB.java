@@ -2,100 +2,91 @@ package bean;
 
 import annotation.Column;
 import annotation.Table;
-import java.math.BigDecimal;
+
 /**
  * 酬金发放总报表
  * @author simple
  *
  */
-@Table(tableName="t_bdwcjffzbb")
+
+@Table(tableName="t_bdwjcjffzbb",tableComment="本单位奖酬金发放总报表")
 public class BDWJCJFFZBB {
 	
-	@Column(field = "id", type = "int(32)", primaryKey = true, defaultNull = false)
-	private int ID;//主键，自增
+	@Column(field="id", type="varchar(100)", primaryKey = true, defaultNull = false, comment="id主键")
+	private String ID;
 	
-	@Column(field = "xh", type = "int(32)")
-	private int XH;//序号
+	@Column(field="bmdm", type="varchar(50)", comment="部门代码")
+	private String BMDM;
 	
-	@Column(field = "rydm", type = "varchar(50)")
-	private String RYDM;//人员代码
+	@Column(field="rydm", type="varchar(50)", comment="人员代码")
+	private String RYDM;
 	
-	@Column(field = "xm", type = "varchar(50)")
-	private String XM;//姓名
+	@Column(field="xm", type="varchar(50)", comment="姓名")
+	private String XM;
 	
-	@Column(field = "bmmc", type = "varchar(100)")
-	private String BMMC;//部门名称
+	@Column(field="bmmc", type="varchar(100)", comment="部门名称")
+	private String BMMC;
 	
-	@Column(field = "yfnzj", type = "decimal(10,2)")
-	private BigDecimal YFNZJ;//应发年终奖
+	@Column(field="jx", type="varchar(20)", comment="教学")
+	private String JX;
 	
-	@Column(field = "grtzje", type = "decimal(10, 2)")
-	private BigDecimal GRTZJE;//个人调整金额
+	@Column(field="xz", type="varchar(20)", comment="行政")
+	private String XZ;
 	
-	@Column(field = "nzjhj", type = "decimal(10, 2)")
-	private BigDecimal NZJHJ;//年终奖合计
+	@Column(field="gq", type="varchar(20)", comment="工勤")
+	private String GQ;
 	
-	@Column(field = "nzjks", type = "decimal(10, 2)")
-	private BigDecimal NZJKS;//年终奖扣税
+	@Column(field="qt", type="varchar(20)", comment="其他")
+	private String QT;
 	
-	@Column(field = "nzjsf", type = "decimal(10, 2)")
-	private BigDecimal NZJSF;//年终奖实发
+	@Column(field="nzjje", type="varchar(20)", comment="年终奖金额")
+	private String NZJJE;
 	
-	@Column(field = "sfzhm", type = "varchar(20)")
-	private String SFZHM;//身份证号码
+	@Column(field="cssl", type="varchar(10)", comment="测算税率")
+	private String CSSL;
 	
-	@Column(field = "yhkh", type = "varchar(25)")
-	private String YHKH;//银行卡号
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
 	
-	@Column(field = "dhhm", type = "varchar(15)")
-	private String DHHM;//电话号码
-	
-	@Column(field = "bz", type = "varchar(100)")
-	private String BZ;//备注
-	
-	@Column(field = "qzqr", type = "varchar(50)")
-	private String QZQR;//签字确认
-	
-	@Column(field = "isdel", type = "int(1)")
-	private int ISDEL;//合计金额
+	@Column(field="isdel", type="int(1)")
+	private int ISDEL;
 	
 	public BDWJCJFFZBB() {
-		/**
-		 * 无参默认构造器
-		 * 给出相关数据的默认值
-		 */
-		ID = 0;
-		XH = 0;
-		RYDM = "";
-		XM = "";
-		BMMC = "";
-		YFNZJ = new BigDecimal("0.00");
-		GRTZJE = new BigDecimal("0.00");
-		NZJHJ = new BigDecimal("0.00");
-		NZJKS = new BigDecimal("0.00");
-		NZJSF = new BigDecimal("0.00");
-		SFZHM = "";
-		YHKH = "";
-		DHHM = "";
-		BZ = "";
-		QZQR = "";
-		ISDEL = 0;
-		
+		ID = config.DefalutValue.DEFAULT_VALUE_OF_ID();
+		RYDM = config.DefalutValue.DEFAULT_STRING_VALUE;
+		XM = config.DefalutValue.DEFAULT_STRING_VALUE;
+		BMMC = config.DefalutValue.DEFAULT_STRING_VALUE;
+		JX = config.DefalutValue.DEFAULT_STRING_VALUE;
+		XZ = config.DefalutValue.DEFAULT_STRING_VALUE;
+		GQ = config.DefalutValue.DEFAULT_STRING_VALUE;
+		QT = config.DefalutValue.DEFAULT_STRING_VALUE;
+		NZJJE = config.DefalutValue.DEFAULT_STRING_VALUE;
+		CSSL = config.DefalutValue.DEFAULT_STRING_VALUE;
+		ND = config.DefalutValue.DEFAULT_STRING_VALUE;
+		ISDEL = config.DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE;
 	}
-	public int getID() {
+	
+	public String toJson() {
+		return "[{\"bmdm\" : \"" + BMDM + "\", \"id\" : \"" + ID + "\", \"rydm\" : \"" + RYDM + "\", \"xm\" : \""
+				+ XM + "\", \"bmmc\" : \"" + BMMC + "\", \"jx\" : \"" + JX + "\", \"xz\" : \"" + XZ + "\", \"gq\" : \""
+				+ GQ + "\", \"qt\" : \"" + QT + "\", \"nzjje\" : \"" + NZJJE + "\", \"cssl\" : \"" + CSSL + "\", " 
+				+ "\"nd\" : \"" + ND + "\", \"isdel\" : " + ISDEL + "}]";
+	}
+
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 
-	public int getXH() {
-		return XH;
+	public String getBMDM() {
+		return BMDM;
 	}
 
-	public void setXH(int xH) {
-		XH = xH;
+	public void setBMDM(String bMDM) {
+		BMDM = bMDM;
 	}
 
 	public String getRYDM() {
@@ -122,86 +113,62 @@ public class BDWJCJFFZBB {
 		BMMC = bMMC;
 	}
 
-	public BigDecimal getYFNZJ() {
-		return YFNZJ;
+	public String getJX() {
+		return JX;
 	}
 
-	public void setYFNZJ(BigDecimal yFNZJ) {
-		YFNZJ = yFNZJ;
+	public void setJX(String jX) {
+		JX = jX;
 	}
 
-	public BigDecimal getGRTZJE() {
-		return GRTZJE;
+	public String getXZ() {
+		return XZ;
 	}
 
-	public void setGRTZJE(BigDecimal gRTZJE) {
-		GRTZJE = gRTZJE;
+	public void setXZ(String xZ) {
+		XZ = xZ;
 	}
 
-	public BigDecimal getNZJHJ() {
-		return NZJHJ;
+	public String getGQ() {
+		return GQ;
 	}
 
-	public void setNZJHJ(BigDecimal nZJHJ) {
-		NZJHJ = nZJHJ;
+	public void setGQ(String gQ) {
+		GQ = gQ;
 	}
 
-	public BigDecimal getNZJKS() {
-		return NZJKS;
+	public String getQT() {
+		return QT;
 	}
 
-	public void setNZJKS(BigDecimal nZJKS) {
-		NZJKS = nZJKS;
+	public void setQT(String qT) {
+		QT = qT;
 	}
 
-	public BigDecimal getNZJSF() {
-		return NZJSF;
+	public String getNZJJE() {
+		return NZJJE;
 	}
 
-	public void setNZJSF(BigDecimal nZJSF) {
-		NZJSF = nZJSF;
+	public void setNZJJE(String nZJJE) {
+		NZJJE = nZJJE;
 	}
 
-	public String getSFZHM() {
-		return SFZHM;
+	public String getCSSL() {
+		return CSSL;
 	}
 
-	public void setSFZHM(String sFZHM) {
-		SFZHM = sFZHM;
+	public void setCSSL(String cSSL) {
+		CSSL = cSSL;
 	}
 
-	public String getYHKH() {
-		return YHKH;
+	public String getND() {
+		return ND;
 	}
 
-	public void setYHKH(String yHKH) {
-		YHKH = yHKH;
+	public void setND(String nD) {
+		ND = nD;
 	}
 
-	public String getDHHM() {
-		return DHHM;
-	}
-
-	public void setDHHM(String dHHM) {
-		DHHM = dHHM;
-	}
-
-	public String getBZ() {
-		return BZ;
-	}
-
-	public void setBZ(String bZ) {
-		BZ = bZ;
-	}
-
-	public String getQZQR() {
-		return QZQR;
-	}
-
-	public void setQZQR(String qZQR) {
-		QZQR = qZQR;
-	}
-	
 	public int getISDEL() {
 		return ISDEL;
 	}

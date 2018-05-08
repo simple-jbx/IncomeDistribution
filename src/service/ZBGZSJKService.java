@@ -1,8 +1,6 @@
 package service;
 
-import java.util.UUID;
 import java.util.List;
-import java.util.Map;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
@@ -11,26 +9,11 @@ import bean.ZBGZSJK;
 
 public class ZBGZSJKService {
 	
-	
-		/**
-		 * 查询值班工作数据库中所有数据
-		 * @return
-		 */
-		public List<Map<String, Object> > getData() {
-			String sql = "select * from t_zbgzsjk where isdel = ?";
-			return DataBaseUtils.queryForList(sql, 0);
-		}
-		
-		
-		/**
-		 * 查询对应人员代码的值班数据
-		 * @return ZBGZSJK
-		 */
-		public static ZBGZSJK getData(String Rydm) {
-			String sql = "select * from t_zbgzsjk where rydm = ? and isdel = ?";
-			return DataBaseUtils.queryForBean(sql, ZBGZSJK.class, Rydm, 0);
-		}
-		
+		private final static String insertSQL = "insert into t_zbgzsjk(id,rydm,xm,zbcs,ffje,isdel)"
+	            + " VALUES (?,?,?,?,?,?)";
+		private final static String updateSQL =  "update t_zbgzsjk set rydm = ?, xm = ?, zbcs = ?, ffje = ?"
+				+ " where id = ?";
+
 		
 		/**
 		 * 根据上传文件将数据存入数据库
@@ -40,25 +23,15 @@ public class ZBGZSJKService {
 		 */
 		public void save2DB(String path) throws IOException, SQLException {
 			ZBGZSJK zbgzsjk = null;
-			List<ZBGZSJK > list = excelUtils.analysisExcel(path, ZBGZSJK.class);
-			String sql = "insert into t_zbgzsjk(id,rydm,xm,zbcs,ffje,isdel)"
-		            + " VALUES (?,?,?,?,?,?)";
-			
-			for(int i = 0; i < list.size(); i++) {
-				zbgzsjk = list.get(i);					
-				DataBaseUtils.update(sql,UUID.randomUUID().toString(),zbgzsjk.getRYDM(),
+			List<ZBGZSJK > dataList = excelUtils.analysisExcel(path, ZBGZSJK.class);
+			int listSize = 0;
+			if(dataList != null)
+				 listSize = dataList.size();
+			for(int i = 0; i < listSize; i++) {
+				zbgzsjk = dataList.get(i);					
+				DataBaseUtils.update(insertSQL,zbgzsjk.getID(),zbgzsjk.getRYDM(),
 						zbgzsjk.getXM(), zbgzsjk.getZBCS(), zbgzsjk.getFFJE(),0);
 				}
-		}
-		
-		
-		/**
-		 * 根据id删除对应数据
-		 * @param id
-		 */
-		public void deleteByID(String ID) {
-			String sql = "update t_zbgzsjk set isdel = ? where id  = ?";
-			DataBaseUtils.update(sql, 1, ID);
 		}
 		
 		
@@ -70,13 +43,10 @@ public class ZBGZSJKService {
 			//System.out.println(jsxljshfwsj.getID());
 			//判断前端传过来的数据是否存在于数据库，存在则是更新，否则为新数据则插入
 			if(zbgzsjk.getISDEL() == 0) {
-				String sql = "update t_zbgzsjk set rydm = ?, xm = ?, zbcs = ?, ffje = ? where id = ?";
-				DataBaseUtils.update(sql,zbgzsjk.getRYDM(),zbgzsjk.getXM(),zbgzsjk.getZBCS(),
+				DataBaseUtils.update(insertSQL,zbgzsjk.getRYDM(),zbgzsjk.getXM(),zbgzsjk.getZBCS(),
 						zbgzsjk.getFFJE(), zbgzsjk.getID());
 			}else if(zbgzsjk.getISDEL() == 2){
-				String sql = "insert into t_zbgzsjk(id,rydm,xm,zbcs,ffje,isdel)"
-			            + " VALUES (?,?,?,?,?,?)";
-				DataBaseUtils.update(sql,zbgzsjk.getID(),zbgzsjk.getRYDM(),zbgzsjk.getXM(),
+				DataBaseUtils.update(updateSQL,zbgzsjk.getID(),zbgzsjk.getRYDM(),zbgzsjk.getXM(),
 						zbgzsjk.getZBCS(),zbgzsjk.getFFJE(), 0);
 			}	
 		}

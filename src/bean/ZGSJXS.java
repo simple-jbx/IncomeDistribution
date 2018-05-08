@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Table(tableName = "t_zgsjxs")
 public class ZGSJXS{
-	@Column(field = "id", type = "varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field = "id", type = "char(32)", primaryKey = true, defaultNull = false)
 	private String ID;
 	
 	@Column(field = "rydm", type = "varchar(50)")
@@ -23,23 +23,50 @@ public class ZGSJXS{
 	@Column(field = "zgqksm", type = "text")
 	private String ZGQKSM;//在岗情况说明
 	
-	@Column(field = "zgys", type = "int")
-	private int ZGYS;//在岗月数
+	@Column(field = "zgys", type = "varchar(10)")
+	private String ZGYS;//在岗月数
 	
-	@Column(field = "zgxs", type = "double(10,2)")
-	private double ZGXS;//在岗系数
+	@Column(field = "zgxs", type = "varchar(10)")
+	private String ZGXS;//在岗系数
+	
+	@Column(field = "nd", type = "varchar(10)")
+	private String ND;
 	
 	@Column(field = "isdel", type = "int(1)")
 	private int ISDEL;//是否删除
 	
 	public ZGSJXS() {
-		ID = UUID.randomUUID().toString();
-		ZGQKSM = "";
-		RYDM = "";
-		XM = "";
-		ZGYS = 0;
-		ZGXS = 0.00;
+		ID = UUID.randomUUID().toString().replaceAll("-", "");
+		ZGQKSM = "-";
+		RYDM = "-";
+		XM = "-";
+		ZGYS = "-";
+		ZGXS = "-";
+		ND = "-";
 		ISDEL = 2;
+	}
+
+
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\":\"");
+		builder.append(ID);
+		builder.append("\", \"rydm\":\"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\":\"");
+		builder.append(XM);
+		builder.append("\", \"zgqksm\":\"");
+		builder.append(ZGQKSM);
+		builder.append("\", \"zgys\":\"");
+		builder.append(ZGYS);
+		builder.append("\", \"zgxs\":\"");
+		builder.append(ZGXS);
+		builder.append("\", \"nd\":\"");
+		builder.append(ND);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
 	}
 
 	public String getID() {
@@ -48,22 +75,6 @@ public class ZGSJXS{
 
 	public void setID(String iD) {
 		ID = iD;
-	}
-
-	public String getZGQKSM() {
-		return ZGQKSM;
-	}
-
-	public void setZGQKSM(String zGQKSM) {
-		ZGQKSM = zGQKSM;
-	}
-
-	public int getISDEL() {
-		return ISDEL;
-	}
-
-	public void setISDEL(int iSDEL) {
-		ISDEL = iSDEL;
 	}
 
 	public String getRYDM() {
@@ -82,25 +93,43 @@ public class ZGSJXS{
 		XM = xM;
 	}
 
-	public int getZGYS() {
+	public String getZGQKSM() {
+		return ZGQKSM;
+	}
+
+	public void setZGQKSM(String zGQKSM) {
+		ZGQKSM = zGQKSM;
+	}
+
+	public String getZGYS() {
 		return ZGYS;
 	}
 
-	public void setZGYS(int zGYS) {
+	public void setZGYS(String zGYS) {
 		ZGYS = zGYS;
 	}
 
-	public double getZGXS() {
+	public String getZGXS() {
 		return ZGXS;
 	}
 
-	public void setZGXS(double zGXS) {
+	public void setZGXS(String zGXS) {
 		ZGXS = zGXS;
 	}
-	
-	public String toJson() {
-	    return "[{\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\""
-	    + XM + "\",\"zgys\":" +ZGYS + ",\"zgxs\":" + ZGXS + ",\"zgqksm\":\"" + ZGQKSM
-	    +"\",\"isdel\":" + ISDEL +"}]";
+
+	public String getND() {
+		return ND;
+	}
+
+	public void setND(String nD) {
+		ND = nD;
+	}
+
+	public int getISDEL() {
+		return ISDEL;
+	}
+
+	public void setISDEL(int iSDEL) {
+		ISDEL = iSDEL;
 	}
 }

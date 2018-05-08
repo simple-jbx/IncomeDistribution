@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@include file="../common/header.jsp"%>
 <html>
 <!-- 科研成果基础数据-->
 <head>
@@ -132,18 +131,16 @@
 	
 		<script>
 		//操作栏的格式化 
-		var jsonSJ;
 		$(function(){
 			$('#table').bootstrapTable({
 			ajax : function (request) {
 		        $.ajax({
-		            type : "post",
+		            type : "get",
 		            url : "<%=url%>",
 					contentType: "application/json;charset=utf-8",
 					dataType:"json",
 					jsonp:'callback',
 		            success : function (msg) {	
-		            	jsonSJ = msg;
 						request.success({
 		                    row : msg
 		                });

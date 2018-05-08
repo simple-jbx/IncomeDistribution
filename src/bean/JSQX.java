@@ -11,14 +11,17 @@ import java.util.UUID;
 
 @Table(tableName = "t_jsqx")
 public class JSQX {
-	@Column(field = "jsqxid", type = "varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field = "jsqxid", type = "char(32)", primaryKey = true, defaultNull = false)
 	private String JSQXID;//角色权限ID
 	
-	@Column(field = "jsid", type = "varchar(100)")
+	@Column(field = "jsid", type = "char(32)")
 	private String JSID;//角色ID
 	
-	@Column(field = "qxid", type = "varchar(100)")
+	@Column(field = "qxid", type = "char(32)")
 	private String QXID;//权限ID
+	
+	@Column(field = "zyname", type = "varchar(100)")
+	private String ZYNAME;//对应资源
 	
 	@Column(field = "jsqxnote", type = "text")
 	private String JSQXNOTE;//角色权限注释
@@ -28,12 +31,34 @@ public class JSQX {
 	
 	public JSQX() {
 		JSQXID = UUID.randomUUID().toString().replaceAll("-", "");
-		JSID = "";
-		QXID = "";
-		JSQXNOTE = "";
+		JSID = "-";
+		QXID = "-";
+		JSQXNOTE = "-";
+		ZYNAME = "-";
 		ISDEL = 2;
 	}
 	
+
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"jsqxid\":\"");
+		builder.append(JSQXID);
+		builder.append("\", \"jsid\":\"");
+		builder.append(JSID);
+		builder.append("\", \"qxid\":\"");
+		builder.append(QXID);
+		builder.append("\", \"zyname\":\"");
+		builder.append(ZYNAME);
+		builder.append("\", \"jsqxnote\":\"");
+		builder.append(JSQXNOTE);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
+	}
+
+
+
 	public String getJSQXID() {
 		return JSQXID;
 	}
@@ -58,19 +83,27 @@ public class JSQX {
 		QXID = qXID;
 	}
 
-	public int getISDEL() {
-		return ISDEL;
-	}
-
-	public void setISDEL(int iSDEL) {
-		ISDEL = iSDEL;
-	}
-
 	public String getJSQXNOTE() {
 		return JSQXNOTE;
 	}
 
 	public void setJSQXNOTE(String jSQXNOTE) {
 		JSQXNOTE = jSQXNOTE;
+	}
+	
+	public String getZYNAME() {
+		return ZYNAME;
+	}
+
+	public void setZYNAME(String zYNAME) {
+		ZYNAME = zYNAME;
+	}
+
+	public int getISDEL() {
+		return ISDEL;
+	}
+	
+	public void setISDEL(int iSDEL) {
+		ISDEL = iSDEL;
 	}
 }

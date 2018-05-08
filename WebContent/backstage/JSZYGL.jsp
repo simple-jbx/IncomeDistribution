@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@include file="../common/header.jsp"%>
 <html>
 <!-- 角色资源管理-->
 <head>
@@ -134,6 +133,7 @@
 						{value:"9e8e0adb1f34485c8021d8b9b87e5d6b", text:"其他人员"},
 						{value:"da029b24df704d749415770e4b64f807", text:"行政秘书"},
 						{value:"e343620a4e594cdc9a2b4e051bac96dc", text:"主管领导"},
+						
 											
                     ]
 				}
@@ -148,18 +148,18 @@
                     source:[
 						{value:"0064df16cf0f42deb52a130c04b72d68", text:"教学督导补贴数据"},
 						{value:"0f880d7ba2c348b7a5c0c68065d85e68", text:"本单位奖酬金发放总报表"},
-						{value:"10df9df59de54041ad4bd8b23492b8d9", text:"职称与科研标准分"},
-						{value:"164f5799ab85438c9a5d26831440447e", text:"职务与职务系数"},
-						{value:"22679d1e29fd4f45b404c24f5fa36346", text:"行政管理人员"},
-						{value:"2feccfb4cf1845248493758fe00de879", text:"指标体系补贴"},
-						{value:"3a1a210008d54940aaa763c1718c695d", text:"场馆负责人补贴"},
+						{value:"10df9df59de54041ad4bd8b23492b8d9", text:"职称与科研标准分数据"},
+						{value:"164f5799ab85438c9a5d26831440447e", text:"职务与职务系数数据"},
+						{value:"22679d1e29fd4f45b404c24f5fa36346", text:"行政管理人员数据"},
+						{value:"2feccfb4cf1845248493758fe00de879", text:"指标体系补贴数据"},
+						{value:"3a1a210008d54940aaa763c1718c695d", text:"场馆负责人补贴数据"},
 						{value:"3f746a2b34014ce792b389e42408f61b", text:"在岗时间系数数据"},
-						{value:"56502c1c2d9741eeb3d3b700fbcf1697", text:"教研室活动经费"},
+						{value:"56502c1c2d9741eeb3d3b700fbcf1697", text:"教研室活动经费数据"},
 						{value:"5bf92b242a3b40208ee090e0fd538ca4", text:"校运会补贴数据"},
 						{value:"5fc6f2817cb34a6580dc3d58095f10c4", text:"话费补贴数据"},
-						{value:"671e411a9a6d41a59c0424b457e22bab", text:"学院综合管理与发展评价分配结果表"},
-						{value:"6dfddaa363b043578752c9fdbef3c7ba", text:"免费师范生工作"},
-						{value:"7290a33a14e94f248d9ba2fd093d9ccc", text:"新闻稿件补贴"},
+						{value:"671e411a9a6d41a59c0424b457e22bab", text:"学院综合管理与发展评价分配结果数据"},
+						{value:"6dfddaa363b043578752c9fdbef3c7ba", text:"免费师范生工作数据"},
+						{value:"7290a33a14e94f248d9ba2fd093d9ccc", text:"新闻稿件补贴数据"},
 						{value:"81b12a1507ac489dbd881be0f91c812c", text:"读博补贴数据"},
 						{value:"81fafa52c1524af2bef6fba0a6d5f984", text:"学院评优数据"},
 						{value:"88267c297a96475bafb14da1cdc39748", text:"监考工作基础数据"},
@@ -173,8 +173,20 @@
 						{value:"efe9348f6cfd4267b848e701eebb1907", text:"照金活动补贴数据"},
 						{value:"adb0a530e43247fba772f6836f8702ce", text:"在岗时间系数规则"},
 						{value:"076c099c975745fc903692075b9d8c2e", text:"其他规则"},
-						{value:"32ac533ac98a4d488e21dbcb8e3c1196", text:"集体活动考勤"},
-						{value:"d897e9196e824f289b35fd7fbd63796a", text:"教学工作量"}
+						{value:"32ac533ac98a4d488e21dbcb8e3c1196", text:"集体活动考勤数据"},
+						{value:"d897e9196e824f289b35fd7fbd63796a", text:"教学工作量数据"},
+						{value:"d1da41486e894e258fd67e16fa424e60", text:"标志性成果数据"},
+						{value:"e1e039aec4504d54b89796140ea2222a", text:"教研室工作统计数据"},
+						{value:"fc1883c652bc45ce9da3019dd1e463f6", text:"创收补缴税金返还数据"},
+						{value:"c1d706b16d1543c894672c5653a5dee8", text:"上报学校总表"},
+						{value:"a1c4d4cad6fd4587b8774fc2aa4560b3", text:"上报学校发放表"},
+						{value:"c24d28624e7547479d03dde6c61f9870", text:"工勤人员"},
+						{value:"6aa509a0b73c4091814a83a6bc95b421", text:"其他人员"},
+						{value:"61ec7a662d2b488c898f98445febd0f6", text:"科研数据"},
+						{value:"dcdd4bec29c346d0969e8930d46b757b", text:"专任教师"}
+						
+						
+						
 					]
 				}
 			}, {

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Table(tableName = "t_zy")
 public class ZY {
-	@Column(field = "zyid", type = "varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field = "zyid", type = "char(32)", primaryKey = true, defaultNull = false)
 	private String ZYID;//资源ID
 	
 	@Column(field = "zyname", type = "varchar(50)")
@@ -21,17 +21,13 @@ public class ZY {
 	@Column(field = "zynote", type = "text")
 	private String ZYNOTE;//资源注释
 	
-	@Column(field="zygroup", type="int(2)")
-	private int ZYGROUP;//资源分组
-	
 	@Column(field="isdel", type="int(1)")
 	private int ISDEL;//是否删除
 	
 	public ZY() {
 		ZYID = UUID.randomUUID().toString().replaceAll("-", "");
-		ZYNAME = "";
-		ZYNOTE = "";
-		ZYGROUP = 0;
+		ZYNAME = "-";
+		ZYNOTE = "-";
 		ISDEL = 2;	
 	}
 
@@ -57,14 +53,6 @@ public class ZY {
 
 	public void setZYNOTE(String zYNOTE) {
 		ZYNOTE = zYNOTE;
-	}
-
-	public int getZYGROUP() {
-		return ZYGROUP;
-	}
-
-	public void setZYGROUP(int zYGROUP) {
-		ZYGROUP = zYGROUP;
 	}
 
 	public int getISDEL() {

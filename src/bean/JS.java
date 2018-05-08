@@ -13,7 +13,7 @@ import annotation.Table;
 
 @Table(tableName = "t_js")
 public class JS {
-	@Column(field = "jsid", type = "varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field = "jsid", type = "char(32)", primaryKey = true, defaultNull = false)
 	private String JSID;//角色ID
 	
 	@Column(field = "jsname", type = "varchar(50)")
@@ -22,19 +22,31 @@ public class JS {
 	@Column(field = "jsnote", type = "text")
 	private String JSNOTE;//角色注释
 	
-	@Column(field = "jsgroup", type = "int(2)")
-	private int JSGROUP;//角色分组
-	
 	@Column(field = "isdel", type = "int(1)")
 	private int ISDEL;//是否删除
 
 	public JS() {
 		JSID = UUID.randomUUID().toString().replaceAll("-", "");
-		JSNAME = "";
-		JSNOTE = "";
-		JSGROUP = 0;
+		JSNAME = "-";
+		JSNOTE = "-";
 		ISDEL = 2;
 	}
+	
+	
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"jsid\":\"");
+		builder.append(JSID);
+		builder.append("\", \"jsname\":\"");
+		builder.append(JSNAME);
+		builder.append("\", \"janote\":\"");
+		builder.append(JSNOTE);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
+	}
+
 
 	public String getJSID() {
 		return JSID;
@@ -58,14 +70,6 @@ public class JS {
 
 	public void setJSNOTE(String jSNOTE) {
 		JSNOTE = jSNOTE;
-	}
-
-	public int getJSGROUP() {
-		return JSGROUP;
-	}
-
-	public void setJSGROUP(int jSGROUP) {
-		JSGROUP = jSGROUP;
 	}
 
 	public int getISDEL() {

@@ -13,7 +13,7 @@ function clear() {
 }
 
 
-//登录按钮点击时间
+//登录按钮点击事件
 $("#btn_login").click(function(){
 	var accountNo = $('#inputAccount').val();
 	var password = $('#inputPassword').val();
@@ -21,7 +21,7 @@ $("#btn_login").click(function(){
 	$.ajax({
 		type:"post",//请求方式
 		data:{"accountNo":accountNo,"password":password},//传递给controller的json数据
-		url:"controller/loginController.jsp",//请求地址
+		url:basePath+"/loginController.do",//请求地址
 		error:function(){//如果出错了，将事件重新绑定
 			//$("#accountDiv").addClass("has-error");
 			$("#errorMsg").removeClass("hidden");
@@ -39,10 +39,12 @@ $("#btn_login").click(function(){
 				//密码错误
 				$("#pwdDiv").addClass("has-error");
 				$("#pwdMsg").removeClass("hidden");
+				}else if(data == -4) {
+					
 				}else{
 					//登录成功后返回首页
-					window.location.href = "index.jsp"; 
-					}
+					window.location.href = basePath+"/index.jsp"; 
+				}
 			}
 	});	
 })

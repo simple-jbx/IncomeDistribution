@@ -3,44 +3,61 @@ package bean;
 import annotation.Column;
 import annotation.Table;
 import java.util.UUID;
-import java.math.BigDecimal;
 
 @Table(tableName="t_zbgzsjk")
 public class ZBGZSJK {
 
-	@Column(field="id", type="varchar(100)", primaryKey = true, defaultNull = false)
+	@Column(field="id", type="char(32)", primaryKey = true, defaultNull = false, comment="ID")
 	private String ID;//id
 	
-	@Column(field="rydm", type="varchar(50)")
+	@Column(field="rydm", type="varchar(50)", comment="人员代码")
 	private String RYDM;//人员代码
 	
-	@Column(field="xm", type="varchar(50)")
+	@Column(field="xm", type="varchar(50)", comment="姓名")
 	private String XM;//姓名
 	
-	@Column(field="zbcs", type="int")
-	private int ZBCS;//值班次数
+	@Column(field="zbcs", type="varchar(10)", comment="值班次数")
+	private String ZBCS;//值班次数
 	
-	@Column(field="ffje", type="decimal(10,2)")
-	private BigDecimal FFJE;//发放金额
+	@Column(field="ffje", type="varchar(20)", comment="发放金额")
+	private String FFJE;//发放金额
+	
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
 	
 	@Column(field="isdel", type="int(1)")
 	private int ISDEL;//是否删除
 	
 	public ZBGZSJK() {
-		ID = UUID.randomUUID().toString();
-		RYDM = "";
-		XM = "";
-		ZBCS = 0;
-		FFJE = new BigDecimal("0.00");
+		ID = UUID.randomUUID().toString().replaceAll("-", "");
+		RYDM = "-";
+		XM = "-";
+		ZBCS = "-";
+		FFJE = "-";
+		ND = "-";
 		ISDEL = 2;
 	}
 
-	public String toJson() {
-		return "[{ \"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM
-				+ "\", \"zbcs\":" + ZBCS + ", \"ffje\":" + FFJE + ", \"isdel\":"
-				+ ISDEL + "}]";
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\":\"");
+		builder.append(ID);
+		builder.append("\", \"rydm\":\"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\":\"");
+		builder.append(XM);
+		builder.append("\", \"zbcs\":\"");
+		builder.append(ZBCS);
+		builder.append("\", \"ffje\":\"");
+		builder.append(FFJE);
+		builder.append("\", \"nd\":\"");
+		builder.append(ND);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
 	}
-	
+
 	public String getID() {
 		return ID;
 	}
@@ -65,20 +82,28 @@ public class ZBGZSJK {
 		XM = xM;
 	}
 
-	public int getZBCS() {
+	public String getZBCS() {
 		return ZBCS;
 	}
 
-	public void setZBCS(int zBCS) {
+	public void setZBCS(String zBCS) {
 		ZBCS = zBCS;
 	}
 
-	public BigDecimal getFFJE() {
+	public String getFFJE() {
 		return FFJE;
 	}
 
-	public void setFFJE(BigDecimal fFJE) {
+	public void setFFJE(String fFJE) {
 		FFJE = fFJE;
+	}
+
+	public String getND() {
+		return ND;
+	}
+
+	public void setND(String nD) {
+		ND = nD;
 	}
 
 	public int getISDEL() {

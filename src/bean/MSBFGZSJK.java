@@ -3,12 +3,17 @@ package bean;
 import annotation.Column;
 import annotation.Table;
 import java.util.UUID;
-import java.math.BigDecimal;
+
+/**
+ * 免师补发工作数据 
+ * @author simple
+ *
+ */
 
 @Table(tableName="t_msbfgzsjk")
 public class MSBFGZSJK {
 
-	@Column(field="id", type="varchar(100)", primaryKey=true, defaultNull=false)
+	@Column(field="id", type="char(32)", primaryKey=true, defaultNull=false)
 	private String ID;//id
 	
 	@Column(field="rydm", type="varchar(50)")
@@ -17,27 +22,55 @@ public class MSBFGZSJK {
 	@Column(field="xm", type="varchar(50)")
 	private String XM;//姓名
 	
-	@Column(field="msdsgzl", type="double(10,2)")
-	private double MSDSGZL;//免师导师工作量
+	@Column(field="msdsgzl", type="varchar(10)")
+	private String MSDSGZL;//免师导师工作量
 	
-	@Column(field="gzlbzj", type="decimal(10,2)")
-	private BigDecimal GZLBZJ;//工作量标准金
+	@Column(field="gzlbzj", type="varchar(20)")
+	private String GZLBZJ;//工作量标准金
 	
-	@Column(field="ffje", type="decimal(10,2)")
-	private BigDecimal FFJE;//发放金额
+	@Column(field="ffje", type="varchar(20)")
+	private String FFJE;//发放金额
+	
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
 	
 	@Column(field="isdel", type="int(1)")
 	private int ISDEL;//是否删除
 	
 	public MSBFGZSJK() {
 		ID = UUID.randomUUID().toString().replaceAll("-", "");
-		RYDM = "";
-		XM = "";
-		MSDSGZL = 0.00;
-		GZLBZJ = new BigDecimal("0.00");
-		FFJE = new BigDecimal("0.00");
+		RYDM = "-";
+		XM = "-";
+		MSDSGZL = "-";
+		GZLBZJ = "-";
+		FFJE = "-";
+		ND = "-";
 		ISDEL = 2;
 	}
+
+	
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\":\"");
+		builder.append(ID);
+		builder.append("\", \"rydm\":\"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\":\"");
+		builder.append(XM);
+		builder.append("\", \"msdsgzl\":\"");
+		builder.append(MSDSGZL);
+		builder.append("\", \"gzlbzj\":\"");
+		builder.append(GZLBZJ);
+		builder.append("\", \"ffje\":\"");
+		builder.append(FFJE);
+		builder.append("\", \"nd\":\"");
+		builder.append(ND);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
+	}
+
 
 	public String getID() {
 		return ID;
@@ -63,29 +96,39 @@ public class MSBFGZSJK {
 		XM = xM;
 	}
 
-	public double getMSDSGZL() {
+	public String getMSDSGZL() {
 		return MSDSGZL;
 	}
 
-	public void setMSDSGZL(double mSDSGZL) {
+	public void setMSDSGZL(String mSDSGZL) {
 		MSDSGZL = mSDSGZL;
 	}
 
-	public BigDecimal getGZLBZJ() {
+	public String getGZLBZJ() {
 		return GZLBZJ;
 	}
 
-	public void setGZLBZJ(BigDecimal gZLBZJ) {
+	public void setGZLBZJ(String gZLBZJ) {
 		GZLBZJ = gZLBZJ;
 	}
 
-	public BigDecimal getFFJE() {
+	public String getFFJE() {
 		return FFJE;
 	}
 
-	public void setFFJE(BigDecimal fFJE) {
+	public void setFFJE(String fFJE) {
 		FFJE = fFJE;
 	}
+
+	public String getND() {
+		return ND;
+	}
+
+
+	public void setND(String nD) {
+		ND = nD;
+	}
+
 
 	public int getISDEL() {
 		return ISDEL;

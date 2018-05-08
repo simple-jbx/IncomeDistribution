@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisioDocument>
+	<DocumentProperties>
+		<Title></Title>
+		<HyperlinkBase href=""></HyperlinkBase>
+	</DocumentProperties>
+	<Pages>
+		<Page ID="0" Name="Page-1" NameU="Page-1">
+			<Layer IX="0">
+				<Name>Flowchart</Name>
+				<NameUniv>Flowchart</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Layer IX="1">
+				<Name>Gantt</Name>
+				<NameUniv>Gantt</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Layer IX="2">
+				<Name>Connector</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Layer IX="3">
+				<Name>Container</Name>
+				<NameUniv>Container</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Layer IX="4">
+				<Name>Callout</Name>
+				<NameUniv>Callout</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="1" UniqueID="{326B6175-81B8-462E-A5E2-512255835ADF}" Name="Task" NameU="Task" Master="8">
+					<Text>第
+一
+次
+分
+配
+流
+程
+图</Text>
+					<XForm>
+						<PinX Unit="MM">0.885826771653543</PinX>
+						<PinY Unit="MM">4.163385826771654</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="67" UniqueID="{1C847FD0-099F-405D-AF32-86E3BDC037F3}" Name="Sequence Flow" NameU="Sequence Flow" Master="21">
+					<XForm>
+						<PinX Unit="MM">1.082677165354331</PinX>
+						<PinY Unit="MM">4.148622047244094</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="68" UniqueID="{D735D327-A240-4DA3-8608-FB129B621626}" Name="Task.68" NameU="Task.68" Master="8">
+					<Text>综合发展与评价下拨奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">1.279527559055118</PinX>
+						<PinY Unit="MM">4.133858267716535</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="91" UniqueID="{56B3D159-54F8-48ED-8702-516EB7E258CE}" Name="Sequence Flow.91" NameU="Sequence Flow.91" Master="21">
+					<XForm>
+						<PinX Unit="MM">1.968503937007875</PinX>
+						<PinY Unit="MM">6.323818897637795</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="92" UniqueID="{EC8F42FA-05E2-4858-B3E9-9C5129E54AE0}" Name="Sequence Flow.92" NameU="Sequence Flow.92" Master="21">
+					<XForm>
+						<PinX Unit="MM">1.968503937007874</PinX>
+						<PinY Unit="MM">4.502952755905511</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="93" UniqueID="{57EE1786-14A1-4978-A762-424A538BFD9C}" Name="Sequence Flow.93" NameU="Sequence Flow.93" Master="21">
+					<XForm>
+						<PinX Unit="MM">1.968503937007874</PinX>
+						<PinY Unit="MM">2.583661417322835</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="94" UniqueID="{09F2C170-41C8-4C97-9119-CE95D6537A9F}" Name="Task.94" NameU="Task.94" Master="8">
+					<Text>工勤人员奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">3.051181102362206</PinX>
+						<PinY Unit="MM">6.938976377952757</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="117" UniqueID="{66FC1160-BC30-4CF0-AE29-EE3ABCA8BBA3}" Name="Task.117" NameU="Task.117" Master="8">
+					<Text>定额奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">3.051181102362204</PinX>
+						<PinY Unit="MM">4.872047244094487</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="140" UniqueID="{CA7F3597-B8F3-44A5-B397-BB31CFC356B5}" Name="Task.140" NameU="Task.140" Master="8">
+					<Text>学校奖酬金（剩余部分）</Text>
+					<XForm>
+						<PinX Unit="MM">3.051181102362205</PinX>
+						<PinY Unit="MM">2.608267716535433</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="254" UniqueID="{6A8573DC-8AAA-43FB-8FBC-0B74933D9AF1}" Name="Dynamic Connector" NameU="Dynamic Connector" Master="3">
+					<XForm>
+						<PinX Unit="MM">4.183070869896355</PinX>
+						<PinY Unit="MM">3.001968503937008</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="231" UniqueID="{02DD0492-796B-412A-AA6E-1C823109F7A4}" Name="Task.231" NameU="Task.231" Master="8">
+					<Text>分配奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">5.314960629921259</PinX>
+						<PinY Unit="MM">3.395669291338583</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="278" UniqueID="{37CBB6B0-758F-4C04-8F22-35B4889C304C}" Name="Dynamic Connector.278" NameU="Dynamic Connector.278" Master="3">
+					<XForm>
+						<PinX Unit="MM">4.183070869896355</PinX>
+						<PinY Unit="MM">2.189960629921260</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="255" UniqueID="{71FC43E2-D870-4555-AF06-436585D1277F}" Name="Task.255" NameU="Task.255" Master="8">
+					<Text>调节奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">5.314960629921259</PinX>
+						<PinY Unit="MM">1.771653543307087</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="302" UniqueID="{48AEC500-63BB-404A-89B4-8A0202FF6902}" Name="Dynamic Connector.302" NameU="Dynamic Connector.302" Master="3">
+					<XForm>
+						<PinX Unit="MM">6.250000003754623</PinX>
+						<PinY Unit="MM">4.158464566929133</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="279" UniqueID="{EADEE936-BE2E-478F-A37B-F0F766E0F50A}" Name="Task.279" NameU="Task.279" Master="8">
+					<Text>人员奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">7.185039370078740</PinX>
+						<PinY Unit="MM">4.921259842519684</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="326" UniqueID="{D12686C8-74C0-4BBE-9B52-DFC4D45DE653}" Name="Dynamic Connector.326" NameU="Dynamic Connector.326" Master="3">
+					<XForm>
+						<PinX Unit="MM">6.250000003754623</PinX>
+						<PinY Unit="MM">2.842027559055119</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="303" UniqueID="{B957E9A0-F519-4C5C-B745-42E1ADC6636D}" Name="Task.303" NameU="Task.303" Master="8">
+					<Text>人均奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">7.185039370078740</PinX>
+						<PinY Unit="MM">2.288385826771654</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="350" UniqueID="{C55CCA7B-4E2E-4696-A19F-904400619790}" Name="Dynamic Connector.350" NameU="Dynamic Connector.350" Master="3">
+					<XForm>
+						<PinX Unit="MM">7.923228350211316</PinX>
+						<PinY Unit="MM">5.444143700787400</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="327" UniqueID="{19673EAD-A4B5-4CA0-84A9-BFCB500376E4}" Name="Task.327" NameU="Task.327" Master="8">
+					<Text>行政人均</Text>
+					<XForm>
+						<PinX Unit="MM">8.661417322834645</PinX>
+						<PinY Unit="MM">5.967027559055118</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="374" UniqueID="{8F7AECDC-6401-412B-9769-9B9AB0BA035E}" Name="Dynamic Connector.374" NameU="Dynamic Connector.374" Master="3">
+					<XForm>
+						<PinX Unit="MM">7.923228350211316</PinX>
+						<PinY Unit="MM">4.466043307086613</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="351" UniqueID="{FA44137F-0890-4C1A-A3FD-D3663BBC3831}" Name="Task.351" NameU="Task.351" Master="8">
+					<Text>教师奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">8.661417322834645</PinX>
+						<PinY Unit="MM">4.010826771653543</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="398" UniqueID="{7F0519E2-F175-4B14-B356-4032F4CE3060}" Name="Dynamic Connector.398" NameU="Dynamic Connector.398" Master="3">
+					<XForm>
+						<PinX Unit="MM">9.448818901392418</PinX>
+						<PinY Unit="MM">3.998523622047244</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="375" UniqueID="{ED230986-F272-47CD-9943-17A3765C7FB3}" Name="Task.375" NameU="Task.375" Master="8">
+					<Text>教学奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">10.236220472440943</PinX>
+						<PinY Unit="MM">3.986220472440946</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="422" UniqueID="{5E1E16EE-9771-4684-881D-104742D0C6E0}" Name="Dynamic Connector.422" NameU="Dynamic Connector.422" Master="3">
+					<XForm>
+						<PinX Unit="MM">9.448818901392418</PinX>
+						<PinY Unit="MM">2.860482283464567</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="399" UniqueID="{2C202CE5-0EEC-4263-BB5F-DE6294EC7F53}" Name="Task.399" NameU="Task.399" Master="8">
+					<Text>科研奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">10.236220472440943</PinX>
+						<PinY Unit="MM">1.710137795275590</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="447" UniqueID="{842B028A-8F55-416F-9A69-D0FBE10BD42B}" Name="Dynamic Connector.447" NameU="Dynamic Connector.447" Master="3">
+					<XForm>
+						<PinX Unit="MM">9.448818901392418</PinX>
+						<PinY Unit="MM">4.859744094488189</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="424" UniqueID="{8CA02174-4D58-4521-86DD-307BA2F83165}" Name="Task.424" NameU="Task.424" Master="8">
+					<Text>竞赛训练奖酬金</Text>
+					<XForm>
+						<PinX Unit="MM">10.236220472440943</PinX>
+						<PinY Unit="MM">5.708661417322834</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="485" UniqueID="{AA596540-1CA9-4B21-96D8-D84B65713F3D}" Name="Dynamic Connector.485" NameU="Dynamic Connector.485" Master="3">
+					<XForm>
+						<PinX Unit="MM">11.072834649423914</PinX>
+						<PinY Unit="MM">5.708661417322833</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="462" UniqueID="{5B7773F1-6645-44A5-B969-6773888D6A3F}" Name="Task.462" NameU="Task.462" Master="8">
+					<Text>竞赛、社会服务单位奖金</Text>
+					<XForm>
+						<PinX Unit="MM">11.909448818897637</PinX>
+						<PinY Unit="MM">5.708661417322833</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="509" UniqueID="{74C99BDA-53B4-46C0-8675-69F8E6248C60}" Name="Dynamic Connector.509" NameU="Dynamic Connector.509" Master="3">
+					<XForm>
+						<PinX Unit="MM">11.023622050998716</PinX>
+						<PinY Unit="MM">2.036171259842520</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="486" UniqueID="{32FB222C-7E68-4D37-9646-D57F142713D7}" Name="Task.486" NameU="Task.486" Master="8">
+					<Text>科研基本奖</Text>
+					<XForm>
+						<PinX Unit="MM">11.811023622047243</PinX>
+						<PinY Unit="MM">2.362204724409449</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="547" UniqueID="{5EE689D4-F64D-42DF-AFBE-32E85CFE5EBB}" Name="Dynamic Connector.547" NameU="Dynamic Connector.547" Master="3">
+					<XForm>
+						<PinX Unit="MM">11.023622050998716</PinX>
+						<PinY Unit="MM">1.445620078740157</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="524" UniqueID="{F9262C75-1A78-4DDE-ACF7-9A6217862D8D}" Name="Task.524" NameU="Task.524" Master="8">
+					<Text>科研超额奖</Text>
+					<XForm>
+						<PinX Unit="MM">11.811023622047243</PinX>
+						<PinY Unit="MM">1.181102362204724</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="571" UniqueID="{B4EC2F48-01AA-48ED-BE34-CDBE00A2C64F}" Name="Dynamic Connector.571" NameU="Dynamic Connector.571" Master="3">
+					<XForm>
+						<PinX Unit="MM">7.923228350211314</PinX>
+						<PinY Unit="MM">2.300688976377952</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="548" UniqueID="{1085265C-617F-471B-BD42-51ED2BE10FC1}" Name="Task.548" NameU="Task.548" Master="8">
+					<Text>第一次人均奖金额</Text>
+					<XForm>
+						<PinX Unit="MM">8.661417322834643</PinX>
+						<PinY Unit="MM">2.312992125984251</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="611" UniqueID="{C68CDF96-F599-473D-A7E6-CD235AA202EC}" Name="Dynamic Connector.611" NameU="Dynamic Connector.611" Master="3">
+					<XForm>
+						<PinX Unit="MM">12.598425200605016</PinX>
+						<PinY Unit="MM">1.341043307086614</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="588" UniqueID="{08C1FF6F-F9F8-42A2-81CF-3AB265C7F855}" Name="Task.588" NameU="Task.588" Master="8">
+					<Text>科研超额分</Text>
+					<XForm>
+						<PinX Unit="MM">13.385826771653543</PinX>
+						<PinY Unit="MM">1.500984251968504</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="651" UniqueID="{4A197F55-DAEE-4705-9F48-34DF80C75421}" Name="Dynamic Connector.651" NameU="Dynamic Connector.651" Master="3">
+					<XForm>
+						<PinX Unit="MM">12.598425200605016</PinX>
+						<PinY Unit="MM">1.027312992125984</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="628" UniqueID="{70B96E3F-92E6-408B-81E1-D308A1AD9A5B}" Name="Task.628" NameU="Task.628" Master="8">
+					<Text>科研超额单位奖金</Text>
+					<XForm>
+						<PinX Unit="MM">13.385826771653543</PinX>
+						<PinY Unit="MM">0.873523622047244</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="675" UniqueID="{31EE8135-7679-43BB-B888-FF34DEE194BD}" Name="Dynamic Connector.675" NameU="Dynamic Connector.675" Master="3">
+					<XForm>
+						<PinX Unit="MM">12.598425200605016</PinX>
+						<PinY Unit="MM">2.522145669291339</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="652" UniqueID="{1341F059-C44D-4AB6-B32F-B6BECDB7673A}" Name="Task.652" NameU="Task.652" Master="8">
+					<Text>科研分基础分</Text>
+					<XForm>
+						<PinX Unit="MM">13.385826771653543</PinX>
+						<PinY Unit="MM">2.682086614173229</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="699" UniqueID="{BF6301C4-F84B-4647-8CEA-36AE96649955}" Name="Dynamic Connector.699" NameU="Dynamic Connector.699" Master="3">
+					<XForm>
+						<PinX Unit="MM">12.598425200605016</PinX>
+						<PinY Unit="MM">2.229822834645669</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="676" UniqueID="{4901E6AC-C2A3-47C7-A7A8-90090525BCC4}" Name="Task.676" NameU="Task.676" Master="8">
+					<Text>科研基本单位奖</Text>
+					<XForm>
+						<PinX Unit="MM">13.385826771653543</PinX>
+						<PinY Unit="MM">2.097440944881890</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="778" UniqueID="{C8F22593-F8E3-47BE-AAB8-9ED87C32CBE0}" Name="Dynamic Connector.778" NameU="Dynamic Connector.778" Master="3">
+					<XForm>
+						<PinX Unit="MM">11.171259846274307</PinX>
+						<PinY Unit="MM">3.986220472440946</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="755" UniqueID="{7A4FE59A-563B-468D-80B5-E60CBC56B325}" Name="Task.755" NameU="Task.755" Master="8">
+					<Text>超工作量总额</Text>
+					<XForm>
+						<PinX Unit="MM">12.106299212598424</PinX>
+						<PinY Unit="MM">3.986220472440945</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="802" UniqueID="{3D61B2E4-DD2B-46F8-9AD1-A4E739D61D0A}" Name="Dynamic Connector.802" NameU="Dynamic Connector.802" Master="3">
+					<XForm>
+						<PinX Unit="MM">11.171259846274307</PinX>
+						<PinY Unit="MM">3.690944881889765</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="779" UniqueID="{22087E32-80DA-43FA-B76D-BEE397B98C17}" Name="Task.779" NameU="Task.779" Master="8">
+					<Text>超工作量每课时奖金</Text>
+					<XForm>
+						<PinX Unit="MM">12.204724409448819</PinX>
+						<PinY Unit="MM">3.395669291338583</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="826" UniqueID="{21D6E580-58E0-4C67-8501-20508C39EACE}" Name="Dynamic Connector.826" NameU="Dynamic Connector.826" Master="3">
+					<XForm>
+						<PinX Unit="MM">11.171259846274307</PinX>
+						<PinY Unit="MM">4.272145669291339</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>2</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="5" Name="BpmnConnectingObjectType" NameU="BpmnConnectingObjectType">
+						<Value Unit="STR">Sequence Flow</Value>
+						<Label>ConnectingObjectType</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnConditionType" NameU="BpmnConditionType">
+						<Value Unit="STR">None</Value>
+						<Label>ConditionType</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="803" UniqueID="{82A10837-284D-473C-A0A0-2395F9FFC6E3}" Name="Task.803" NameU="Task.803" Master="8">
+					<Text>人均超工作量</Text>
+					<XForm>
+						<PinX Unit="MM">12.106299212598424</PinX>
+						<PinY Unit="MM">4.558070866141732</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+					<Prop ID="2" Name="BpmnCategories" NameU="BpmnCategories">
+						<Value></Value>
+						<Label>Categories</Label>
+					</Prop>
+					<Prop ID="3" Name="BpmnDocumentation" NameU="BpmnDocumentation">
+						<Value></Value>
+						<Label>Documentation</Label>
+					</Prop>
+					<Prop ID="6" Name="BpmnLoopType" NameU="BpmnLoopType">
+						<Value Unit="STR">None</Value>
+						<Label>LoopType</Label>
+					</Prop>
+					<Prop ID="7" Name="BpmnTaskType" NameU="BpmnTaskType">
+						<Value Unit="STR">None</Value>
+						<Label>TaskType</Label>
+					</Prop>
+					<Prop ID="13" Name="BpmnIsForCompensation" NameU="BpmnIsForCompensation">
+						<Value Unit="STR">FALSE</Value>
+						<Label>IsForCompensation</Label>
+					</Prop>
+					<Prop ID="17" Name="BpmnBoundaryType" NameU="BpmnBoundaryType">
+						<Value Unit="STR">Default</Value>
+						<Label>BoundaryType</Label>
+					</Prop>
+				</Shape>
+			</Shapes>
+		</Page>
+	</Pages>
+</VisioDocument>

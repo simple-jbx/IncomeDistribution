@@ -3,12 +3,17 @@ package bean;
 import annotation.Column;
 import annotation.Table;
 import java.util.UUID;
-import java.math.BigDecimal;
+
+/**
+ * 校运会补贴
+ * @author simple
+ *
+ */
 
 @Table(tableName="t_xyhbtsjk")
 public class XYHBTSJK {
 
-	@Column(field="id", type="varchar(100)", primaryKey=true, defaultNull=false)
+	@Column(field="id", type="char(32)", primaryKey=true, defaultNull=false)
 	private String ID;//id
 	
 	@Column(field="rydm", type="varchar(50)")
@@ -17,74 +22,116 @@ public class XYHBTSJK {
 	@Column(field="xm", type="varchar(50)")
 	private String XM;//姓名
 	
-	@Column(field="xyhbz", type="decimal(10,2)")
-	private BigDecimal XYHBZ;//校运会补助
+	@Column(field="xyhbz", type="varchar(20)")
+	private String XYHBZ;//校运会补助
 	
-	@Column(field="je", type="decimal(10,2)")
-	private BigDecimal JE;//金额
+	@Column(field="je", type="varchar(20)")
+	private String JE;//金额
+	
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
 	
 	@Column(field="isdel", type="int(1)")
 	private int ISDEL;//是否删除
 
 	public XYHBTSJK() {
-		ID = UUID.randomUUID().toString();
-		RYDM = "";
-		XM = "";
-		XYHBZ = new BigDecimal("0.00");
-		JE = new BigDecimal("0.00");
+		ID = UUID.randomUUID().toString().replaceAll("-", "");
+		RYDM = "-";
+		XM = "-";
+		XYHBZ = "-";
+		JE = "-";
+		ND = "-";
 		ISDEL = 2;
 	}
 	
-	public String toJson() {
-		return "{[\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM + "\", "
-				+ "\"xyhbz\":" + XYHBZ + ", \"je\":" + JE + ", \"isdel\":" + ISDEL + "]}";
-	}
 	
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\":\"");
+		builder.append(ID);
+		builder.append("\", \"rydm\":\"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\":\"");
+		builder.append(XM);
+		builder.append("\", \"xyhbz\":\"");
+		builder.append(XYHBZ);
+		builder.append("\", \"je\":\"");
+		builder.append(JE);
+		builder.append("\", \"nd\":\"");
+		builder.append(ND);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
+	}
+
+
 	public String getID() {
 		return ID;
 	}
+
 
 	public void setID(String iD) {
 		ID = iD;
 	}
 
+
 	public String getRYDM() {
 		return RYDM;
 	}
+
 
 	public void setRYDM(String rYDM) {
 		RYDM = rYDM;
 	}
 
+
 	public String getXM() {
 		return XM;
 	}
+
 
 	public void setXM(String xM) {
 		XM = xM;
 	}
 
-	public BigDecimal getXYHBZ() {
+
+	public String getXYHBZ() {
 		return XYHBZ;
 	}
 
-	public void setXYHBZ(BigDecimal xYHBZ) {
+
+	public void setXYHBZ(String xYHBZ) {
 		XYHBZ = xYHBZ;
 	}
 
-	public BigDecimal getJE() {
+
+	public String getJE() {
 		return JE;
 	}
 
-	public void setJE(BigDecimal jE) {
+
+	public void setJE(String jE) {
 		JE = jE;
 	}
+
+
+	public String getND() {
+		return ND;
+	}
+
+
+	public void setND(String nD) {
+		ND = nD;
+	}
+
 
 	public int getISDEL() {
 		return ISDEL;
 	}
 
+
 	public void setISDEL(int iSDEL) {
 		ISDEL = iSDEL;
-	} 
+	}
 }

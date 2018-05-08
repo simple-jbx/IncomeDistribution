@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@include file="../common/header.jsp"%>
 <html>
 <!-- 在岗时间系数数据-->
 <head>
@@ -218,7 +217,10 @@
 				switchable: true,
 				editable: {  
                     type: 'text', 
-                    mode: 'inline'
+                    mode: 'inline',
+                    validate: function (value) {
+                        if (!value) return '人员代码不能为空';
+                    }
                }
 			},{
 				field: 'xm',

@@ -1,7 +1,6 @@
 package service;
 
 import java.util.List;
-import java.util.Map;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
@@ -10,14 +9,6 @@ import bean.BDWJCJFFZBB;
 
 
 public class BDWJCJFFZBBService {
-	/**
-	 * 查询本单位奖酬金发放总报表表中所有数据
-	 * @return
-	 */
-	public List<Map<String, Object> > getData() {
-		String sql = "select * from t_bdwjcjffzbb where isdel = ?";
-		return DataBaseUtils.queryForList(sql, 0);
-	}
 	
 	/**
 	 * 根据上传文件将数据存入数据库
@@ -28,26 +19,15 @@ public class BDWJCJFFZBBService {
 	public void save2DB(String path) throws IOException, SQLException {
 		BDWJCJFFZBB bdwjcjffzbb = null;
 		List<BDWJCJFFZBB > list = excelUtils.analysisExcel(path, BDWJCJFFZBB.class);
-		
+		String sql = "insert into t_bdwjcjffzbb(id,bmdm,rydm,xm,bmmc,jx,xz,gq,qt,nzjje,cssl,nd,isdel)"
+	            + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";	
 		for(int i = 0; i < list.size(); i++) {
 			bdwjcjffzbb = list.get(i);
-			String sql = "insert into t_bdwjcjffzbb(xh,rydm,xm,bmmc,yfnzj,grtzje"
-		            + ",nzjhj,nzjks,nzjsf,sfzhm,yhkh,dhhm,bz,qzqr,isdel)"
-		            + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";	
-			DataBaseUtils.update(sql, bdwjcjffzbb.getXH(), bdwjcjffzbb.getRYDM(), bdwjcjffzbb.getXM(), bdwjcjffzbb.getBMMC(), bdwjcjffzbb.getYFNZJ(),
-					bdwjcjffzbb.getGRTZJE(), bdwjcjffzbb.getNZJHJ(), bdwjcjffzbb.getNZJKS(), bdwjcjffzbb.getNZJSF(), bdwjcjffzbb.getSFZHM(), bdwjcjffzbb.getYHKH(), bdwjcjffzbb.getDHHM(), 
-					bdwjcjffzbb.getBZ(), bdwjcjffzbb.getQZQR(), 0);
-			}
-	}
-	
-	
-	/**
-	 * 根据人员代码删除对应数据
-	 * @param gH
-	 */
-	public void deleteByRydm(String Rydm) {
-		String sql = "update t_bdwjcjffzbb set isdel = ? where rydm = ?";
-		DataBaseUtils.update(sql, 1, Rydm);
+			DataBaseUtils.update(sql,bdwjcjffzbb.getBMDM(),bdwjcjffzbb.getRYDM(),bdwjcjffzbb.getXM(),
+				bdwjcjffzbb.getBMMC(),bdwjcjffzbb.getJX(),bdwjcjffzbb.getXZ(),bdwjcjffzbb.getGQ(),
+				bdwjcjffzbb.getQT(),bdwjcjffzbb.getNZJJE(),bdwjcjffzbb.getCSSL(),bdwjcjffzbb.getND(),
+				config.DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
+		}
 	}
 	
 	
@@ -58,23 +38,22 @@ public class BDWJCJFFZBBService {
 	public void updateData(BDWJCJFFZBB bdwjcjffzbb) {
 		
 		//System.out.println(bdwjcjffzbb.getRYDM());
-		String selectSQL = "select * from t_bdwjcjffzbb where rydm = ? and isdel = ?";		
-		BDWJCJFFZBB selectBDWJCJFFZBB = DataBaseUtils.queryForBean(selectSQL, BDWJCJFFZBB.class, bdwjcjffzbb.getRYDM(), 0);
-		//System.out.print(selectBDWJCJFFZBB);
-		if(selectBDWJCJFFZBB != null) {
+			//System.out.print(selectBDWJCJFFZBB);
+		if(bdwjcjffzbb.getISDEL() == config.DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE) {
 			
-			String sql = "update t_bdwjcjffzbb set xh = ?, rydm = ?, xm = ?, bmmc = ?, yfnzj = ?, grtzje = ?"
-		            + ", nzjhj = ?, nzjks = ?, nzjsf = ?, sfzhm = ?, yhkh = ?, dhhm = ?, bz = ?, qzqr = ? where rydm = ? and isdel = ?";
-			DataBaseUtils.update(sql, bdwjcjffzbb.getXH(), bdwjcjffzbb.getRYDM(), bdwjcjffzbb.getXM(), bdwjcjffzbb.getBMMC(), bdwjcjffzbb.getYFNZJ(),
-					bdwjcjffzbb.getGRTZJE(), bdwjcjffzbb.getNZJHJ(), bdwjcjffzbb.getNZJKS(), bdwjcjffzbb.getNZJSF(), bdwjcjffzbb.getSFZHM(),
-					bdwjcjffzbb.getYHKH(), bdwjcjffzbb.getDHHM(), bdwjcjffzbb.getBZ(), bdwjcjffzbb.getQZQR(), bdwjcjffzbb.getRYDM(), 0);
-		}else {
-			String sql = "insert into t_bdwjcjffzbb(xh,rydm,xm,bmmc,yfnzj,grtzje"
-		            + ",nzjhj,nzjks,nzjsf,sfzhm,yhkh,dhhm,bz,qzqr,isdel)"
-		            + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";	
-			DataBaseUtils.update(sql, bdwjcjffzbb.getXH(), bdwjcjffzbb.getRYDM(), bdwjcjffzbb.getXM(), bdwjcjffzbb.getBMMC(), bdwjcjffzbb.getYFNZJ(),
-					bdwjcjffzbb.getGRTZJE(), bdwjcjffzbb.getNZJHJ(), bdwjcjffzbb.getNZJKS(), bdwjcjffzbb.getNZJSF(), bdwjcjffzbb.getSFZHM(), bdwjcjffzbb.getYHKH(), bdwjcjffzbb.getDHHM(), 
-					bdwjcjffzbb.getBZ(), bdwjcjffzbb.getQZQR(), 0);
+			String sql = "update t_bdwjcjffzbb set bmdm=?, rydm=?, xm=?, bmmc=?, jx=?, gq=?,qt=?, nzjje=?,"
+					+ "cssl=?, nd=? where rydm=? and isdel=?";
+			DataBaseUtils.update(sql,bdwjcjffzbb.getBMDM(),bdwjcjffzbb.getRYDM(),bdwjcjffzbb.getXM(),
+					bdwjcjffzbb.getBMMC(),bdwjcjffzbb.getJX(),bdwjcjffzbb.getXZ(),bdwjcjffzbb.getGQ(),
+					bdwjcjffzbb.getQT(),bdwjcjffzbb.getNZJJE(),bdwjcjffzbb.getCSSL(),bdwjcjffzbb.getND(),
+					bdwjcjffzbb.getID());
+		}else if(bdwjcjffzbb.getISDEL() == config.DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE){
+			String sql = "insert into t_bdwjcjffzbb(id,bmdm,rydm,xm,bmmc,jx,xz,gq,qt,nzjje,cssl,nd,isdel)"
+		            + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";	
+			DataBaseUtils.update(sql,bdwjcjffzbb.getID(),bdwjcjffzbb.getBMDM(),bdwjcjffzbb.getRYDM(),bdwjcjffzbb.getXM(),
+					bdwjcjffzbb.getBMMC(),bdwjcjffzbb.getJX(),bdwjcjffzbb.getXZ(),bdwjcjffzbb.getGQ(),
+					bdwjcjffzbb.getQT(),bdwjcjffzbb.getNZJJE(),bdwjcjffzbb.getCSSL(),bdwjcjffzbb.getND(),
+					config.DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}	
 	}
 }

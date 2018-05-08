@@ -3,12 +3,17 @@ package bean;
 import annotation.Column;
 import annotation.Table;
 import java.util.UUID;
-import java.math.BigDecimal;
+
+/**
+ * 学校评优
+ * @author simple
+ *
+ */
 
 @Table(tableName="t_xxpysjk")
 public class XXPYSJK {
 
-	@Column(field="id", type="varchar(100)", primaryKey=true, defaultNull=false)
+	@Column(field="id", type="char(32)", primaryKey=true, defaultNull=false)
 	private String ID;//id
 	
 	@Column(field="rydm", type="varchar(50)")
@@ -17,11 +22,14 @@ public class XXPYSJK {
 	@Column(field="xm", type="varchar(50)")
 	private String XM;//姓名
 	
-	@Column(field="xxkhyx", type="decimal(10,2)")
-	private BigDecimal XXKHYX;//学校考核优秀
+	@Column(field="xxkhyx", type="varchar(20)")
+	private String XXKHYX;//学校考核优秀
 	
-	@Column(field="jlhj", type="decimal(10,2)")
-	private BigDecimal JLHJ;//奖励合计
+	@Column(field="jlhj", type="varchar(20)")
+	private String JLHJ;//奖励合计
+	
+	@Column(field="nd", type="varchar(10)", comment="年度")
+	private String ND;
 	
 	@Column(field="isdel", type="int(1)")
 	private int ISDEL;//是否删除
@@ -30,17 +38,34 @@ public class XXPYSJK {
 		ID = UUID.randomUUID().toString();
 		RYDM = "";
 		XM = "";
-		XXKHYX = new BigDecimal("0.00");
-		JLHJ = new BigDecimal("0.00");
+		XXKHYX = "-";
+		JLHJ = "-";
+		ND = "-";
 		ISDEL = 2;
 	}
 
-	public String toJson() {
-		return "[{\"id\":\"" + ID + "\", \"rydm\":\"" + RYDM + "\", \"xm\":\"" + XM 
-				+ "\", \"xxkhyx\":" + XXKHYX + ", \"jlhj\":" + JLHJ + ", \"isdel\":"
-				+ ISDEL + "}]";
+	
+	public String toJSON() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[{\"id\":\"");
+		builder.append(ID);
+		builder.append("\", \"rydm\":\"");
+		builder.append(RYDM);
+		builder.append("\", \"xm\":\"");
+		builder.append(XM);
+		builder.append("\", \"xxkhyx\":\"");
+		builder.append(XXKHYX);
+		builder.append("\", \"jlhj\":\"");
+		builder.append(JLHJ);
+		builder.append("\", \"nd\":\"");
+		builder.append(ND);
+		builder.append("\", \"isdel\":");
+		builder.append(ISDEL);
+		builder.append("}]");
+		return builder.toString();
 	}
 	
+
 	public String getID() {
 		return ID;
 	}
@@ -65,20 +90,28 @@ public class XXPYSJK {
 		XM = xM;
 	}
 
-	public BigDecimal getXXKHYX() {
+	public String getXXKHYX() {
 		return XXKHYX;
 	}
 
-	public void setXXKHYX(BigDecimal xXKHYX) {
+	public void setXXKHYX(String xXKHYX) {
 		XXKHYX = xXKHYX;
 	}
 
-	public BigDecimal getJLHJ() {
+	public String getJLHJ() {
 		return JLHJ;
 	}
 
-	public void setJLHJ(BigDecimal jLHJ) {
+	public void setJLHJ(String jLHJ) {
 		JLHJ = jLHJ;
+	}
+
+	public String getND() {
+		return ND;
+	}
+
+	public void setND(String nD) {
+		ND = nD;
 	}
 
 	public int getISDEL() {

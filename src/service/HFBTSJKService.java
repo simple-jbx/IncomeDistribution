@@ -1,8 +1,6 @@
 package service;
 
-import java.util.UUID;
 import java.util.List;
-import java.util.Map;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
@@ -11,16 +9,6 @@ import bean.HFBTSJK;
 
 public class HFBTSJKService {
 	
-	
-		/**
-		 * 查询话费补贴数据表中所有数据
-		 * @return
-		 */
-		public List<Map<String, Object> > getData() {
-			String sql = "select * from t_hfbtsjk where isdel = ?";
-			return DataBaseUtils.queryForList(sql, 0);
-		}
-		
 		/**
 		 * 根据上传文件将数据存入数据库
 		 * @param path
@@ -35,19 +23,9 @@ public class HFBTSJKService {
 			
 			for(int i = 0; i < list.size(); i++) {
 				hfbtsjk = list.get(i);					
-				DataBaseUtils.update(sql,UUID.randomUUID().toString(),hfbtsjk.getRYDM(),
-						hfbtsjk.getXM(), hfbtsjk.getHFBT(), hfbtsjk.getHJ(),0);
+				DataBaseUtils.update(sql,hfbtsjk.getID(),hfbtsjk.getRYDM(),hfbtsjk.getXM(),
+						hfbtsjk.getHFBT(), hfbtsjk.getHJ(),0);
 				}
-		}
-		
-		
-		/**
-		 * 根据id删除对应数据
-		 * @param id
-		 */
-		public void deleteByID(String ID) {
-			String sql = "update t_hfbtsjk set isdel = ? where id = ?";
-			DataBaseUtils.update(sql, 1, ID);
 		}
 		
 		

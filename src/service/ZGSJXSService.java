@@ -1,34 +1,20 @@
 package service;
 
 import java.util.List;
-import java.util.Map;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
 import utils.excelUtils;
+import config.DefalutValue;
 import bean.ZGSJXS;
 
 public class ZGSJXSService {
 	
-	/**
-	 * 查询在岗时间系数表中所有数据
-	 * @return
-	 */
-	public List<Map<String, Object> > getData() {
-		String sql = "select * from t_zgsjxs where isdel = ?";
-		return DataBaseUtils.queryForList(sql, 0);
-	}
-	
-	
-	/**
-	 * 根据RYDM查询单条数据
-	 * @param RYDM
-	 * @return ZGSJXS
-	 */
-	public static ZGSJXS getData(String RYDM) {
-		String sql = "select * from t_zgsjxs where rydm = ? and isdel = ?";
-		return DataBaseUtils.queryForBean(sql, ZGSJXS.class, RYDM, 0);
-	}
+	private final static String insertSQL = "insert into t_updateObject(id,rydm,xm,zgys,zgxs,zgqksm,isdel)"
+            + " VALUES (?,?,?,?,?,?,?)";	
+			
+	private final static String updateSQL = "update t_updateObject set id = ?, rydm = ?, xm = ?, zgys = ?,"
+			+ " zgxs = ?, zgqksm = ? where id = ? and isdel = ?";			
 	
 	
 	/**
@@ -38,43 +24,32 @@ public class ZGSJXSService {
 	 * @throws SQLException
 	 */
 	public void save2DB(String path) throws IOException, SQLException {
-		ZGSJXS zgsjxs = null;
-		List<ZGSJXS > list = excelUtils.analysisExcel(path, ZGSJXS.class);
-		String sql = "insert into t_zgsjxs(id,rydm,xm,zgys,zgxs,zgqksm,isdel)"
-	            + " VALUES (?,?,?,?,?,?,?)";	
-		for(int i = 0; i < list.size(); i++) {
-			zgsjxs = list.get(i);			
-			DataBaseUtils.update(sql, zgsjxs.getID(), zgsjxs.getRYDM(), zgsjxs.getXM(),
-					zgsjxs.getZGYS(), zgsjxs.getZGXS(), zgsjxs.getZGQKSM(), 0);
+		ZGSJXS updateObject = null;
+		List<ZGSJXS > dataList = excelUtils.analysisExcel(path, ZGSJXS.class);
+		int listSize = 0;
+		if(dataList != null)
+			listSize = dataList.size();
+		for(int i = 0; i < listSize; i++) {
+			updateObject = dataList.get(i);			
+			DataBaseUtils.update(insertSQL, updateObject.getID(), updateObject.getRYDM(), updateObject.getXM(),
+					updateObject.getZGYS(), updateObject.getZGXS(), updateObject.getZGQKSM(), 
+					DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
 	}
 	
 	
 	/**
-	 * 根据ID删除对应数据
-	 * @param gH
-	 */
-	public void deleteByID(String ID) {
-		String sql = "update t_zgsjxs set isdel = ? where id = ?";
-		DataBaseUtils.update(sql, 1, ID);
-	}
-	
-	
-	/**
 	 * 更新在岗时间系数数据
-	 * @param zgsjxs
+	 * @param updateObject
 	 */
-	public void updateData(ZGSJXS zgsjxs) {
-		if(zgsjxs.getISDEL() == 0) {
-			String sql = "update t_zgsjxs set id = ?, rydm = ?, xm = ?, zgys = ?, zgxs = ?, zgqksm = ?"
-					+ " where id = ? and isdel = ?";			
-			DataBaseUtils.update(sql, zgsjxs.getID(), zgsjxs.getRYDM(), zgsjxs.getXM(),
-					zgsjxs.getZGYS(), zgsjxs.getZGXS(), zgsjxs.getZGQKSM(), zgsjxs.getID(), 0);
-		}else if(zgsjxs.getISDEL() == 2){
-			String sql = "insert into t_zgsjxs(id,rydm,xm,zgys,zgxs,zgqksm,isdel)"
-		            + " VALUES (?,?,?,?,?,?,?)";	
-			DataBaseUtils.update(sql, zgsjxs.getID(), zgsjxs.getRYDM(), zgsjxs.getXM(),
-					zgsjxs.getZGYS(), zgsjxs.getZGXS(), zgsjxs.getZGQKSM(), 0);
+	public void updateData(ZGSJXS updateObject) {
+		if(updateObject.getISDEL() == DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE) {
+				DataBaseUtils.update(updateSQL, updateObject.getID(), updateObject.getRYDM(), updateObject.getXM(),
+					updateObject.getZGYS(), updateObject.getZGXS(), updateObject.getZGQKSM(), updateObject.getID(), 
+					DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
+		}else if(updateObject.getISDEL() == DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE){
+				DataBaseUtils.update(insertSQL, updateObject.getID(), updateObject.getRYDM(), updateObject.getXM(),
+					updateObject.getZGYS(), updateObject.getZGXS(), updateObject.getZGQKSM(), DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
 		
 	}
