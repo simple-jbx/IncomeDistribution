@@ -54,6 +54,8 @@ public class JTHDKQSJKService {
 		}	
 	}
 	
+	
+	
 	/**
 	 * 批量更新
 	 * @param listObject

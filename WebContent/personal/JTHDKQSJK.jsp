@@ -13,26 +13,11 @@
   <div class="container">
     <div class="detail-page">
       <h2>集体活动考勤信息</h2>
-      <div class="detail-section">
-      	<h3>个人基本信息</h3>  
-        <div class="row detail-row">
-          <div class="span8">
-            <label>工号：</label><span class="detail-text">${yh.getGH()}</span>
-          </div>
-          <div class="span8">
-            <label>姓名：</label><span class="detail-text">${yh.getXM()}</span>
-          </div>
-           <div class="span8">
-            <label>职称：</label><span class="detail-text">${yh.getZC()}</span>
-          </div>
-        </div>
-      </div>
-      
       <div class="detail-section">  
       	<h3>考勤信息</h3>  
         <div class="row detail-row">
           <div class="span8">
-            <label>无故未到：</label><span id="gh" class="detail-text"></span>
+            <label>无故未到：</label><span id="wgwd" class="detail-text"></span>
           </div>
           <div class="span8">
             <label>个人事假：</label><span id="grsj" class="detail-text"></span>
@@ -88,7 +73,7 @@
 		 },
 		 dataType:"json",
 		 success : function(jsonData) {
-			$("#gh").text(jsonData[0].wgwd);
+			$("#wgwd").text(jsonData[0].wgwd);
 			$("#grsj").text(jsonData[0].grsj);
 			$("#jey").text(jsonData[0].jey);
 			$("#jee").text(jsonData[0].jee);

@@ -63,44 +63,9 @@ pageEncoding="UTF-8" isELIgnored="false"%>
    </div>
 
   <script>
-  
-    BUI.use('common/main',function(){
-    	$.ajax({
-    		type:'post',
-    		url:"<%=getMenuURL%>?208081202",
-    		cache:false,
-    		dataType:"json",
-    		success:function(config){
-    			new PageUtil.MainPage({
-    		        modulesConfig : config
-    		    });
-    		}
-    	});
-    });
+  	var basePath = "${basePath}";
+	var ajaxURL = "<%=getMenuURL%>?208081202";
   </script>
-
-   <script>
-  	function logout() {
-	  if(window.confirm("是否确认退出?")) {
-		  $.ajax({
-				type:"post",//请求方式
-				url:"${basePath}/logoutController.do",//请求地址
-				error:function(){//如果出错了，将事件重新绑定
-		 			window.location.href = "login.jsp";
-				},
-		 		success:function(){ //返回成功执行回调函数。
-		 			window.location.href = "login.jsp";
-		 		}
-		  })
-  	}
-  }
-  </script>
-  
-   <script>
-  	function changePassword() {
-  		window.open("${basePath}/common/changePassword.jsp","","width=400px,height=180,top=200,left=300,status=no,help=no");
-  }
-  </script>
- </body>
-
+  <script type="text/javascript" src="${basePath}/static/js/index.js?v=2018081601"></script>
+</body>
 </html>

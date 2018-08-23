@@ -3,10 +3,10 @@ package service;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
-import utils.DataBaseUtils;
 import java.sql.SQLException;
-import utils.excelUtils;
 
+import utils.DataBaseUtils;
+import utils.excelUtils;
 import config.DefalutValue;
 import bean.YH;
 import utils.SHA1Utils;
@@ -14,9 +14,11 @@ import utils.SHA1Utils;
 public class YHService {
 	
 	private final static String GET_ALL_YH_SQL =  "select id, rydm, xm, zc from t_yh where isdel = ?";
-	private final static String GET_YH_SQL = "select id, rydm, xm, zc from t_yh where rydm = ? isdel = ?";
-	private final static String UPDATE_YH_SQL = "update t_yh set rydm = ?, xm = ?, zc = ?, isdel = ?, where id = ?";
+	private final static String GET_YH_SQL = "select id, rydm, xm, zc from t_yh where rydm = ? and isdel = ?";
+	private final static String GET_YH_ALL_SQL = "select id, rydm, xm, zc, mm, isdel from t_yh where rydm = ? and isdel = ?";
+	private final static String UPDATE_YH_SQL = "update t_yh set rydm = ?, xm = ?, zc = ?  where id = ?";
 	private final static String INSERT_SQL = "insert into t_yh(id,rydm,xm,mm,zc,isdel) VALUES (?,?,?,?,?,?)";
+	private final static String CHANGE_PASSWORD_SQL = "update t_yh set mm = ? where rydm = ? and isdel = ?";
 
 
 	
@@ -33,6 +35,10 @@ public class YHService {
 		return DataBaseUtils.queryForBean(GET_YH_SQL, YH.class, rYDM, DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 	}
 	
+	public YH getYHAll(String rYDM) {
+		return DataBaseUtils.queryForBean(GET_YH_ALL_SQL, YH.class, rYDM, DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
+	}
+	
 	
 	/**
 	 * 根据上传文件将数据存入数据库
@@ -43,25 +49,14 @@ public class YHService {
 	public void save2DB(String path) throws IOException, SQLException {
 		YH yh = null;
 		List<YH > objectList = excelUtils.analysisExcel(path, YH.class);
-		String sql = "insert into t_yh(id, rydm, xm, mm, zc, isdel) VALUES (?,?,?,?,?,?)";
 		int listSize = 0;
 		if(objectList != null)
 			listSize = objectList.size();
 		for(int i = 0; i < listSize; i++) {
 			yh = objectList.get(i);
-			DataBaseUtils.update(sql, yh.getID(), yh.getRYDM(), yh.getXM(), SHA1Utils.sha1Encode(yh.getRYDM()),
+			DataBaseUtils.update(INSERT_SQL, yh.getID(), yh.getRYDM(), yh.getXM(), SHA1Utils.sha1Encode(yh.getRYDM()),
 					yh.getZC(), DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
-	}
-	
-	
-	/**
-	 * 根据ID删除对应数据
-	 * @param gH
-	 */
-	public void deleteByID(String ID) {
-		String sql = "update t_yh set isdel = ? where id = ?";
-		DataBaseUtils.update(sql, DefalutValue.DEFAULT_DELETE_INT_VALUE, ID);
 	}
 	
 	
@@ -69,10 +64,10 @@ public class YHService {
 	 * 更新用户数据
 	 * @param zgsjxsgz
 	 */
-	public void updateData(YH yh) {
+	public static void updateData(YH yh) {
 		
 		if(yh.getISDEL() == DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE) {
-			DataBaseUtils.update(UPDATE_YH_SQL, yh.getRYDM(), yh.getXM(), yh.getZC(), yh.getID());
+			DataBaseUtils.update(UPDATE_YH_SQL, yh.getRYDM(), yh.getXM(), yh.getZC() , yh.getID());
 		}else if(yh.getISDEL() == DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE){
 			DataBaseUtils.update(INSERT_SQL, yh.getID(), yh.getRYDM(), yh.getXM(), SHA1Utils.sha1Encode(yh.getRYDM()),
 					yh.getZC(), 0);
@@ -80,8 +75,24 @@ public class YHService {
 	}
 
 
-	public void resetPassword(YH yh) {
-		// TODO Auto-generated method stub
-		
+	public static void resetPassword(YH changeYH) {
+			DataBaseUtils.update(CHANGE_PASSWORD_SQL, SHA1Utils.sha1Encode(changeYH.getRYDM()), changeYH.getRYDM(),
+					DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
+	}
+	
+	
+	/**
+	 * 批量更新
+	 * @param listObject
+	 */
+	public static void updateData(List<YH> listObject) {
+		int listSize = 0;
+		if(listObject != null)
+			listSize = listObject.size();
+		YH updateObject = new YH();
+		for(int i = 0; i < listSize; i++) {
+			updateObject = listObject.get(i);
+			updateData(updateObject);
+		}
 	}
 }

@@ -21,8 +21,8 @@
   </servlet>
   
   <servlet>
-    <servlet-name>getMenuJSON.do</servlet-name>
-    <servlet-class>controller.getMenuJSON</servlet-class>
+    <servlet-name>changePassController.do</servlet-name>
+    <servlet-class>controller.changePassController</servlet-class>
   </servlet>
   
   
@@ -37,8 +37,8 @@
   </servlet-mapping>
   
    <servlet-mapping>
-    <servlet-name>getMenuJSON.do</servlet-name>
-    <url-pattern>/getMenuJSON</url-pattern>
+    <servlet-name>changePassController.do</servlet-name>
+    <url-pattern>/changePassController</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>

@@ -14,7 +14,7 @@ import config.DefalutValue;
 
 public class TestMain {
 	public static void main(String[] args) {
-		String table = TableUtils.getCreateTableSql(YH.class);
+		String table = TableUtils.getCreateTableSql(KFZYSJK.class);
 		//System.out.println(table);
 		System.out.println(UUID.randomUUID().toString().replaceAll("-", ""));
 		/**

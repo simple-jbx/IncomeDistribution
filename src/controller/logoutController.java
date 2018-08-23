@@ -38,7 +38,6 @@ public class logoutController extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		session.removeAttribute("currentYH");
-		session.removeAttribute("basePath");
 		session.invalidate();
 	}
 }

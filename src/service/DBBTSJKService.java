@@ -14,11 +14,11 @@ import bean.DBBTSJK;
  */
 public class DBBTSJKService {
 	
-	private final static String insertSQL = "insert into t_dbbtsjk(id,rydm,xm,db,hj,isdel) "
+	private final static String INSERT_SQL = "insert into t_dbbtsjk(id,rydm,xm,db,hj,isdel) "
 			+ "VALUES (?,?,?,?,?,?)";	
 
 			
-	private final static String updateSQL = "update t_dbbtsjkjk set rydm = ?, xm = ?, db = ?,"
+	private final static String UPDATE_SQL = "update t_dbbtsjkjk set rydm = ?, xm = ?, db = ?,"
 			+ "hj = ? where id = ?";			
 	
 	
@@ -30,7 +30,7 @@ public class DBBTSJKService {
 			listSize = dataList.size();
 		for(int i = 0; i < listSize; i++) {
 			dbbtsjk = dataList.get(i);
-			DataBaseUtils.update(insertSQL, dbbtsjk.getID(), dbbtsjk.getRYDM(), 
+			DataBaseUtils.update(INSERT_SQL, dbbtsjk.getID(), dbbtsjk.getRYDM(), 
 					dbbtsjk.getXM(), dbbtsjk.getDB(), dbbtsjk.getHJ(), 0);
 		}
 	}
@@ -40,13 +40,13 @@ public class DBBTSJKService {
 	 * 更新读博补贴表中数据
 	 * @param xxpysjk
 	 */
-	public void updateData(DBBTSJK dbbtsjk) {
+	public static void updateData(DBBTSJK dbbtsjk) {
 		if(dbbtsjk.getISDEL() == 0) {
-				DataBaseUtils.update(updateSQL, dbbtsjk.getRYDM(), dbbtsjk.getXM(), dbbtsjk.getDB(),
+				DataBaseUtils.update(UPDATE_SQL, dbbtsjk.getRYDM(), dbbtsjk.getXM(), dbbtsjk.getDB(),
 					dbbtsjk.getHJ(), dbbtsjk.getID());
 
 		}else if(dbbtsjk.getISDEL() == 2){
-			DataBaseUtils.update(insertSQL, dbbtsjk.getID(), dbbtsjk.getRYDM(), 
+			DataBaseUtils.update(INSERT_SQL, dbbtsjk.getID(), dbbtsjk.getRYDM(), 
 					dbbtsjk.getXM(), dbbtsjk.getDB(), dbbtsjk.getHJ(), 0);
 		}
 		

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java"  pageEncoding="UTF-8"%>
 <jsp:include page="common/basePath.jsp"></jsp:include>
 <html lang="zh-CN">
 <head>
@@ -13,8 +13,12 @@
 <script src="static/js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!--引入头部JSP-->
-	<!--使用模态框的方式模拟一个登陆框-->
+	<script>
+		var basePath = "${basePath}";
+		if (top.location !== self.location) {
+		    top.location=self.location;
+		}
+	</script>
 	<div class="modal show" id="loginModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -81,9 +85,6 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		var basePath = "${basePath}";
-	</script>
 	<script src="${basePath}/static/js/login.js?v=2018081201"></script>	
 </body>
 </html>

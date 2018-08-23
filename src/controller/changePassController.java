@@ -47,16 +47,16 @@ public class changePassController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		YH currentYH = (YH)session.getAttribute("currentYH");
+		YHService yhService = new YHService();
+		currentYH = yhService.getYHAll(currentYH.getRYDM());
 		String oldPass = (String)request.getParameter("inputOldPass");
 		String newPass = (String)request.getParameter("inputNewPass");
 		if(!SHA1Utils.sha1Encode(oldPass).equals(currentYH.getMM())) {
 			out.print("-1");//原密码不正确
 		}else {
-			//session.removeAttribute("currentYH");
 			newPass = SHA1Utils.sha1Encode(newPass);
 			currentYH.setMM(newPass);
-			YHService yhService = new YHService();
-			yhService.updateData(currentYH);
+			YHService.updateData(currentYH);
 			out.print("1");
 		}
 	}

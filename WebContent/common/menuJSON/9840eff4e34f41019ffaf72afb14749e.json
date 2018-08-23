@@ -11,7 +11,20 @@
         "text":"年终收入分配信息",
         "collapsed":true,
         "items":[
-            	 {"id":"3f746a2b34014ce792b389e42408f61b","text":"在岗时间系数","href":"personal/ZGSJXS.jsp"}
+           	{"id":"08f61b","text":"在岗时间系数","href":"personal/ZGSJXS.jsp"},
+           	{"id":"3c1196", "text":"集体活动考勤", "href":"personal/JTHDKQSJK.jsp"},
+			{"id":"1c812c", "text":"读博补贴数据", "href":"personal/DBBTSJK.jsp"},
+            {"id":"5f10c4", "text":"话费补贴数据", "href":"personal/HFBTSJK.jsp"},
+            {"id":"3d9ccc", "text":"新闻稿件补贴", "href":"personal/XWGJBTSJK.jsp"},
+            {"id":"37c10a", "text":"免师补发工作", "href":"personal/MSBFGZSJK.jsp"},
+            {"id":"8c695d", "text":"场馆负责人补贴", "href":"personal/CGFZRBTSJK.jsp"},
+            {"id":"bb1907", "text":"照金活动补贴", "href":"personal/ZJHDBTSJK.jsp"},
+            {"id":"538ca4", "text":"校运会补贴", "href":"personal/XYHBTSJK.jsp"},
+            {"id":"d5f984", "text":"学院评优数据", "href":"personal/XYPYSJK.jsp"},
+            {"id":"361c2d", "text":"学校评优数据", "href":"personal/XXPYSJK.jsp"}  
+            
+            	 
+            
         ]
      	}
      ]
@@ -27,14 +40,25 @@
 		"text":"用户管理",
 		"collapsed":true,
 		"items":[
-			{"id":"attention", "text":"我需留意", "href":"personal/baseInfo.jsp"}
+			{"id":"5b5b90", "text":"用户信息管理", "href":"backstage/usermanage/YHGL.jsp"}
 		]
 	},{
 		"text":"基础数据管理",
 		"collapsed":true,
 		"items":[
-			{"id":"32ac533ac98a4d488e21dbcb8e3c1196", "text":"集体活动考勤", "href":"backstage/JTHDKQSJK.jsp"},
-			{"id":"81b12a1507ac489dbd881be0f91c812c", "text":"读博补贴数据", "href":"backstage/DBBTSJK.jsp"}
+			{"id":"32ac53", "text":"集体活动考勤", "href":"backstage/basicmanage/JTHDKQSJK.jsp"},
+			{"id":"81b12a", "text":"读博补贴数据", "href":"backstage/basicmanage/DBBTSJK.jsp"},
+		    {"id":"5fc6f2", "text":"话费补贴数据", "href":"backstage/basicmanage/HFBTSJK.jsp"},
+		    {"id":"7290a3", "text":"新闻稿件补贴", "href":"backstage/basicmanage/XWGJBTSJK.jsp"},
+		 	{"id":"b09bc2", "text":"免师补发工作", "href":"backstage/basicmanage/MSBFGZSJK.jsp"},
+		 	{"id":"3a1a21", "text":"场馆负责人补贴", "href":"backstage/basicmanage/CGFZRBTSJK.jsp"},
+		 	{"id":"efe934", "text":"照金活动补贴", "href":"backstage/basicmanage/ZJHDBTSJK.jsp"},
+		 	{"id":"5bf92b", "text":"校运会补贴", "href":"backstage/basicmanage/XYHBTSJK.jsp"},
+		 	{"id":"81fafa", "text":"学院评优数据", "href":"backstage/basicmanage/XYPYSJK.jsp"},
+		 	{"id":"ed4815", "text":"学校评优数据", "href":"backstage/basicmanage/XXPYSJK.jsp"}
+		    
+		     
+		    	 
 		]
 	}]
 }

@@ -21,9 +21,9 @@
 		out.print("1");//删除成功
 	}else if(op.equals("single")){
 		//获取要查询的单条数据并输出，如没有则输出默认数据
-		String paraWGWD = request.getParameter("field");
+		String paraField = request.getParameter("field");
 		QTGZService objectService = new QTGZService();
-		QTGZ outObject = objectService.getDataForBean(paraWGWD);
+		QTGZ outObject = objectService.getDataForBean(paraField);
 		if(outObject == null) {
 			outObject = new QTGZ();
 		}

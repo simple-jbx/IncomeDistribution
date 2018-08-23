@@ -2,9 +2,11 @@ package service;
 
 import java.util.List;
 import java.util.Map;
-import annotation.Table;
 import utils.DataBaseUtils;
+import net.sf.json.JSONArray;
 
+import annotation.Table;
+import config.DefalutValue;
 /**
  * Service中的公共方法
  * @author simple
@@ -58,7 +60,7 @@ public class commonService {
 			tableName = "";
 		String sql = "select * from " + tableName + " where rydm = ? and isdel = ?";
 		//System.out.println(sql + " " + Rydm);
-		return DataBaseUtils.queryForBean(sql, clazz, Rydm, 0);
+		return DataBaseUtils.queryForBean(sql, clazz, Rydm, DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 	}
 	
 	public static <T> T getDataByRydm(Class<?> clazz, String Rydm, String year) {
@@ -71,7 +73,7 @@ public class commonService {
 				tableName = "";
 			String sql = "select * from " + tableName + " where rydm=? and nd=? and isdel=?";
 			//System.out.println(sql + " " + Rydm);
-			return DataBaseUtils.queryForBean(sql, clazz, Rydm, year, 0);
+			return DataBaseUtils.queryForBean(sql, clazz, Rydm, year, DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
 	}
 	
@@ -85,20 +87,36 @@ public class commonService {
 		String tableName = table.tableName();
 		if(tableName == null)
 			tableName = "";
-		String sql = "update " + tableName + " set isdel = ? where id  = ?";
-		DataBaseUtils.update(sql, 1, iD);
+		String deleteSQL = "update " + tableName + " set isdel = ? where id  = ?";
+		DataBaseUtils.update(deleteSQL, DefalutValue.DEFAULT_DELETE_INT_VALUE, iD);
 	}
 	
 	
-	public static void deleteByIDList(Class<?> clazz, List<String> list) {
+	public static void deleteByIDList(Class<?> clazz, JSONArray jsonArray) {
 		Table table = (Table) clazz.getAnnotation(Table.class);
 		String tableName = table.tableName();
 		if(tableName == null)
 			tableName = "";
-		String sql = "update " + tableName + " set isdel = ? where id  = ?";
+		String deleteSQL = "update " + tableName + " set isdel = ? where id  = ?";
+		int jsonArraySize = 0;
+		if(jsonArray != null)
+			jsonArraySize = jsonArray.size();
+		for(int i=0; i < jsonArraySize; i++) {
+			DataBaseUtils.update(deleteSQL, DefalutValue.DEFAULT_DELETE_INT_VALUE, jsonArray.get(i));
+		}
+		
+	}
+	
+	
+	public static void deleteByIDList(List<String> list, Class<?> clazz) {
+		Table table = (Table) clazz.getAnnotation(Table.class);
+		String tableName = table.tableName();
+		if(tableName == null)
+			tableName = "";
+		String deleteSQL = "update " + tableName + " set isdel = ? where id  = ?";
 		int listSize = list.size();
-		for(int i=0; i<listSize; i++) {
-			DataBaseUtils.update(sql, 1, list.get(i));
+		for(int i = 0; i < listSize; i++) {
+			DataBaseUtils.update(deleteSQL, DefalutValue.DEFAULT_DELETE_INT_VALUE, list.get(i));
 		}
 		
 	}

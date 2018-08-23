@@ -4,47 +4,67 @@ import java.util.List;
 import java.io.IOException;
 import utils.DataBaseUtils;
 import java.sql.SQLException;
+
 import utils.excelUtils;
 import bean.HFBTSJK;
+import config.DefalutValue;
 
 public class HFBTSJKService {
 	
-		/**
-		 * 根据上传文件将数据存入数据库
-		 * @param path
-		 * @throws IOException
-		 * @throws SQLException
-		 */
-		public void save2DB(String path) throws IOException, SQLException {
-			HFBTSJK hfbtsjk = null;
-			List<HFBTSJK > list = excelUtils.analysisExcel(path, HFBTSJK.class);
-			String sql = "insert into t_hfbtsjk(id,rydm,xm,hfbt,hj,isdel)"
-		            + " VALUES (?,?,?,?,?,?)";
-			
-			for(int i = 0; i < list.size(); i++) {
-				hfbtsjk = list.get(i);					
-				DataBaseUtils.update(sql,hfbtsjk.getID(),hfbtsjk.getRYDM(),hfbtsjk.getXM(),
-						hfbtsjk.getHFBT(), hfbtsjk.getHJ(),0);
-				}
+	
+	/**
+	 * 根据上传文件将数据存入数据库
+	 * @param path
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	private final static String INSERT_SQL = "insert into t_hfbtsjk(id,rydm,xm,hfbt,hj,nd,isdel) "
+			+ "values (?,?,?,?,?,?,?)";
+	private final static String UPDATE_SQL = "update t_hfbtsjk set rydm = ?, xm = ?, hfbt = ?, hj = ?,"
+			+ " nd = ? where id = ?";
+	
+	public void save2DB(String path) throws IOException, SQLException {
+		HFBTSJK saveObject = null;
+		List<HFBTSJK > listObject = excelUtils.analysisExcel(path, HFBTSJK.class);
+		int listSize = 0;
+		if(listObject != null)
+			listSize = listObject.size();
+		for(int i = 0; i < listSize; i++) {
+			saveObject = listObject.get(i);					
+			DataBaseUtils.update(INSERT_SQL,saveObject.getID(),saveObject.getRYDM(),saveObject.getXM(),
+					saveObject.getHFBT(), saveObject.getHJ(), saveObject.getND(),DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
 		}
-		
-		
-		/**
-		 * 更新话费补贴数据
-		 * @param hfbtsjk
-		 */	
-		public void updateData(HFBTSJK hfbtsjk) {
-			//System.out.println(jsxljshfwsj.getID());
-			//判断前端传过来的数据是否存在于数据库，存在则是更新，否则为新数据则插入
-			if(hfbtsjk.getISDEL() == 0) {
-				String sql = "update t_hfbtsjk set rydm = ?, xm = ?, hfbt = ?, hj = ? where id = ?";
-				DataBaseUtils.update(sql,hfbtsjk.getRYDM(),hfbtsjk.getXM(),hfbtsjk.getHFBT(),
-						hfbtsjk.getHJ(), hfbtsjk.getID());
-			}else if(hfbtsjk.getISDEL() == 2){
-				String sql = "insert into t_hfbtsjk(id,rydm,xm,hfbt,hj,isdel)"
-			            + " VALUES (?,?,?,?,?,?)";
-				DataBaseUtils.update(sql,hfbtsjk.getID(),hfbtsjk.getRYDM(),
-						hfbtsjk.getXM(), hfbtsjk.getHFBT(), hfbtsjk.getHJ(),0);
-			}	
+	}
+	
+	
+	/**
+	 * 更新
+	 * @param updateObject
+	 */
+	public static void updateData(HFBTSJK updateObject) {
+		if(updateObject.getISDEL() == DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE) {
+			DataBaseUtils.update(UPDATE_SQL,updateObject.getRYDM(),updateObject.getXM(),updateObject.getHFBT(),
+					updateObject.getHJ(), updateObject.getND(),updateObject.getID());
+		}else if(updateObject.getISDEL() == DefalutValue.DEFAULT_INITIALIZATION_INT_VALUE){
+			DataBaseUtils.update(INSERT_SQL,updateObject.getID(),updateObject.getRYDM(),updateObject.getXM(),
+					updateObject.getHFBT(), updateObject.getHJ(), updateObject.getND(),DefalutValue.DEFAULT_NOT_DELETE_INT_VALUE);
+		}	
+	}
+	
+	
+	
+	/**
+	 * 批量更新
+	 * @param listObject
+	 */
+	public static void updateData(List<HFBTSJK> listObject) {
+		int listSize = 0;
+		if(listObject != null)
+			listSize = listObject.size();
+		HFBTSJK updateObject = new HFBTSJK();
+		for(int i = 0; i < listSize; i++) {
+			updateObject = listObject.get(i);
+			updateData(updateObject);
 		}
+	}
 }
